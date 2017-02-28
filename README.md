@@ -18,7 +18,7 @@ QQ: 1923361654<br>
 系统: Ubuntu 16.04<br>
 python: python3.5<br>
 Django: 1.10.4<br>
-Mysql 5.7.17<br>
+Mysql 5.7.17(并没有使用内嵌的sqlite)<br>
 ##pymysql
 安装 : pip3 install pymysql<br>
 在项目的__init__.py文件中加入以下内容 :
