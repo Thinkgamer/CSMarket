@@ -1,0 +1,35 @@
+/*登录注册样式 */
+.fl{ float: left;}
+.fr{float: right;}
+.fc{text-align: center;}
+hr{margin-bottom: 5px;}
+.loginbody{ background-repeat: no-repeat; background-size:cover;}
+.login-main{width:400px; height: 300px;margin: auto; overflow: hidden; margin-top:8%; border-radius: 4px; border: 1px solid darkgray;
+    box-shadow: -10px 10px 20px gray;}
+.register-main{width:400px; height: 400px;margin: auto; overflow: hidden; margin-top:8%; border-radius: 4px;border: 1px solid darkgray;
+    box-shadow: -10px 10px 20px gray;}
+.login-main h3{ text-indent: 0.5em;}
+.incon{ width: 360px; font-size: 16px; margin-left:20px; margin-top:20px; height: 38px; border-radius: 2px; text-indent: 1em;}
+.btnincon{ width: 200px; font-size: 16px; margin-left:100px; margin-top:20px; height: 38px; border-radius: 2px; text-indent: 1em;}
+.acon{color: black;}
+
+/*个人身份验证类*/
+#wizard {border:1px solid darkgray;font-size:12px;height:500px;margin:20px auto;
+    width:530px;overflow:hidden;position:relative; box-shadow: -10px 10px 20px gray; clear: both;}
+#wizard .items{width:20000px; clear:both; position:absolute;}
+#wizard .right{float:right;}
+#wizard #status{height:35px;background:#123;padding-left:25px !important;}
+#status li{float:left;color:#fff;padding:10px 30px; list-style: none;}
+#status li.active{background-color:#369;font-weight:normal;}
+.input{width:240px; height:18px; margin:10px auto; line-height:20px;
+    border:1px solid #d3d3d3; padding:2px}
+.page{padding:20px 30px;width:500px;float:left;}
+.page h3{height:42px; font-size:16px; border-bottom:1px dotted #ccc; margin-bottom:20px;
+    padding-bottom:5px}
+.page h3 em{font-size:12px; font-weight:500; font-style:normal}
+.page p{line-height:24px;}
+.page p label{font-size:14px; display:block;}
+.btn_nav{height:36px; line-height:36px; margin:20px auto; clear: both;}
+.prev,.next{width:100px; height:32px; line-height:32px; border:1px solid #d3d3d3; cursor:pointer}
+.input-group{width: 360px; margin-bottom: 15px; margin-top: 15px;}
+.attention{ font-size: 12px; color: gray; float: left; text-align: left; margin-left: 30px;}

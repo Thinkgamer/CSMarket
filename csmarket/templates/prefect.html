@@ -2,9 +2,129 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Prefect personal Message</title>
+    <title>测试</title>
+    <link rel="stylesheet" href="/static/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/check.css">
 </head>
 <body>
+<form action="#" method="post">
+    <div id="wizard">
+        <ul id="status">
+            <li class="active"><strong>1.</strong>手机号验证</li>
+            <li><strong>2.</strong>学生身份认证</li>
+            <li><strong>3.</strong>信息补充</li>
+            <li><strong>4.</strong>完成</li>
+        </ul>
 
+        <div class="items">
+            <div class="page" align="center">
+                <div class="input-group">
+                   <input class="form-control" type="text" placeholder="手机号码">
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">获取验证码</button>
+                    </span>
+                </div>
+                <div class="btn_nav">
+                    <input type="button" class="next right" value="下一步»" />
+                </div>
+            </div>
+            <div class="page" align="center">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="身份证号">
+                </div>
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="学校">
+                </div>
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="入学年份">
+                </div>
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="学历">
+                </div>
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="学号">
+                </div>
+                <div class="input-group">
+                    <input class="form-control" type="file">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default">请上传证件照片</button>
+                    </span>
+                </div>
+                <div class="attention">
+                    <h4>注意事项</h4>
+                    1,上传照片应该与上述学号相对应证件照；<br>
+                    2，上传姓名，照片，编号所在的页面.
+                </div>
+                <div class="btn_nav">
+                    <input type="button" class="prev" style="float:left" value="«上一步" />
+                    <input type="button" class="next right" value="下一步»" />
+                </div>
+            </div>
+            <div class="page" align="center">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="微信号">
+                </div>
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="QQ号">
+                </div>
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="特长">
+                </div>
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="宣言">
+                </div>
+                <div class="btn_nav">
+                    <input type="button" class="prev" style="float:left" value="«上一步" />
+                    <input type="button" class="next right"  value="下一步" />
+                </div>
+            </div>
+            <div class="page" align="center">
+                欢迎完成个人身份认证，<br>认证通过后，我们会以邮件形式通知您，谢谢合作！
+                <div class="btn_nav">
+                    <input type="button" class="prev" style="float:left" value="«上一步" />
+                    <input type="button" class="next right" id="sub" value="确定" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script src="/static/js/jquery-1.10.2.min.js">
+</script>
+<script src="/static/js/scrollable.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#wizard").scrollable({
+            onSeek: function(event,i){ //切换tab样式
+                $("#status li").removeClass("active").eq(i).addClass("active");
+            },
+            onBeforeSeek:function(event,i){ //验证表单
+                if(i==1){
+                    var user = $("#user").val();
+                    if(user==""){
+                        alert("请输入用户名！");
+                        return false;
+                    }
+                    var pass = $("#pass").val();
+                    var pass1 = $("#pass1").val();
+                    if(pass==""){
+                        alert("请输入密码！");
+                        return false;
+                    }
+                    if(pass1 != pass){
+                        alert("两次密码不一致！");
+                        return false;
+                    }
+                }
+            }
+        });
+        $("#sub").click(function(){
+            var data = $("form").serialize();
+            alert(data);
+        });
+    });
+</script>
 </body>
 </html>
