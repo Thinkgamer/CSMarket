@@ -9,15 +9,54 @@
 <body class="loginbody">
 <div class="register-main">
         <h3>-------欢迎注册CS market系统-------</h3>
-        <form role="form" action="/logre/register/" method="post">
-                <input class="incon" name="username" type="text" placeholder="用户名" value="{{ username }}">
-                <input class="incon" name="email" type="email" placeholder="邮箱" value="{{ email }}">
-                <input class="incon" name="passwd" type="password" placeholder="密码" value="{{ pwd }}">
-                <input class="incon" name="passwd" type="password" placeholder="确认密码" value="{{ pwd }}">
+        <form role="form" action="/logre/register/" method="post" onsubmit="return checkform()">
+                <input class="incon" id="username" name="username" type="text" placeholder="用户名" value="{{ username }}">
+                <input class="incon" id="email" name="email" type="email" placeholder="邮箱" value="{{ email }}">
+                <input class="incon" id="pwd" name="passwd" type="password" placeholder="密码" value="{{ pwd }}">
+                <input class="incon" id="repwd" name="repasswd" type="password" placeholder="确认密码" value="{{ pwd }}">
                 <input class="btnincon" name="register" type="submit" value="注册">
                 <hr style="height:1px;border:none;border-top:1px solid darkgray;" />
                 <p class="fc"><a class="acon" href="/logre/login/">已注册？去登陆</a> </p>
         </form>
 </div>
+<script src="/static/js/jquery-1.10.2.min.js"></script>
+<script>
+    function checkform(){
+        var $uname=$("#username");
+        var $pwd=$("#pwd");
+        var $repwd=$("#repwd");
+
+        if($uname.val()=='' || $uname.val()==null){
+            alert("用户名不为空！");
+            $uname.focus();
+            return false;
+        }
+        if($uname.val().length>15 || !$uname.val().match(/[A-Z]/gi)){
+            alert("用户名必须为英文且不可大于15字符！");
+            $uname.focus();
+            return false;
+        }
+        if($pwd.val().length<6){
+            alert("密码长度不能低于6！");
+            $pwd.focus();
+            return false;
+        }
+        if($pwd.val()=="" || $pwd.val()==null){
+            alert("密码不可为空！");
+            $pwd.focus();
+            return false;
+        }
+        if($repwd.val()=="" || $repwd.val()==null){
+            alert("密码不可为空！");
+            $repwd.focus();
+            return false;
+        }
+        if($pwd.val()!=$repwd.val()){
+            alert("密码与确认密码不同！");
+            $repwd.focus();
+            return false;
+        }
+    }
+</script>
 </body>
 </html>

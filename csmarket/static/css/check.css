@@ -14,7 +14,7 @@ hr{margin-bottom: 5px;}
 .acon{color: black;}
 
 /*个人身份验证类*/
-#wizard {border:1px solid darkgray;font-size:12px;height:500px;margin:20px auto;
+#wizard {border:1px solid darkgray;font-size:12px;height:600px;margin:20px auto;
     width:530px;overflow:hidden;position:relative; box-shadow: -10px 10px 20px gray; clear: both;}
 #wizard .items{width:20000px; clear:both; position:absolute;}
 #wizard .right{float:right;}

@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>用户身份审核</title>
+    <link rel="stylesheet" href="/static/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/djangomanager.css">
+</head>
+
+<body>
+<div class="top"><h2 class="fl">Django管理</h2><span class="fr">欢迎，<b>xxxxx</b>&nbsp;/&nbsp;注销</span></div>
+<div class="main">
+    <div class="main-nag"><h4 class="fl">首页<span>-用户身份审核</span></h4></div>
+    <div class="main-title"><h3>用户身份审核</h3></div>
+    <form class="main-con">
+    <table class="table table-hover" id="callBackPagination">
+        <thead>
+        <tr>
+            <th  width="50" id="ck" onclick="ck()">全选</th>
+            <th width="100">用户名</th>
+            <th  width="100">加入时间</th>
+            <th  width="120" >电话</th>
+            <th  width="120">邮箱</th>
+            <th  width="80">通过验证</th>
+        </tr>
+        </thead>
+        <tbody id="mainContent" ></tbody>
+</table>
+        <input class="btn-success" type="button" value="全部通过">
+        <input class="btn-danger" type="reset" onclick="clear()" value="   重   置   ">
+    </form>
+    <div class="pagination" id="callBackPager"></div>
+
+
+
+</div>
+</body>
+<script src="/static/js/jquery-1.10.2.min.js"></script>
+<script>
+    function ck(){
+        $(".chose").prop("checked","checked");
+    }
+    function clear(){
+        $(".chose").prop('checked',false);
+    }
+</script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/extendPagination.js"></script>
+<script type="text/javascript">
+    //调用分页
+    $(function(){
+        var total=200,showcounts=11,showlimits=6;
+        var totalCount = Number(total), showCount = showcounts,
+                limit = Number(showlimits) ;
+        createTable(1, limit, totalCount);
+        $('#callBackPager').extendPagination({
+            totalCount: totalCount,
+            showCount: showCount,
+            limit: limit,
+            callback: function (curr, limit, totalCount) {
+                createTable(curr, limit, totalCount);
+            }
+        });
+        function createTable(currPage, limit, total) {
+            var html = [], showNum = limit;
+            if (total - (currPage * limit) < 0) showNum = total - ((currPage - 1) * limit);
+            for (var i = 1; i <= showNum; i++) {
+                html.push('<tr><td><input name="ck" type="checkbox" class="chose"></td>');
+                html.push('<td>cyan</td><td>2014/12/02</td><td>15940394830</td><td>cncyan@163.com</td>');
+                html.push('<td> &nbsp; <a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>&nbsp;&nbsp;<a href="#" ><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td></tr>');
+            };
+            var mainObj = $('#mainContent');
+            mainObj.empty();
+            mainObj.html(html.join(''));
+        }
+    });
+</script>
+</html>
