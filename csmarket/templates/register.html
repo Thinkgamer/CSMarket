@@ -31,7 +31,7 @@
             $uname.focus();
             return false;
         }
-        if($uname.val().length>15 || !$uname.val().match(/[A-Z]/gi)){
+        if($uname.val().length>15 || !$uname.val().match(/[A-Za-z0-9]/gi)){
             alert("用户名必须为英文且不可大于15字符！");
             $uname.focus();
             return false;

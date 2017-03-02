@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/static/css/check.css">
 </head>
 <body>
-
 <form action="/logre/prefect/" method="post">
     <div id="wizard">
         <ul id="status">
@@ -20,10 +19,10 @@
         <div class="items">
             <div class="page" align="center">
                 <div class="input-group">
-                   <input class="form-control" name="phone" type="text" placeholder="手机号码">
+                   <input class="form-control" name="phone" id="tellphone" type="text" placeholder="手机号码">
                 </div>
                 <div class="input-group">
-                    <input type="text" class="form-control">
+                    <input  id="checkcode" type="text" class="form-control">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button">获取验证码</button>
                     </span>
@@ -34,39 +33,39 @@
             </div>
             <div class="page" align="center">
                 <div class="input-group">
-                    <input class="form-control" name="eid" type="text" placeholder="身份证号">
+                    <input class="form-control" name="eid"  id="cardid" type="text" placeholder="身份证号">
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="school" type="text" placeholder="学校">
+                    <input class="form-control" name="school" id="school" type="text" placeholder="学校">
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="startyear" type="text" placeholder="入学年份">
+                    <input class="form-control" name="startyear" id="schooltime" type="month" placeholder="入学年份">
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="jinianzhi" type="text" placeholder="几年制">
+                    <input class="form-control" name="jinianzhi" id="eduyears" type="number" min="1" placeholder="几年制">
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="xueli" type="text" placeholder="学历">
+                    <input class="form-control" name="xueli"  id="edu" type="text" placeholder="学历">
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="xuehao" type="text" placeholder="学号">
+                    <input class="form-control" name="xuehao" id="edunumber" type="text" placeholder="学号（毕业证编号）">
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="imgfile1" type="file">
+                    <input class="form-control" name="imgfile1" id="facephoto" type="file">
                     <span class="input-group-btn">
-                        <button class="btn btn-default">请上传学生证正面照片</button>
+                        <button class="btn btn-default">请上传证件正面照片</button>
                     </span>
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="imgfile2" type="file">
+                    <input class="form-control" name="imgfile2" id="backphoto" type="file">
                     <span class="input-group-btn">
-                        <button class="btn btn-default">请上传学生证反面照片</button>
+                        <button class="btn btn-default">请上传证件正面照片</button>
                     </span>
                 </div>
                 <div class="attention">
                     <h4>注意事项</h4>
                     1,上传照片应该与上述学号相对应证件照；<br>
-                    2，上传姓名，照片，编号所在的页面.
+                    2，上传姓名，照片，编号所在页面.
                 </div>
                 <div class="btn_nav">
                     <input type="button" class="prev" style="float:left" value="«上一步" />
@@ -75,16 +74,16 @@
             </div>
             <div class="page" align="center">
                 <div class="input-group">
-                    <input class="form-control" name="wechat" type="text" placeholder="微信号">
+                    <input class="form-control"  name="wechat" id="weixin" type="text" placeholder="微信号">
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="qq" type="text" placeholder="QQ号">
+                    <input class="form-control" name="qq" id="qq" type="text" placeholder="QQ号">
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="shanchang" type="text" placeholder="擅长">
+                    <input class="form-control" name="shanchang" id="like" type="text" placeholder="擅长">
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="xuanyan" type="text" placeholder="宣言">
+                    <input class="form-control" name="xuanyan"  id="saying" type="text" placeholder="宣言">
                 </div>
                 <div class="btn_nav">
                     <input type="button" class="prev" style="float:left" value="«上一步" />
@@ -112,27 +111,82 @@
             },
             onBeforeSeek:function(event,i){ //验证表单
                 if(i==1){
-                    var user = $("#user").val();
-                    if(user==""){
-                        alert("请输入用户名！");
+                    var phone = $("#tellphone").val();
+                    if(phone==""){
+                        alert("请输入手机号码！");
+                        $("#tellphone").focus();
                         return false;
                     }
-                    var pass = $("#pass").val();
-                    var pass1 = $("#pass1").val();
-                    if(pass==""){
-                        alert("请输入密码！");
+                    if(!phone.match(/^1\d{10}$/)){
+                        alert("手机号码格式不正确！");
+                        $("#tellphone").focus();
                         return false;
                     }
-                    if(pass1 != pass){
-                        alert("两次密码不一致！");
+                    var code = $("#checkcode").val();
+                    if(code==""){
+                        alert("请填写验证码！");
+                        $("#checkcode").focus();
+                        return false;
+                    }
+                }else if(i==2){
+                    var cardid = $("#cardid").val();
+                    var school=$("#school").val();
+                    var eduyears=$("#eduyears").val();
+                    var edu=$("#edu").val();
+                    var eduid=$("#edunumber").val();
+                    var face=$("#facephoto").val();
+                    var back=$("#backphoto").val();
+                    if(!cardid.match(/^(\d{15}|\d{17}[\dx])$/) ){
+                        alert("身份编号不正确！");
+                        $("#cardid").focus();
+                        return false;
+                    }
+                    if(school==""){
+                        alert("请输入学校");
+                        $("#school").focus();
+                        return false;
+                    }
+                    if(edu==""){
+                        alert("请输入学历");
+                        $("#edu").focus();
+                        return false;
+                    }
+                    if(eduid==""){
+                        alert("请输入学号或毕业证编号");
+                        $("#edunumber").focus();
+                        return false;
+                    }
+                    if(face==""|| back==""){
+                        alert("照片上传不完整");
+                        return false;
+                    }
+                }else if(i=3){
+                    var weixin=$("#weixin").val();
+                    var qq=$("#qq").val();
+                    var like=$("#like").val();
+                    var say=$("#saying").val();
+                    if(weixin==""){
+                        alert("请输入微信号!");
+                        $("#weixin").focus();
+                        return false;
+                    }
+                    if(qq==""){
+                        alert("请输入QQ!");
+                        $("#qq").focus();
+                        return false;
+                    }
+                    if(like==""){
+                        alert("请输入特长!");
+                        $("#like").focus();
+                        return false;
+                    }
+                    if(say==""){
+                        alert("请输入您的宣言!");
+                        $("#saying").focus();
                         return false;
                     }
                 }
             }
-        });
-        $("#sub").click(function(){
-            var data = $("form").serialize();
-            alert(data);
         });
     });
 </script>

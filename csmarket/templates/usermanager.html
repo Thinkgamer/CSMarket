@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>用户身份审核</title>
     <link rel="stylesheet" href="/static/css/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/djangomanager.css">
+    <link rel="stylesheet" href="/static/css/usermanager.css">
 </head>
 
 <body>
@@ -49,9 +49,8 @@
 <script type="text/javascript">
     //调用分页
     $(function(){
-        var total=200,showcounts=11,showlimits=6;
-        var totalCount = Number(total), showCount = showcounts,
-                limit = Number(showlimits) ;
+        var total={{ count_num }},showcounts=11,showlimits=1;
+        var totalCount = Number(total), showCount = showcounts,limit = Number(showlimits) ;
         createTable(1, limit, totalCount);
         $('#callBackPager').extendPagination({
             totalCount: totalCount,
@@ -64,6 +63,9 @@
         function createTable(currPage, limit, total) {
             var html = [], showNum = limit;
             if (total - (currPage * limit) < 0) showNum = total - ((currPage - 1) * limit);
+            {% for user in user_list %}
+
+            {% endfor %}
             for (var i = 1; i <= showNum; i++) {
                 html.push('<tr><td><input name="ck" type="checkbox" class="chose"></td>');
                 html.push('<td>cyan</td><td>2014/12/02</td><td>15940394830</td><td>cncyan@163.com</td>');
