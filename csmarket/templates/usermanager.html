@@ -2,79 +2,92 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>用户身份审核</title>
+    {% if tag %}
+        <title>用户详细信息</title>
+    {% else %}
+        <title>未审核用户列表</title>
+    {% endif %}
     <link rel="stylesheet" href="/static/css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/usermanager.css">
 </head>
 
 <body>
-<div class="top"><h2 class="fl">Django管理</h2><span class="fr">欢迎，<b>xxxxx</b>&nbsp;/&nbsp;注销</span></div>
+<div class="top"><h2 class="fl">Django管理</h2><span class="fr">欢迎，<b>thinkgamer</b>&nbsp;| 退出登录</span></div>
 <div class="main">
     <div class="main-nag"><h4 class="fl">首页<span>-用户身份审核</span></h4></div>
-    <div class="main-title"><h3>用户身份审核</h3></div>
+    <div class="main-title">
+        {% if tag %}
+            <h3>用户详细信息<a href="/manager/usermanager/"  style="font-size: 16px;">【返回列表】</a></h3>
+        {% else %}
+            <h3>未审核用户列表</h3>
+        {% endif %}
+    </div>
+    {% if tag %}
+    <form class="main-con">
+        <table class="table table-hover" >
+            <thead><tr><td width="50%">属性</td><td>对应值</td></tr></thead>
+            <tr><td>用户名</td><td>{{ user.username }}</td></tr>
+            <tr><td>邮箱</td><td>{{ user.email }}</td></tr>
+            <tr><td>注册时间</td><td>{{ user.date_joined }}</td></tr>
+            <tr><td>电话</td><td>{{ user.user_phone }}</td></tr>
+            <tr><td>身份证号</td><td>{{ user.user_eid }}</td></tr>
+            <tr><td>学校名字</td><td>{{ user.user_school }}</td></tr>
+            <tr><td>入学年份</td><td>{{ user.user_start_year }}</td></tr>
+            <tr><td>学历</td><td>{{ user.user_xueli }}</td></tr>
+            <tr><td>几年制</td><td>{{ user.user_year }}</td></tr>
+            <tr><td>学号</td><td>{{ user.user_xuehao }}</td></tr>
+            <tr><td>学生证页面</td><td><img src="/static/upload/{{ user.user_xszimg }}"></td></tr>
+            <tr><td>QQ</td><td>{{ user.user_qq }}</td></tr>
+            <tr><td>微信</td><td>{{ user.user_wechat }}</td></tr>
+            <tr><td>擅长</td><td>{{ user.user_shanchang }}</td></tr>
+            <tr><td>宣言</td><td>{{ user.user_xuanyan }}</td></tr>
+            <tr style="color: red;background-color: #9d9d9d;"><td>是否通过验证</td>
+                <td><a href="/manager/through/{{ user.username }}">【是】</a> | <a href="/manager/send/{{ user.email }}">【否】, 我要给他发邮件</a></td>
+            </tr>
+        </table>
+    </form>
+    {% else %}
     <form class="main-con">
     <table class="table table-hover" id="callBackPagination">
         <thead>
         <tr>
-            <th  width="50" id="ck" onclick="ck()">全选</th>
-            <th width="100">用户名</th>
-            <th  width="100">加入时间</th>
-            <th  width="120" >电话</th>
-            <th  width="120">邮箱</th>
-            <th  width="80">通过验证</th>
+            <th width="120">用户名</th>
+            <th  width="150">加入时间</th>
+            <th  width="150" >最后登录</th>
+            <th  width="170">邮箱</th>
+            <th  width="80">完整信息</th>
         </tr>
         </thead>
-        <tbody id="mainContent" ></tbody>
-</table>
-        <input class="btn-success" type="button" value="全部通过">
-        <input class="btn-danger" type="reset" onclick="clear()" value="   重   置   ">
+        <tbody id="mainContent" >
+            {% for user in all_user %}
+                <td>{{ user.username }}</td><td>{{ user.date_joined }}</td><td>{{ user.last_login }}</td><td>{{ user.email }}</td>
+                <td><a href="/manager/more/{{ user.username }}">More</a></td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="fanye">
+    <ul class="pagination" >
+        <li class="previous">
+            {% if all_user.has_previous %}
+                <a href="?page={{ all_user.previous_page_number }}"><span>&laquo;</span></a>
+            {% else %}
+                <a><span>&laquo;</span></a>
+            {% endif %}
+        </li>
+        {% for page in len_list %}
+        <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
+        {% endfor %}
+        <li  class="next">
+            {% if all_user.has_next %}
+             <a href="?page={{ all_user.next_page_number }}"><span>&raquo;</span></a>
+            {% else %}
+                <a><span>&raquo;</span></a>
+            {% endif %}
+        </li>
+    </ul>
+    </div>
+    {% endif %}
     </form>
-    <div class="pagination" id="callBackPager"></div>
-
-
-
 </div>
 </body>
-<script src="/static/js/jquery-1.10.2.min.js"></script>
-<script>
-    function ck(){
-        $(".chose").prop("checked","checked");
-    }
-    function clear(){
-        $(".chose").prop('checked',false);
-    }
-</script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/extendPagination.js"></script>
-<script type="text/javascript">
-    //调用分页
-    $(function(){
-        var total={{ count_num }},showcounts=11,showlimits=1;
-        var totalCount = Number(total), showCount = showcounts,limit = Number(showlimits) ;
-        createTable(1, limit, totalCount);
-        $('#callBackPager').extendPagination({
-            totalCount: totalCount,
-            showCount: showCount,
-            limit: limit,
-            callback: function (curr, limit, totalCount) {
-                createTable(curr, limit, totalCount);
-            }
-        });
-        function createTable(currPage, limit, total) {
-            var html = [], showNum = limit;
-            if (total - (currPage * limit) < 0) showNum = total - ((currPage - 1) * limit);
-            {% for user in user_list %}
-
-            {% endfor %}
-            for (var i = 1; i <= showNum; i++) {
-                html.push('<tr><td><input name="ck" type="checkbox" class="chose"></td>');
-                html.push('<td>cyan</td><td>2014/12/02</td><td>15940394830</td><td>cncyan@163.com</td>');
-                html.push('<td> &nbsp; <a href="#"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>&nbsp;&nbsp;<a href="#" ><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td></tr>');
-            };
-            var mainObj = $('#mainContent');
-            mainObj.empty();
-            mainObj.html(html.join(''));
-        }
-    });
-</script>
 </html>

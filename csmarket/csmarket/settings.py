@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#修改setting user指向
+AUTH_USER_MODEL = 'logre.User'
 
 # Application definition
 

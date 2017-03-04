@@ -1,14 +1,12 @@
 #-*-coding: utf-8 -*-
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.db.models.signals import post_save
 
 # Create your models here.
 
 
-class UserProfile(models.Model):
-    user = models.OneToOneField(User)
-
+class User(AbstractUser):
     # 手机号
     user_phone = models.CharField(blank=True, verbose_name='电话', max_length=11)
 
@@ -19,8 +17,7 @@ class UserProfile(models.Model):
     user_xueli=models.CharField(blank=True,max_length=2,verbose_name='学历')
     user_year=models.IntegerField(blank=True,verbose_name='几年制',default=4)
     user_xuehao=models.CharField(blank=True,max_length=20,verbose_name='学号')
-    user_xszimg1=models.ImageField(blank=True,upload_to='xszimg1',verbose_name='学生证正面')
-    user_xszimg2 = models.ImageField(blank=True,upload_to='xszimg2',verbose_name='学生证反面')
+    user_xszimg=models.ImageField(blank=True,upload_to='xszimg',verbose_name='学生证页面')
 
     # 信息补充
     user_qq = models.CharField(blank=True,verbose_name='QQ',max_length=10)

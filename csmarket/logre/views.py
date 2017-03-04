@@ -1,7 +1,7 @@
 #-*-coding: utf-8-*-
 from django.shortcuts import render_to_response,render
 from django.views.decorators.csrf import csrf_exempt
-from logre.models import UserProfile,User
+from logre.models import User
 from django.http import HttpResponseRedirect
 import time
 # Create your views here.
@@ -89,8 +89,7 @@ def prefect(request):
         jinianzhi = request.POST.get('jinianzhi')
         xueli = request.POST.get('xueli')
         xuehao = request.POST.get('xuehao')
-        imgfile1 = request.POST.get('imgfile1')
-        imgfile2 = request.POST.get('imgfile2')
+        imgfile = request.POST.get('imgfile')
         #信息补充
         wechat = request.POST.get('wechat')
         qq = request.POST.get('qq')

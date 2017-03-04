@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>发送反馈邮件</title>
+    <link rel="stylesheet" href="/static/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/usermanager.css">
+</head>
+
+<body>
+<div class="top"><h2 class="fl">Django管理</h2><span class="fr">欢迎，<b>thinkgamer</b>&nbsp;| 退出登录</span></div>
+<div class="main">
+    <div class="main-nag"><h4 class="fl">首页<span>-用户身份审核</span></h4></div>
+    <div class="main-title">
+        <h3>发送反馈邮件<a href="/manager/usermanager/" style="font-size: 16px;">【返回审核列表】</a></h3>
+    </div>
+    <form class="main-con" action="/manager/send/{{ email }}/" method="post">
+        <table class="table table-hover" >
+                From：<br><br><input class="form-control" name="from"  id="to" type="text" value="CS Market官方邮件" disabled><br>
+                To：<br><br><input class="form-control" name="to"  id="to" type="text" value="{{ email }}" disabled> <br>
+                主题：<br><br><input class="form-control" name="subject"  id="subject" type="text" value="注册错误提示"> <br>
+            内容：<br><br><textarea class="form-control" name="content"  id="content" type="text"></textarea><br>
+            <input type="submit" value="&nbsp;&nbsp;&nbsp;发送&nbsp;&nbsp;&nbsp;">
+        </table>
+    </form>
+</div>
+</body>
+</html>

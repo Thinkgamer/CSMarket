@@ -26,3 +26,7 @@ Mysql 5.7.17(并没有使用内嵌的sqlite)<br>
 import pymysql  
 pymysql.install_as_MySQLdb()
 ```
+
+---
+#备注
+1：user扩展方式是AbstractUser<br>

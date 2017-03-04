@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
+from csmarket.views import index
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^logre/', include('logre.urls')),
     url(r'^manager/', include('manager.urls')),
+    url(r'^index/', index),
+    url(r'^$', index),
 ]

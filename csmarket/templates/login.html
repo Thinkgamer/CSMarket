@@ -12,6 +12,20 @@
         alert("{{ error }}");
     {% endif %}
 </script>
+{% if tag %}
+<div class="login-main">
+<h3 align="center">管理员登录</h3>
+    <form role="form" method="post" action="/manager/login/">
+            <input class="incon" name="email" type="text" placeholder="邮箱" value="{{ user_email }}">
+            <input class="incon" name="passwd" type="password" placeholder="密码" value="{{ user_pwd }}">
+            <input class="btnincon"  type="submit" value="登录">
+            <hr style="height:1px;border:none;border-top:1px solid darkgray;" />
+            <a href="/logre/login/" class="fl acon">用户登录</a>
+            <a class="fr acon" href="#">忘记密码？</a>
+    </form>
+</table>
+</div>
+{% else %}
 <div class="login-main">
 <h3>-------欢迎登陆CS market系统-------</h3>
     <form role="form" method="post" action="/logre/login/">
@@ -19,9 +33,12 @@
             <input class="incon" name="passwd" type="password" placeholder="密码">
             <input class="btnincon"  type="submit" value="登录">
             <hr style="height:1px;border:none;border-top:1px solid darkgray;" />
-            <a href="/logre/register/" class="fl acon">新用户？去注册？</a><a class="fr acon" href="#">忘记密码？</a>
+            <a href="/logre/register/" class="fl acon">新用户？去注册&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+            <a class="fl acon" href="/manager/login/">审核管理员登录</a>
+            <a class="fr acon" href="#">忘记密码？</a>
     </form>
 </table>
 </div>
+{% endif %}
 </body>
 </html>
