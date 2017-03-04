@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'logre',
     'manager',
+    'news',
 ]
 
 MIDDLEWARE = [
@@ -131,8 +132,9 @@ STATICFILES_DIRS = (
     ('css', os.path.join(STATIC_ROOT, 'css').replace('\\', '/')),
     ('js', os.path.join(STATIC_ROOT, 'js').replace('\\', '/')),
     ('img', os.path.join(STATIC_ROOT, 'img').replace('\\', '/')),
-    ('upload', os.path.join(STATIC_ROOT, 'upload').replace('\\', '/')),
+    ('uploads', os.path.join(STATIC_ROOT, 'uploads').replace('\\', '/')),
 )
 
-#media
-MEDIA_ROOT='static/upload'
+#文件上传配置
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'uploads')

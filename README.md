@@ -26,6 +26,9 @@ Mysql 5.7.17(并没有使用内嵌的sqlite)<br>
 import pymysql  
 pymysql.install_as_MySQLdb()
 ```
+##kindeditor
+后台中引入富文本编辑器<br>
+
 
 ---
 #备注
