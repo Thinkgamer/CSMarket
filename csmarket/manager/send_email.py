@@ -14,7 +14,7 @@ def sendEmail(mail,subject,content):
     smtp = smtplib
     smtp = smtplib.SMTP()
     smtp.connect('smtp.163.com', '25')
-    smtp.login('thinkgamer@163.com', 'gao735971')
+    smtp.login('thinkgamer@163.com', 'your_passwd')
     smtp.sendmail('thinkgamer@163.com', mail, str(msg))
     smtp.quit()
     return 1
