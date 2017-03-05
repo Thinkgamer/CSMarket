@@ -1,0 +1,35 @@
+/*header部分*/
+.header-top{height: 58px;width: 100%;min-width: 600px;}
+.navbar{background-color: #dcdcdc; }
+.header-main{width: 100%;background-color:#F5F5F5; overflow-x: auto; min-width: 600px;}
+.mynavbar{min-width: 600px; height: 58px;z-index: 10000; width: 100%; position: fixed;}
+.img-size{margin-left: 5%; width: 25%; overflow-y:hidden;}
+.form-size{ width: 65%; margin-right: 3%;overflow-y: hidden;}
+.hm-form{ margin-top:10px;  height: 90px; padding-top: 12px; line-height: 90px;}
+.hm-addon{ background-color:#FFF; height:45px; width:80px; padding:0px; text-align:center; border-right:none;}
+.hm-addon select{ border:0px; padding:4px; margin:0px; text-align:center;height:45px; width:66px;}
+.hm-seache{height:47px; min-width: 500px; border-left:none; border-right:none;}
+.hm-soso{ background-color:#FFF; height:44px; width:80px; padding:0px; text-align:center;}
+.hm-tubiao{ height: 50px; margin-top:20px; font-size: 30px; background: #ffffff;}
+.hm-divtu{height: 100px; width: 70px; overflow: hidden;}
+.hm-divtu span{ text-align: center;margin-left: 15px;}
+.mytitle{height: 55px; line-height: 55px; text-align: center; margin-left: 25px;}
+.mytitle>span{font-size: 20px;}
+.list{width: 750px; overflow: hidden}
+.list ul{float: left;}
+.list ul li{padding-left: 10px; padding-right: 5px; cursor: pointer; font-size: 16px;}
+
+#main{height: 600px;}
+
+/*footer部分*/
+#footer{ background:#000; overflow:hidden;  height:270px;}
+.footer_menus{ width:100%; color:#fff; overflow:hidden; margin-top:40px;}
+.footer_menus ul{ width:10%; float:left; list-style:none; margin-left:5%; }
+.footer_menus ul li{ color:#fff; margin-top:8px; font-size:15px; font-weight:bold;}
+.footer_menus ul li a{ text-indent:0em; color:#fff; font-size:13px; font-weight:400;}
+.footer_menus ul li a:hover{ text-decoration:none;}
+.footer_code{ text-align:center; margin-top:10px; margin-right:10%;}
+.footer_code img{ width:130px; height:110px;}
+.footer_copyright{ width:100%;  overflow:hidden; vertical-align:middle; color:#fff; font-size:13px; text-align:center;
+    margin-top:27px; margin-bottom: 20px;}
+

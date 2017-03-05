@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<div class="top"><h2 class="fl">Django管理</h2><span class="fr">欢迎，<b>thinkgamer</b>&nbsp;| 退出登录</span></div>
+<div class="top"><h2 class="fl">Django管理</h2><span class="fr">欢迎，<b>{{ user_name }}</b>&nbsp;| <a href="/manager/logout/">退出登录</a></span></div>
 <div class="main">
     <div class="main-nag"><h4 class="fl">首页<span>-用户身份审核</span></h4></div>
     <div class="main-title">
@@ -36,7 +36,12 @@
             <tr><td>学历</td><td>{{ user.user_xueli }}</td></tr>
             <tr><td>几年制</td><td>{{ user.user_year }}</td></tr>
             <tr><td>学号</td><td>{{ user.user_xuehao }}</td></tr>
-            <tr><td>学生证页面</td><td><img src="/static/upload/{{ user.user_xszimg }}"></td></tr>
+            <tr><td>学生证页面</td><td>
+                {% if user.user_xszimg %}
+                <img src="/uploads/{{ user.user_xszimg }}">
+                {% else %}
+                {% endif %}
+            </td></tr>
             <tr><td>QQ</td><td>{{ user.user_qq }}</td></tr>
             <tr><td>微信</td><td>{{ user.user_wechat }}</td></tr>
             <tr><td>擅长</td><td>{{ user.user_shanchang }}</td></tr>

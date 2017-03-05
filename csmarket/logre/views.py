@@ -2,6 +2,9 @@
 from django.shortcuts import render_to_response,render
 from django.views.decorators.csrf import csrf_exempt
 from logre.models import User
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout as auth_logout
 from django.http import HttpResponseRedirect
 import time
 # Create your views here.
@@ -10,33 +13,27 @@ import time
 @csrf_exempt
 def login(request):
     if request.method=='POST':
-        email=request.POST.get('email')
+        uname=request.POST.get('username')
         pwd=request.POST.get('passwd')
-        user = User.objects.filter(email=email)
-        #如果邮箱存在
-        if len(user)!=0:
-            if user[0].password==pwd:
-                # return render_to_response("prefect.html", {
-                # })
-                #更新最后登录时间
-                now_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
-                user.update(last_login=now_time)
-                return HttpResponseRedirect('/logre/prefect/')
-            else:
-                return render_to_response("login.html", {
-                    "error": "密码不正确！",
-                    'user_email': email,
-                })
-        #如果邮箱不存在
+        user = authenticate(username=uname,password=pwd)
+        if user is not None:
+            auth_login(request, user)
+            # 更新最后登录时间
+            now_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+            user.last_login=now_time
+            user.save()
+            return HttpResponseRedirect('/logre/prefect/')
         else:
-            return render_to_response("login.html", {
-                "error": "邮箱不存在！",
-                'user_email': email,
+            return render_to_response('login.html',{
+                'error': '邮箱或者密码不正确',
+                'user_name': uname,
+                'user_pwd': pwd,
             })
     else:
         return render_to_response('login.html',{
 
         })
+
 
 #用户注册
 @csrf_exempt
@@ -68,14 +65,19 @@ def register(request):
             })
         # 将新注册的用户存入数据库
         now_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
-        user = User(username=username, password=pwd, email=email,last_login=now_time)
+        user=User.objects.create_user(username=username,email=email,password=pwd)
+        user.last_login=now_time
         user.save()
+
         return HttpResponseRedirect('/logre/prefect/')
 
     else:
         return render_to_response("register.html",{
 
         })
+
+def logout(request):
+    pass
 
 #完善个人信息
 @csrf_exempt
@@ -99,5 +101,4 @@ def prefect(request):
         pass
     else:
         return render_to_response('prefect.html',{
-
         })

@@ -1,0 +1,52 @@
+/*头部导航 position: fixed;*/
+.headertop{overflow: hidden; top: 0; left: 0;height: 40px; background: #f5f5f5; text-align:center; width: 100%;}
+.mynav{overflow: hidden; margin-top: 10px;}
+.mynav li{display: inline-block; height: 28px; line-height: 28px; padding-left: 3px; padding-right: 3px;}
+.mynav li a{ font-size: 16px; color: #000000;}
+.now{ border-bottom: 2px solid #eb9316; border-radius: 3px;}
+
+/*文本更多页样式*/
+.essay-cantainer{
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 50px;
+}
+.eassy-page{
+    text-align: center;
+}
+.eassy-title{
+    margin-left: 30px;
+}
+.showtime{
+    margin-right: 20px;
+}
+
+
+/*文本内容页样式*/
+.essaydetail-mian{
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+}
+.cantent{
+    text-align: center;
+}
+.cantent-note>span{
+    margin-right: 15px;
+}
+.cantent-main{
+    text-align: left;
+    text-indent:2em;
+    color: #666666;
+}
+.hot>h3,.talking-send>h3{padding-bottom:10px; margin-bottom:10px; border-radius:5px; border-bottom:1px solid #CCC; width:80%;}
+.hot>h3>span,.talking-send>h3>span{ color:#000; padding-bottom:10px; font-size:18px; border-radius:3px; border-bottom:2px solid #09C;}
+.hot>ul{margin-left: 6%;}
+.talking-send{overflow: hidden;}
+.talkings{width: 98%; min-height: 200px; font-size: 16px; text-indent: 4em;}
+.talking-no{margin-left: 5%;}
+.talking-yes{margin-right: 7%;}
+.talking-show{margin-top: 20px;}
+.talking-show ul{ margin-left: 15px;}
+.talking-show ul>li p:nth-child(2){text-indent: 2em;}

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章列表</title>
+    <link rel="stylesheet" href="/static/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/news.css">
+</head>
+<body>
+<div id="header" class="clearfix">
+    <div class="header-top clearfix">
+        <nav class="navbar navbar-default mynavbar" role="navigation"><!--响应式导航条依赖折叠（collapse）插件-->
+            <nav class="navbar navbar-default header_nav" id="nav" role="navigation">
+                <div class="mytitle fl"><span>CS Market --  不止有态度</span></div>
+                <div class="container-fluid header_nav_container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right" id="mainnav">
+                            <li><a href="login.html">登陆</a></li>
+                            <li><a href="register.html">注册</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人中心<span class="caret">
+              </span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="personalcheck.html">个人中心</a></li>
+                                    <li><a href="djangomanager.html">我的发布</a></li>
+                                    <li><a href="#">我的足迹</a></li>
+                                    <li><a href="#">收藏中心</a></li>
+                                    <li><a href="#">订单中心</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">帮助中心<span class="caret">
+              </span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">帮助中心</a></li>
+                                    <li><a href="#">登录/注册</a></li>
+                                    <li><a href="#">个人身份验证</a></li>
+                                    <li><a href="#">规则中心</a></li>
+                                    <li><a href="#">交易保障</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">帮助中心<span class="caret">
+              </span></a>
+                                <ul class="dropdown-menu list" role="menu">
+                                    <ul>
+                                        <li>需求大厅</li>
+                                        <li><a>美工设计</a></li>
+                                        <li><a>运营推广</a></li>
+                                        <li><a>APP制作</a></li>
+                                        <li><a>多媒体处理</a></li>
+                                        <li><a>文案策划</a></li>
+                                        <li><a>网站建设</a></li>
+                                        <li><a>微信开发</a></li>
+                                        <li><a>其他</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li>服务商库</li>
+                                        <li><a>美工设计</a></li>
+                                        <li><a>运营推广</a></li>
+                                        <li><a>APP制作</a></li>
+                                        <li><a>多媒体处理</a></li>
+                                        <li><a>文案策划</a></li>
+                                        <li><a>网站建设</a></li>
+                                        <li><a>微信开发</a></li>
+                                        <li><a>其他</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li>代办中心</li>
+                                        <li><a>课设/毕设</a></li>
+                                        <li><a>水费/网费</a></li>
+                                        <li><a>去快递/送餐</a></li>
+                                        <li><a>代上课</a></li>
+                                        <li><a>代创意</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li>新手指南</li>
+                                        <li><a>登录与注册</a></li>
+                                        <li><a>个人身份认证</a></li>
+                                        <li><a>规则中心</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li>我是雇主</li>
+                                        <li><a>发布服务</a></li>
+                                        <li><a>服务商故事</a></li>
+                                        <li><a>浏览需求</a></li>
+                                        <li><a>个人案例</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li>我是服务商</li>
+                                        <li><a>曝光台</a></li>
+                                        <li><a>信用查询</a></li>
+                                        <li><a>交易宝</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li>交易保障</li>
+                                        <li><a href="#">邮箱：thinkgamer@163.com</a></li>
+                                        <li><a href="">QQ:1839882792</a></li>
+                                        <li><a>微信：gyt13342445911</a></li>
+                                        <li><a>地址：道义南大街37号</a></li>
+                                    </ul>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav><!-- /.navbar-collapse -->
+        </nav>
+    </div><!--/.header-top-->
+    <div class="header-main clearfix">
+        <div class="img-size fl">
+            <img class="img-circle" src="/static/img/logo.jpg" >
+        </div>
+        <div class="form-size fr">
+            <form class="text-center hm-form" role="form">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon hm-addon">
+                            <select class="form-control">
+                                <option>找商家</option>
+                                <option>找人才</option>
+                                <option>找案例</option>
+                            </select>
+                        </div>
+                        <input class="hm-seache form-control " type="text" placeholder="输入您所需要的服务">
+                        <div class="input-group-addon hm-soso"><a href="">搜索</a> </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div><!--/.header-main-->
+</div>
+
+<div class="headertop">
+    <ul class="mynav" id="mynav">
+        <li class="now"><a href="#">服务商库 |</a></li>
+        <li><a href="#">需求大厅 |</a></li>
+        <li><a href="#">代办中心 |</a></li>
+        <li><a href="#">CyanScikit自营 |</a></li>
+        <li><a href="#">发布需求 |</a></li>
+        <li><a href="#">发布需求 </a></li>
+    </ul>
+</div>
+<div class="essay-cantainer">
+    <div class="easy-main">
+        <ul class="essay-list list-group">
+            {% for new in all_new %}
+            <li class="list-group-item">
+                <a href="" class="eassy-title">{{ new.new_title }}</a>
+                <span class="label label-default fr showtime">{{ new.new_time }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="eassy-page">
+    <ul class="pagination page-list" >
+        <li class="previous">
+            {% if all_user.has_previous %}
+                <a href="?page={{ all_user.previous_page_number }}"><span>&laquo;</span></a>
+            {% else %}
+                <a><span>&laquo;</span></a>
+            {% endif %}
+        </li>
+        {% for page in len_list %}
+        <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
+        {% endfor %}
+        <li  class="next">
+            {% if all_user.has_next %}
+             <a href="?page={{ all_user.next_page_number }}"><span>&raquo;</span></a>
+            {% else %}
+                <a><span>&raquo;</span></a>
+            {% endif %}
+        </li>
+    </ul>
+    </div>
+
+{#    <div class="eassy-page">#}
+{#        <ul class="pagination page-list">#}
+{#            <li>#}
+{#                <a href="#" aria-label="Previous">#}
+{#                    <span aria-hidden="true">&laquo;</span>#}
+{#                </a>#}
+{#            </li>#}
+{#            <li class="active"><a href="#">1</a></li>#}
+{#            <li><a href="#">2</a></li>#}
+{#            <li><a href="#">3</a></li>#}
+{#            <li><a href="#">4</a></li>#}
+{#            <li><a href="#">5</a></li>#}
+{#            <li>#}
+{#                <a href="#" aria-label="Next">#}
+{#                    <span aria-hidden="true">&raquo;</span>#}
+{#                </a>#}
+{#            </li>#}
+{#        </ul>#}
+{#    </div>#}
+
+</div>
+<script src="/static/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/index.js"></script>
+</body>
+</html>
