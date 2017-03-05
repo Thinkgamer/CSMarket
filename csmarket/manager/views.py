@@ -55,7 +55,7 @@ def usermanager(request):
         return render(request, 'usermanager.html', {
             'tag':0,
             'all_user': all_user,
-            "len_list": range(1, paginator.num_pages),
+            "len_list": range(1, paginator.num_pages+1),
             'user_name': request.user,
         })
     else:

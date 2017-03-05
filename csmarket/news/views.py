@@ -1,12 +1,15 @@
 #-*- coding: utf-8-*-
 from django.shortcuts import render,render_to_response
-from news.models import News
+from news.models import News,cate
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
-def all(request):
-    new_list = News.objects.all().order_by("-new_time")
-    paginator = Paginator(new_list, 1)  # Show 20 contacts per page
+def all(request,newcate):
+    #这里传进来的应该是分类的名字
+    #new_cate=2 代表是CSM动态  1 代表是创客故事
+    cate_id=cate.objects.get(cate_name=newcate).id
+    new_list = News.objects.filter(new_cate=cate_id).order_by("-new_time")
+    paginator = Paginator(new_list, 20)  # Show 20 contacts per page
     page = request.GET.get('page')
     try:
         all_new = paginator.page(page)
@@ -18,11 +21,15 @@ def all(request):
         all_new = paginator.page(paginator.num_pages)
     return render(request, 'news.html', {
         'all_new': all_new,
-        "len_list": range(1, paginator.num_pages),
+        "len_list": range(1, paginator.num_pages+1),
     })
 
 
-def one(request):
-    return render_to_response('news_one.html',{
-
-    })
+def one(request,newtitle):
+    if request.method=='POST':
+        pass
+    else:
+        new=News.objects.get(new_title=newtitle)
+        return render_to_response('news_one.html',{
+            'new': new,
+        })

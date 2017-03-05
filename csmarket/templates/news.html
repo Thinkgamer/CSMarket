@@ -158,7 +158,7 @@
         <ul class="essay-list list-group">
             {% for new in all_new %}
             <li class="list-group-item">
-                <a href="" class="eassy-title">{{ new.new_title }}</a>
+                <a href="/news/one/{{ new.new_title }}" class="eassy-title">{{ new.new_title }}</a>
                 <span class="label label-default fr showtime">{{ new.new_time }}</span>
             </li>
             {% endfor %}
@@ -167,8 +167,8 @@
     <div class="eassy-page">
     <ul class="pagination page-list" >
         <li class="previous">
-            {% if all_user.has_previous %}
-                <a href="?page={{ all_user.previous_page_number }}"><span>&laquo;</span></a>
+            {% if all_new.has_previous %}
+                <a href="?page={{ all_new.previous_page_number }}"><span>&laquo;</span></a>
             {% else %}
                 <a><span>&laquo;</span></a>
             {% endif %}
@@ -177,8 +177,8 @@
         <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
         {% endfor %}
         <li  class="next">
-            {% if all_user.has_next %}
-             <a href="?page={{ all_user.next_page_number }}"><span>&raquo;</span></a>
+            {% if all_new.has_next %}
+             <a href="?page={{ all_new.next_page_number }}"><span>&raquo;</span></a>
             {% else %}
                 <a><span>&raquo;</span></a>
             {% endif %}

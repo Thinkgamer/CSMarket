@@ -5,6 +5,6 @@ from news.views import all,one
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^all/$', all),
-    url(r'^one/$', one),
+    url(r'^all/(.+)/$', all),
+    url(r'^one/(.+)/$', one),
 ]
