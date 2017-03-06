@@ -5,6 +5,10 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 def all(request,newcate):
+    if request.user.is_authenticated:
+        user_name=request.user
+    else:
+        user_name=''
     #这里传进来的应该是分类的名字
     #new_cate=2 代表是CSM动态,  1 代表是创客故事
     cate_id=cate.objects.get(cate_name=newcate).id
@@ -26,6 +30,7 @@ def all(request,newcate):
         # If page is out of range (e.g. 9999), deliver last page of results.
         all_new = paginator.page(paginator.num_pages)
     return render(request, 'news.html', {
+        'user_name': user_name,
         'csmdongtai': csmdongtai,
         'chuangke': chuangke,
         'catename': newcate,
@@ -35,6 +40,11 @@ def all(request,newcate):
 
 
 def one(request,newtitle):
+    if request.user.is_authenticated:
+        user_name=request.user
+    else:
+        user_name=''
+
     if request.method=='POST':
         pass
     else:
@@ -44,6 +54,7 @@ def one(request,newtitle):
         elif new.new_cate_id==2:
             csmdongtai = True;chuangke = False
         return render_to_response('news_one.html',{
+            'user_name': user_name,
             'new': new,
             'csmdongtai': csmdongtai,
             'chuangke': chuangke,

@@ -12,6 +12,7 @@ import time
 #用户登录
 @csrf_exempt
 def login(request):
+    global referer
     if request.method=='POST':
         uname=request.POST.get('username')
         pwd=request.POST.get('passwd')
@@ -22,7 +23,7 @@ def login(request):
             now_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
             user.last_login=now_time
             user.save()
-            return HttpResponseRedirect('/logre/prefect/')
+            return HttpResponseRedirect(referer)
         else:
             return render_to_response('login.html',{
                 'error': '邮箱或者密码不正确',
@@ -30,9 +31,12 @@ def login(request):
                 'user_pwd': pwd,
             })
     else:
-        return render_to_response('login.html',{
-
-        })
+        try:
+            referer = request.META['HTTP_REFERER']  # 获取网页访问来源
+        except:
+            pass
+        finally:
+            return render_to_response('login.html',{})
 
 
 #用户注册
@@ -70,14 +74,14 @@ def register(request):
         user.save()
 
         return HttpResponseRedirect('/logre/prefect/')
-
     else:
         return render_to_response("register.html",{
 
         })
 
 def logout(request):
-    pass
+    auth_logout(request)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 #完善个人信息
 @csrf_exempt
