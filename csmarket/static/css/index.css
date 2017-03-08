@@ -4,12 +4,13 @@
 .header-main{width: 100%;background-color:#F5F5F5; overflow-x: auto; min-width: 600px;}
 .mynavbar{min-width: 600px; height: 58px;z-index: 10000; width: 100%; position: fixed;}
 .img-size{margin-left: 5%; width: 25%; overflow-y:hidden;}
-.form-size{ width: 65%; margin-right: 3%;overflow-y: hidden;}
+.img-size img{border: 1px solid #9d9d9d;}
+.form-size{ width: 65%; min-width: 350px; margin-right: 3%;overflow-y: hidden;}
 .hm-form{ margin-top:10px;  height: 90px; padding-top: 12px; line-height: 90px;}
-.hm-addon{ background-color:#FFF; height:45px; width:80px; padding:0px; text-align:center; border-right:none;}
+.hm-addon{ background-color:#FFF; height:45px; min-width:80px; padding:0px; text-align:center; border-right:none;}
 .hm-addon select{ border:0px; padding:4px; margin:0px; text-align:center;height:45px; width:66px;}
-.hm-seache{height:47px; min-width: 500px; border-left:none; border-right:none;}
-.hm-soso{ background-color:#FFF; height:44px; width:80px; padding:0px; text-align:center;}
+.hm-seache{height:47px; min-width: 200px; border-left:none; border-right:none;}
+.hm-soso{ background-color:#FFF; height:44px; min-width:80px; padding:0px; text-align:center;}
 .hm-tubiao{ height: 50px; margin-top:20px; font-size: 30px; background: #ffffff;}
 .hm-divtu{height: 100px; width: 70px; overflow: hidden;}
 .hm-divtu span{ text-align: center;margin-left: 15px;}
@@ -18,18 +19,121 @@
 .list{width: 750px; overflow: hidden}
 .list ul{float: left;}
 .list ul li{padding-left: 10px; padding-right: 5px; cursor: pointer; font-size: 16px;}
+.main_img_show{ position: absolute;top: 170px;left: 5px;}
+.note-cantainer{position: absolute; background: #9d9d9d; width: 350px; box-shadow: -10px 10px 40px #5bc0de; padding: 20px; margin-right: 100px; opacity: 0.8; border-radius: 20px;}
+.note-title h3{font-size: 24px; font-weight: 900; text-align: center; color: #fff;}
+.note-content{height: 150px;}
+.note-content p{text-indent: 2em; padding: 5px;color: #fff; letter-spacing: 1px; word-spacing: 8px;}
+.transaction{height: 150px;}
+.transaction h3{font-size: 30px; color: #fff; padding: 5px; text-align: center;}
+.transaction h4{font-size: 18px; color: #ffff00;margin-top: 5px; padding: 5px; text-align: right; margin-right: 20px;}
+.transaction p{font-size: 18px; color: #ffff00;margin-top: 5px; padding: 5px; text-align: right;}
+/*粒子背景效果*/
+#particles {
+    width: 100%;
+    min-width: 600px;
+    height: 440px;
+    background: #000;
+    overflow: hidden;
+}
+/*旋转木马效果css*/
+#featured-area{height:450px; margin:0 auto 0 auto;position:relative;}
+.roundabout-holder{list-style:none;height:380px;margin:0px auto;}
+.roundabout-moveable-item{font-size:12px!important;height:380px;cursor:pointer;padding:5px;border:1px solid #aaaaaa;-webkit-border-radius:5px;-moz-border-radius:5px;background:#f9f9f9;}
+.roundabout-moveable-item img{height:100%;width:100%;background-color:#FFFFFF;margin:0;}
+.roundabout-in-focus{cursor:auto;}
+.roundabout-in-focus:hover{-webkit-box-shadow:0px 0px 20px #787878;-moz-box-shadow:0px 0px 20px #787878;background:#f9f9f9;}
+.roundabout-holder span{display:none;}
+.roundabout-in-focus:hover span{display:inline;position:absolute;bottom:5px;right:5px;padding:8px 20px;background:#f9f9f9;color:#3366cc;z-index:999;-webkit-border-top-left-radius:5px;-moz-border-radius-topLeft:5px;border-left:1px solid #aaaaaa;border-top:1px solid #aaaaaa;}
+.roundabout a:active, .roundabout a:focus, .roundabout a:visited{outline:none;text-decoration:none;}
+.roundabout li{margin:0}
 
-#main{height: 600px;}
+#featured-area .ban_l_btn,#featured-area .ban_r_btn{ position: absolute; top: 50%;margin-top:-34px; left:0px; display: block; color: #0f0f0f; width: 30px; height: 50px; line-height:50px; border: 1px solid #d9534f; z-index: 9; overflow: hidden;box-shadow:0 0 20px #999999 inset;border-radius: 5px; }
+#featured-area .ban_r_btn{ left:auto; right:0; }
+#featured-area .ban_l_btn:hover,#featured-area .ban_r_btn:hover{border: 2px solid #ac2925;}
+#featured-area ul{ list-style:none;}
+#featured-area ul li div{width:100%;height: 100%;}
+/*下边缘导航*/
+.headertop{overflow: hidden; top: 0; left: 0;height: 40px; background: #f5f5f5; text-align:center; width: 100%;min-width: 600px;}
+.mynav{overflow: hidden; margin-top: 10px;}
+.mynav li{display: inline-block; height: 28px; line-height: 28px; padding-left: 3px; padding-right: 3px;}
+.mynav li a{ font-size: 18px; color: #000000; font-weight: 600;}
+.now{ border-bottom: 2px solid #eb9316; border-radius: 3px;}
+
+/*主体main部分*/
+#main{ width: 100%; min-width:600px; overflow: hidden; margin: auto;margin-top: 15px;}
+.daiban,.hotsever,.rewordneed,.goodcsm{ width: 90%; margin: auto; overflow: hidden;}
+.mtitle h4 span{font-size: 22px;border-bottom: 2px solid #d9534f;}
+.mtitle h4{ border-bottom: 1px solid #9d9d9d;width: 100%;min-width: 500px; margin-bottom: 15px;}
+.mtitle h4 button{float: right;margin-right: 20px; width: 30px;}
+.content{overflow: hidden; margin:auto;}
+.content-list{width: 100%;}
+.content-list li{width: 160px;height: 180px;float: left;margin: 12px; padding: 5px; text-align: center;}
+.content-list li span a{color: #666666; font-size: 18px;}
+.mimg img{width: 150px; height: 140px; margin-bottom: 10px; border: none;}
+.content-list li span a:hover{color: #000000; text-shadow:2px 2px #9d9d9d;}
+.mimg img:hover{box-shadow: -4px 4px 10px #9d9d9d;}
+.csm-cantainer{overflow: hidden; margin: auto;}
+.csm-title h3{ font-size: 23px;font-weight: 900;margin-bottom: 10px; color: #666666;}
+.csm-title h3 span{font-size: 16px;}
+.csm-content li>p{margin-top: 5px;margin-bottom: 5px;color: #666666;}
+.csm-content li b{color:#666666; font-weight: 600;}
+.csm-time{float: right;margin-right: 15px;}
+.csm-content li{border-bottom: 1px dotted #9d9d9d; overflow: hidden;}
+
+
 
 /*footer部分*/
-#footer{ background:#000; overflow:hidden;  height:270px;}
+#footer{ background:#000; overflow:hidden;  height:300px;min-width: 600px;}
 .footer_menus{ width:100%; color:#fff; overflow:hidden; margin-top:40px;}
 .footer_menus ul{ width:10%; float:left; list-style:none; margin-left:5%; }
 .footer_menus ul li{ color:#fff; margin-top:8px; font-size:15px; font-weight:bold;}
 .footer_menus ul li a{ text-indent:0em; color:#fff; font-size:13px; font-weight:400;}
 .footer_menus ul li a:hover{ text-decoration:none;}
 .footer_code{ text-align:center; margin-top:10px; margin-right:10%;}
-.footer_code img{ width:130px; height:110px;}
-.footer_copyright{ width:100%;  overflow:hidden; vertical-align:middle; color:#fff; font-size:13px; text-align:center;
-    margin-top:27px; margin-bottom: 20px;}
+.footer_code img{ width:133px; height:132px;}
+.footer_copyright{ width:100%;  overflow:hidden; vertical-align:middle; color:#fff; font-size:15px; text-align:center;
+    margin-top:15px;}
 
+
+/*自适应控制*/
+@media only screen and (min-width: 1000px) {
+    .main_img_show{ margin-left: 60px;}
+    #featured-area{width:695px;}
+    .roundabout-holder{width: 350px;}
+    .roundabout-moveable-item{width: 350px;}
+    #particles{height: 440px;}
+
+    .note-cantainer{right: 0;top: 170px;}
+    .content{width: 100%}
+    .csm-cantainer{width:90%;}
+    .market-cantainer,.chuangke-cantainer,.case-cantainer{width: 32%;float: left; margin-left: 10px;padding: 10px;}
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 1000px) {
+    .main_img_show{ margin-left: 60px;}
+    #featured-area{width:595px;}
+    .roundabout-holder{width: 300px;}
+    .roundabout-moveable-item{width: 600px;}
+    #particles{height: 880px;}
+
+    .note-cantainer{left: 240px; top:650px;}
+    .content,.csm-cantainer{width:590px;}
+    .market-cantainer,.chuangke-cantainer,.case-cantainer{width: 100%;float: left; margin-left: 10px;padding: 10px;margin-top:10px; }
+    .footer_code{display: none;}
+}
+
+
+@media only screen and (max-width: 600px) {
+    .main_img_show{ margin-left: 0px;}
+    #featured-area{width:595px;}
+    .roundabout-holder{width: 300px;}
+    .roundabout-moveable-item{width: 300px;}
+    #particles{height: 880px;}
+
+    .note-cantainer{left: 120px; top:650px;}
+    .content,.csm-cantainer{width:590px;}
+    .market-cantainer,.chuangke-cantainer,.case-cantainer{width: 100%;float: left; margin-left: 10px;padding: 10px; margin-top: 10px;}
+    .footer_code{display: none;}
+}

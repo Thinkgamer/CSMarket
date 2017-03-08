@@ -1,10 +1,7 @@
 #-*-coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.db.models.signals import post_save
-
 # Create your models here.
-
 
 class User(AbstractUser):
     # 手机号
