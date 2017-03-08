@@ -51,28 +51,60 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="31" column="12" lean-forward="false" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+            <state relative-caret-position="-1818">
+              <caret line="7" column="72" lean-forward="false" selection-start-line="7" selection-start-column="72" selection-end-line="7" selection-end-column="72" />
               <folding>
-                <element signature="e#7189#7195#0#HTML" expanded="true" />
-                <element signature="e#7195#7201#0#HTML" expanded="true" />
-                <element signature="e#8681#8687#0#HTML" expanded="true" />
-                <element signature="e#8687#8693#0#HTML" expanded="true" />
-                <element signature="e#10168#10174#0#HTML" expanded="true" />
-                <element signature="e#10174#10180#0#HTML" expanded="true" />
+                <element signature="e#7204#7210#0#HTML" expanded="true" />
+                <element signature="e#7210#7216#0#HTML" expanded="true" />
+                <element signature="e#8696#8702#0#HTML" expanded="true" />
+                <element signature="e#8702#8708#0#HTML" expanded="true" />
+                <element signature="e#10183#10189#0#HTML" expanded="true" />
+                <element signature="e#10189#10195#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3726">
+              <caret line="207" column="78" lean-forward="false" selection-start-line="207" selection-start-column="78" selection-end-line="207" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="indexdonghua.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/indexdonghua.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#43#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="indexclass.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/indexclass.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="774">
+              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="117" column="38" lean-forward="false" selection-start-line="117" selection-start-column="38" selection-end-line="117" selection-end-column="38" />
+            <state relative-caret-position="167">
+              <caret line="61" column="54" lean-forward="false" selection-start-line="61" selection-start-column="54" selection-end-line="61" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -96,9 +128,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -127,7 +159,6 @@
         <option value="$PROJECT_DIR$/templates/sendemail.html" />
         <option value="$PROJECT_DIR$/manager/urls.py" />
         <option value="$PROJECT_DIR$/static/css/news.css" />
-        <option value="$PROJECT_DIR$/static/js/index.js" />
         <option value="$PROJECT_DIR$/manager/admin.py" />
         <option value="$PROJECT_DIR$/news/admin.py" />
         <option value="$PROJECT_DIR$/news/models.py" />
@@ -141,9 +172,13 @@
         <option value="$PROJECT_DIR$/news/views.py" />
         <option value="$PROJECT_DIR$/templates/news_one.html" />
         <option value="$PROJECT_DIR$/logre/models.py" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/static/css/index.css" />
+        <option value="$PROJECT_DIR$/static/js/index.js" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/static/css/indexdonghua.css" />
+        <option value="$PROJECT_DIR$/static/js/indexdonghua.js" />
+        <option value="$PROJECT_DIR$/static/js/indexclass.js" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
       </list>
     </option>
   </component>
@@ -663,14 +698,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/csmarket/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/upload/xszimg1/1136e273b7cb0e8b7f7ba496f466c5fc.png" />
     <entry file="file://$PROJECT_DIR$/static/imgs/logo.jpg" />
     <entry file="file://$PROJECT_DIR$/static/imgs/login.jpg" />
     <entry file="file://$PROJECT_DIR$/static/imgs/11.png" />
@@ -936,14 +963,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="34" column="2" lean-forward="false" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logre/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -964,33 +983,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="12" lean-forward="false" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
-          <folding>
-            <element signature="e#7189#7195#0#HTML" expanded="true" />
-            <element signature="e#7195#7201#0#HTML" expanded="true" />
-            <element signature="e#8681#8687#0#HTML" expanded="true" />
-            <element signature="e#8687#8693#0#HTML" expanded="true" />
-            <element signature="e#10168#10174#0#HTML" expanded="true" />
-            <element signature="e#10174#10180#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.local/lib/python3.5/site-packages/notebook/static/style/style.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="3556" column="12" lean-forward="true" selection-start-line="3556" selection-start-column="12" selection-end-line="3556" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="57" column="53" lean-forward="false" selection-start-line="57" selection-start-column="53" selection-end-line="57" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -1007,9 +1003,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="117" column="38" lean-forward="false" selection-start-line="117" selection-start-column="38" selection-end-line="117" selection-end-column="38" />
+        <state relative-caret-position="167">
+          <caret line="61" column="54" lean-forward="false" selection-start-line="61" selection-start-column="54" selection-end-line="61" selection-end-column="54" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/indexdonghua.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/indexclass.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/indexdonghua.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3726">
+          <caret line="207" column="78" lean-forward="false" selection-start-line="207" selection-start-column="78" selection-end-line="207" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1818">
+          <caret line="7" column="72" lean-forward="false" selection-start-line="7" selection-start-column="72" selection-end-line="7" selection-end-column="72" />
+          <folding>
+            <element signature="e#7204#7210#0#HTML" expanded="true" />
+            <element signature="e#7210#7216#0#HTML" expanded="true" />
+            <element signature="e#8696#8702#0#HTML" expanded="true" />
+            <element signature="e#8702#8708#0#HTML" expanded="true" />
+            <element signature="e#10183#10189#0#HTML" expanded="true" />
+            <element signature="e#10189#10195#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

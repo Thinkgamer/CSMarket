@@ -202,53 +202,9 @@
 <script type="text/javascript" src="/static/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/static/js/jquery.particleground.min.js"></script>
-<script type="text/javascript" src="/static/js/index.js"></script>
+<script type="text/javascript" src="/static/js/indexclass.js"></script>
+<script type="text/javascript" src="/static/js/indexdonghua.js"></script>
 <script type="text/ecmascript" src="/static/js/jquery.roundabout-1.0.min.js"></script><!--图片切换插件-->
 <script type="text/ecmascript" src="/static/js/jquery.easing.1.3.js"></script>
-<script>
-    $(function (){
-        $('#mainnav li').hover( //鼠标滑过导航栏目时
-                function(){
-                    $(this).addClass("golist").siblings().removeClass("golist");
-                    $('.golist').addClass("open");
-                    $('.golist a').attr("aria-expanded",true);
-                    $('.golist ul').removeAttr("style");
-                },
-                function(){
-                    $('.golist').removeClass("open"); //鼠标移开后隐藏下拉列表
-                    $('.golist a').attr("aria-expanded",false);
-                    $('.golist ul').css("disply","none");
-                }
-        );
-        $('.golist>ul').hover( //鼠标滑过下拉列表自身也要显示，防止无法点击下拉列表
-                function(){
-                    ('.golist>ul').show();
-                },
-                function(){
-                    ('.golist>ul').hide();
-                }
-        );
-    });
-
-    $(document).ready(function(){
-        $('#featured-area ul').roundabout({
-            easing: 'easeOutInCirc',
-            duration: 600,
-            autoplay:true,
-            autoplayDuration: 3000,
-            autoplayPauseOnHover: true,
-            minScale: 0.7,
-            btnPrev: ".ban_r_btn", // 右按钮
-            btnNext: ".ban_l_btn" // 左按钮
-        });
-
-        //粒子背景
-        $('#particles').particleground({
-            dotColor: '#9d9d9d',
-            lineColor: '#999999'
-        });
-
-    });
-</script>
 </body>
 </html>
