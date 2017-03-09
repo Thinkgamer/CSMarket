@@ -1,5 +1,5 @@
 from django.contrib import admin
-from news.models import cate,News
+from news.models import cate,News,message
 # Register your models here.
 
 class adminCate(admin.ModelAdmin):
@@ -22,5 +22,12 @@ class adminNews(admin.ModelAdmin):
             '/static/js/kindeditor-4.1.10/lang/zh_CN.js',
             '/static/js/kindeditor-4.1.10/config.js',
         )
-
 admin.site.register(News, adminNews)
+
+class adminMessage(admin.ModelAdmin):
+    list_display = ('new_id','father_id','m_time','m_people',)
+    search_fields = ('new_id','father_id','m_content','m_time','m_people',)
+    list_filter = ('father_id','m_people',)
+    ordering = ('-m_time',)
+
+admin.site.register(message,adminMessage)

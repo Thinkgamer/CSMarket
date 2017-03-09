@@ -31,3 +31,18 @@ class News(models.Model):
         db_table = "news_table"
         verbose_name = u'CSM动态'
         verbose_name_plural = u'素材管理'
+
+class message(models.Model):
+    new_id = models.IntegerField(verbose_name='文章id',blank=False)
+    father_id = models.IntegerField(verbose_name='父id',blank=True)
+    m_content=models.TextField(verbose_name='评论内容',blank=False)
+    m_time = models.DateTimeField(verbose_name='评论时间',blank=False)
+    m_people = models.CharField(verbose_name='留言人',max_length=15,blank=False)
+
+    def __str__(self):
+        return self.new_id
+
+    class Meta:
+        db_table = 'message'
+        verbose_name = u'留言'
+        verbose_name_plural = '留言信息'

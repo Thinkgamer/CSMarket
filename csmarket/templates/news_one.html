@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    {{ title }}——CS Market
+    {{ title }}
 {% endblock %}
 
 {% block css %}
@@ -12,7 +12,14 @@
 {% endblock %}
 
 {% block main %}
-<div class="headertop">
+{% if error %}
+    <script language="JavaScript">
+        if(confirm("{{ error }}")){
+            window.location.href="/logre/login/";
+        }
+    </script>
+{% endif %}
+<div class="headertop" id="exp_headertop">
     <ul class="mynav" id="mynav">
         <li><a href="#">服务商库 |</a></li>
         <li><a href="#">需求大厅 |</a></li>
@@ -33,7 +40,12 @@
     <div class="cantent">
         {% autoescape off %}
         <h3>{{ new.new_title }}</h3>
-        <p class="cantent-note"><span>浏览次数：<b>{{ new.new_seenum }}</b></span><span>发布时间：<b>{{ new.new_time }}</b></span><span>发布人：<b>{{ new.new_author }}</b></span></p>
+        <p class="cantent-note">
+            <span>浏览次数：<b>{{ new.new_seenum }}</b></span>
+            <span>发布时间：<b>{{ new.new_time }}</b></span>
+            <span>发布人：<b>{{ new.new_author }}</b></span>
+        </p>
+        <hr style="height: 12px;border: 0;box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);">
         <div class="cantent-main">
             <p>{{ new.new_content }}</p>
         </div>
@@ -42,39 +54,34 @@
     <div class="hot">
         <h3><span>热门推荐:</span></h3>
         <ul>
-            <li><a href="#">*****集群分集群分集群分集群分集群分集群分集群分集群分*****</a></li>
-            <li><a href="#">**********</a></li>
-            <li><a href="#">**********</a></li>
-            <li><a href="#">**********</a></li>
-            <li><a href="#">**********</a></li>
-            <li><a href="#">**********</a></li>
+            {% for hot in hot_list %}
+            <li>浏览次数：{{ hot.new_seenum }}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/news/one/{{ hot.id }}/">{{ hot.new_title }}</a></li>
+            {% endfor %}
         </ul>
 
     </div>
     <div class="talking-send">
         <h3><span>评论区：</span></h3>
-        <form method="post" action="">
+        <form method="post" action="/news/one/{{ new.id }}/">
             <div>
                 <label>请您留言：</label><br>
-                <textarea class="talkings" type="tel" name="talk"></textarea>
+                <textarea class="talkings" type="tel" name="talk" id="talk"></textarea>
             </div>
-            <input class="btn btn-danger fl talking-no" type="button" name="cancel" value="重置内容">
+            <input class="btn btn-danger fl talking-no" type="reset" name="cancel" value="重置内容">
             <input class="btn btn-success fr talking-yes" type="submit" name="submit" value="我要留言">
         </form>
     </div>
     <div class="talking-show">
         <label>留言内容：</label>
         <ul>
+            {% for mess in mess_list %}
             <li>
-                <p><b>用户昵称:</b></p>
-                <p>色部分曾经的部那就是东南风深刻的军力减肥出口就惨绿色的打开vnsjnvzldfv序列看到你发就当你红色部分曾经的部那就是东南风深刻的军力减肥出口就惨绿色的打开vnsjnvzldfv序列看到你发就当你红色部分曾经的部分这句话不对部分曾经的</p>
+                <p><b>用户昵称:{{ mess.m_people }} &nbsp;&nbsp;|&nbsp;&nbsp; 评论时间：{{ mess.m_time }}</b></p>
+                <p>{{ mess.m_content }}</p>
             </li>
             <hr style="box-shadow: 0 0 3px #666666;">
-            <li>
-                <p><b>用户昵称:</b></p>
-                <p>色部分曾经的部那就是东南风深刻的军力减肥出口就惨绿色的打开vnsjnvzldfv序列看到你发就当你红色部分曾经的部那就是东南风深刻的军力减肥出口就惨绿色的打开vnsjnvzldfv序列看到你发就当你红色部分曾经的部分这句话不对部分曾经的</p>
-            </li>
-            <hr style="box-shadow: 0 0 3px #666666;">
+            {% endfor %}
         </ul>
     </div>
 </div>

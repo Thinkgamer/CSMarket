@@ -33,3 +33,7 @@ pymysql.install_as_MySQLdb()
 ---
 #备注
 1：user扩展方式是AbstractUser<br>
+2: 遇到问题 
+>module 'django.views' has no attribute 'static'
+
+解决办法：先把出错的地方注释掉，同步数据库后在解除掉注释

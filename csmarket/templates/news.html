@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    {{ catename }}——CS Market
+    {{ catename }}
 {% endblock %}
 
 {% block css %}
@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block main %}
-<div class="headertop">
+<div class="headertop" id="exp_headertop">
     <ul class="mynav" id="mynav">
         <li><a href="#">服务商库 |</a></li>
         <li><a href="#">需求大厅 |</a></li>
@@ -21,8 +21,8 @@
         <li><a href="#">发布需求 |</a></li>
         <li><a href="#">发布需求 |</a></li>
         {% if csmdongtai %}
-        <li class="now"><a href="#">CSM动态 |</a></li>
-        <li><a href="#">创客故事 </a></li>
+        <li class="now"><a href="/news/all/CSM动态/">CSM动态 |</a></li>
+        <li><a href="/news/all/创客故事/">创客故事 </a></li>
         {% elif chuangke %}
         <li><a href="/news/all/CSM动态/">CSM动态 |</a></li>
         <li class="now"><a href="/news/all/创客故事/">创客故事 </a></li>
@@ -34,7 +34,7 @@
         <ul class="essay-list list-group">
             {% for new in all_new %}
             <li class="list-group-item">
-                <a href="/news/one/{{ new.new_title }}" class="eassy-title">{{ new.new_title }}</a>
+                <a href="/news/one/{{ new.id }}" class="eassy-title">{{ new.new_title }}</a>
                 <span class="label label-default fr showtime">{{ new.new_time }}</span>
             </li>
             {% endfor %}
@@ -50,7 +50,7 @@
             {% endif %}
         </li>
         {% for page in len_list %}
-        <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
+            <li><a href="?page={{ page }}">{{ page }}</a></li>
         {% endfor %}
         <li  class="next">
             {% if all_new.has_next %}

@@ -33,3 +33,14 @@ $(function(){
         }
     );
 });
+
+
+//除了index之外 导航栏固定
+$(window).scroll(function(){
+    var top=$(window).scrollTop();
+    if(top>=58){
+        $("#exp_headertop").addClass("fix");
+        $("#exp_headertop").css({color:"red",top:0});
+    }else{
+        $("#exp_headertop").removeClass("fix");}
+});
