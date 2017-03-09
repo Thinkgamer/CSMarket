@@ -33,13 +33,3 @@ $(function(){
         }
     );
 });
-
-//导航栏固定
-$(window).scroll(function(){
-    var top=$(window).scrollTop();
-    if(top>=502){
-        $("#headertop").addClass("fix");
-        $("#headertop").css({color:"red",top:0});
-    }else{
-        $("#headertop").removeClass("fix");}
-});

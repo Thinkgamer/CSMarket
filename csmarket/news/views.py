@@ -49,6 +49,8 @@ def one(request,newtitle):
         pass
     else:
         new=News.objects.get(new_title=newtitle)
+        new.new_seenum=new.new_seenum+1
+        new.save()
         if new.new_cate_id==1:
             csmdongtai = False;chuangke = True
         elif new.new_cate_id==2:

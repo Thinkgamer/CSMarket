@@ -21,21 +21,23 @@
         <li><a href="#">发布需求 |</a></li>
         <li><a href="#">发布需求 </a></li>
         {% if csmdongtai %}
-        <li class="now"><a href="#">CSM动态 |</a></li>
-        <li><a href="#">创客故事 </a></li>
+        <li class="now"><a href="/news/all/CSM动态/">CSM动态 |</a></li>
+        <li><a href="/news/all/创客故事/">创客故事 </a></li>
         {% elif chuangke %}
-        <li><a href="#">CSM动态 |</a></li>
-        <li class="now"><a href="#">创客故事 </a></li>
+        <li><a href="/news/all/CSM动态/">CSM动态 |</a></li>
+        <li class="now"><a href="/news/all/创客故事/">创客故事 </a></li>
         {% endif %}
     </ul>
 </div>
 <div class="essaydetail-mian">
     <div class="cantent">
+        {% autoescape off %}
         <h3>{{ new.new_title }}</h3>
         <p class="cantent-note"><span>浏览次数：<b>{{ new.new_seenum }}</b></span><span>发布时间：<b>{{ new.new_time }}</b></span><span>发布人：<b>{{ new.new_author }}</b></span></p>
         <div class="cantent-main">
             <p>{{ new.new_content }}</p>
         </div>
+        {% endautoescape %}
     </div>
     <div class="hot">
         <h3><span>热门推荐:</span></h3>
@@ -79,6 +81,6 @@
 {% endblock %}
 <script src="/static/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/indexclass.js"></script>
+<script src="/static/js/common.js"></script>
 </body>
 </html>
