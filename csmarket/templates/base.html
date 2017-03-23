@@ -2,6 +2,8 @@
 <html >
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="/static/img/favicon.ico"/>
+<link rel="bookmark" href="/static/img/favicon.ico"/>
 <title>{% block title %}{% endblock %}</title>
 {% block css %}
 {% endblock %}
@@ -130,7 +132,7 @@
     </div><!--/.header-top-->
      <div class="header-main clearfix">
          <div class="img-size fl">
-         <img class="img-circle" src="/static/img/logo.jpg" >
+             <a href="/index/"><img class="img-circle" src="/static/img/logo.jpg"></a>
          </div>
          <div class="form-size fr">
          <form class="text-center hm-form" role="form">
@@ -158,14 +160,14 @@
     <div class="footer_menus">
         <ul>
             <li>新手指南</li>
-            <li><a>登录/注册</a></li>
+            <li><a href="/logre/login/">登录/注册</a></li>
             <li><a>个人身份验证</a></li>
             <li><a>规则中心</a></li>
         </ul>
         <ul>
             <li>我是雇主</li>
             <li><a>发布需求</a></li>
-            <li><a>雇主故事</a></li>
+            <li><a href="/news/all/创客故事/">雇主故事</a></li>
             <li><a>选择服务商</a></li>
             <li><a>个人案例</a></li>
         </ul>
@@ -173,7 +175,7 @@
         <ul>
             <li>我是服务商</li>
             <li><a>发布服务</a></li>
-            <li><a>服务商故事</a></li>
+            <li><a href="/news/all/创客故事/">服务商故事</a></li>
             <li><a>浏览需求</a></li>
             <li><a>个人案例</a></li>
         </ul>

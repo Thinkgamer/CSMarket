@@ -182,61 +182,27 @@
             <div class="market-cantainer">
                 <div class="csm-title"><h3>CS Market动态   &nbsp;&nbsp;<a href="/news/all/CSM动态/"> <span>更多<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></span></a></h3></div>
                 <ul class="csm-content">
+                    {% for csm in csm_list %}
                     <li>
-                        <p><b>Title:</b>dsfdfg</p>
-                        <p><b>内容:</b>健康的说法客服部吗，吓死你川端康成你看见的生成电视剧.....</p>
-                        <p class="csm-time">2016-12-02</p>
+                        <p><b>Title:&nbsp;</b><a href="/news/one/{{ csm.id }}">{{ csm.new_title }}</a></p>
+                        <p><b>内容:</b>{{ csm.new_main }}</p>
+                        <p class="csm-time">{{ csm.new_time }}</p>
                     </li>
-                    <li>
-                        <p><b>Title:</b>dsfdfg</p>
-                        <p><b>内容:</b>健康的说法客服部吗，吓死你川端康成你看见的生成电视剧.....</p>
-                        <p class="csm-time">2016-12-02</p>
-                    </li>
-                    <li>
-                        <p><b>Title:</b>dsfdfg</p>
-                        <p><b>内容:</b>健康的说法客服部吗，吓死你川端康成你看见的生成电视剧.....</p>
-                        <p class="csm-time">2016-12-02</p>
-                    </li>
-                    <li>
-                        <p><b>Title:</b>dsfdfg</p>
-                        <p><b>内容:</b>健康的说法客服部吗，吓死你川端康成你看见的生成电视剧.....</p>
-                        <p class="csm-time">2016-12-02</p>
-                    </li>
-                    <li>
-                        <p><b>Title:</b>dsfdfg</p>
-                        <p><b>内容:</b>健康的说法客服部吗，吓死你川端康成你看见的生成电视剧.....</p>
-                        <p class="csm-time">2016-12-02</p>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="chuangke-cantainer">
                 <div class="csm-title"><h3>创客故事   &nbsp;&nbsp;<a href="/news/all/创客故事/"> <span>更多<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></span></a></h3></div>
                 <ul class="csm-content">
+                    {% autoescape off %}
+                    {% for ck in ck_list %}
                     <li>
-                        <p><b>Title:</b>dsfdfg</p>
-                        <p><b>内容:</b>健康的说法客服部吗，吓死你川端康成你看见的生成电视剧.....</p>
-                        <p class="csm-time">2016-12-02</p>
+                        <p><b>Title:&nbsp;</b><a href="/news/one/{{ ck.id }}">{{ ck.new_title }}</a></p>
+                        <p><b>内容:</b>{{ ck.new_main }}</p>
+                        <p class="csm-time">{{ ck.new_time }}</p>
                     </li>
-                    <li>
-                        <p><b>Title:</b>dsfdfg</p>
-                        <p><b>内容:</b>健康的说法客服部吗，吓死你川端康成你看见的生成电视剧.....</p>
-                        <p class="csm-time">2016-12-02</p>
-                    </li>
-                    <li>
-                        <p><b>Title:</b>dsfdfg</p>
-                        <p><b>内容:</b>健康的说法客服部吗，吓死你川端康成你看见的生成电视剧.....</p>
-                        <p class="csm-time">2016-12-02</p>
-                    </li>
-                    <li>
-                        <p><b>Title:</b>dsfdfg</p>
-                        <p><b>内容:</b>健康的说法客服部吗，吓死你川端康成你看见的生成电视剧.....</p>
-                        <p class="csm-time">2016-12-02</p>
-                    </li>
-                    <li>
-                        <p><b>Title:</b>dsfdfg</p>
-                        <p><b>内容:</b>健康的说法客服部吗，吓死你川端康成你看见的生成电视剧.....</p>
-                        <p class="csm-time">2016-12-02</p>
-                    </li>
+                    {% endfor %}
+                    {% endautoescape %}
                 </ul>
             </div>
             <div class="case-cantainer">

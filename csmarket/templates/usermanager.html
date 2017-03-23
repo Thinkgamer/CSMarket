@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
 <head>
+    <link rel="shortcut icon" href="/static/img/favicon.ico"/>
+    <link rel="bookmark" href="/static/img/favicon.ico"/>
     <meta charset="utf-8">
     {% if tag %}
         <title>用户详细信息</title>
@@ -80,7 +82,7 @@
             {% endif %}
         </li>
         {% for page in len_list %}
-        <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
+        <li><a href="?page={{ page }}">{{ page }}</a></li>
         {% endfor %}
         <li  class="next">
             {% if all_user.has_next %}

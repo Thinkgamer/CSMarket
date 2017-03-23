@@ -56,9 +56,9 @@ def one(request,newid):
     elif new.new_cate_id == 2:
         csmdongtai = True;chuangke = False
     #获取评论信息
-    mess_list = message.objects.filter(new_id=newid)
-    #热门推荐列表
-    hot_list = News.objects.all().order_by('-new_seenum')[:5]
+    mess_list = message.objects.filter(new_id=newid).order_by("-m_time")
+    #热门推荐列表  __lt  实现不等于
+    hot_list = News.objects.filter(id__lt = newid).order_by('-new_seenum')[:5]
     #是否是post请求
     if request.method=='POST':
         #如果用户已经登录，存储评论信息

@@ -23,7 +23,10 @@ def login(request):
             now_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
             user.last_login=now_time
             user.save()
-            return HttpResponseRedirect(referer)
+            try:
+                return HttpResponseRedirect(referer)
+            except:
+                return HttpResponseRedirect("/index/")
         else:
             return render_to_response('login.html',{
                 'error': '邮箱或者密码不正确',

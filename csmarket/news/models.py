@@ -22,6 +22,7 @@ class News(models.Model):
     new_time = models.DateTimeField(verbose_name='发布时间')
     new_seenum = models.IntegerField(verbose_name='浏览次数',default=0)
     new_cate = models.ForeignKey(cate,verbose_name='类别',blank=False)
+    new_main = models.TextField(verbose_name="摘要",blank=True,max_length=100)
     new_content = models.TextField(verbose_name='内容',blank=False)
 
     def __str__(self):
