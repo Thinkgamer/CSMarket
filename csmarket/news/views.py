@@ -1,6 +1,6 @@
 #-*- coding: utf-8-*-
 from django.shortcuts import render,render_to_response
-from news.models import News,cate,message
+from news.models import News,cate,Words
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.decorators.csrf import csrf_exempt
 import time
@@ -56,7 +56,7 @@ def one(request,newid):
     elif new.new_cate_id == 2:
         csmdongtai = True;chuangke = False
     #获取评论信息
-    mess_list = message.objects.filter(new_id=newid).order_by("-m_time")
+    mess_list = Words.objects.filter(new_id=newid).order_by("-m_time")
     #热门推荐列表  __lt  实现不等于
     hot_list = News.objects.filter(id__lt = newid).order_by('-new_seenum')[:5]
     #是否是post请求
@@ -65,7 +65,7 @@ def one(request,newid):
         if user_name:
             content = request.POST.get('talk')
             now_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
-            mess = message(new_id=newid,m_content=content,father_id=-1,m_time=now_time,m_people=user_name)
+            mess = Words(new_id=newid,m_content=content,father_id=-1,m_time=now_time,m_people=user_name)
             mess.save()
             return render_to_response('news_one.html', {
                 'user_name': user_name,

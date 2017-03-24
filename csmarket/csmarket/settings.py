@@ -1,3 +1,4 @@
+#-*-coding: utf-8-*-
 """
 Django settings for csmarket project.
 
@@ -39,9 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'logre',
-    'manager',
-    'news',
+    'logre',     #登录注册
+    'manager',   #用户审核管理
+    'news',     #创客故事，  CSM动态
+    'message',  #代办中心，需求和服务类
 ]
 
 MIDDLEWARE = [

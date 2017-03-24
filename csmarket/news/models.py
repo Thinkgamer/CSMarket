@@ -12,9 +12,9 @@ class cate(models.Model):
         return self.cate_name
 
     class Meta:
-        db_table = "cate_table"
-        verbose_name = u'类别'
-        verbose_name_plural = u'类别管理'
+        db_table = "cate_news_table"
+        verbose_name = u'动态类别'
+        verbose_name_plural = u'动态类别管理'
 
 class News(models.Model):
     new_title = models.CharField(verbose_name='标题', max_length=30, blank=False)
@@ -33,7 +33,7 @@ class News(models.Model):
         verbose_name = u'CSM动态'
         verbose_name_plural = u'素材管理'
 
-class message(models.Model):
+class Words(models.Model):
     new_id = models.IntegerField(verbose_name='文章id',blank=False)
     father_id = models.IntegerField(verbose_name='父id',blank=True)
     m_content=models.TextField(verbose_name='评论内容',blank=False)
@@ -44,6 +44,6 @@ class message(models.Model):
         return self.new_id
 
     class Meta:
-        db_table = 'message'
+        db_table = 'words_table'
         verbose_name = u'留言'
         verbose_name_plural = '留言信息'

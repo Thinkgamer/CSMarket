@@ -1,5 +1,5 @@
 from django.contrib import admin
-from news.models import cate,News,message
+from news.models import cate,News,Words
 # Register your models here.
 
 class adminCate(admin.ModelAdmin):
@@ -30,4 +30,4 @@ class adminMessage(admin.ModelAdmin):
     list_filter = ('father_id','m_people',)
     ordering = ('-m_time',)
 
-admin.site.register(message,adminMessage)
+admin.site.register(Words,adminMessage)
