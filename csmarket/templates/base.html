@@ -7,6 +7,12 @@
 <title>{% block title %}{% endblock %}</title>
 {% block css %}
 {% endblock %}
+<script type="application/javascript">
+    {% if error %}
+    if(confirm("{{ error }}"))
+        window.location.href="/logre/login/";
+    {% endif %}
+</script>
 </head>
 <body>
 <div id="header" class="clearfix">
@@ -38,10 +44,10 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人中心<span class="caret">
                             </span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="personalcheck.html">个人中心</a></li>
-                                <li><a href="djangomanager.html">我的发布</a></li>
-                                <li><a href="#">我的足迹</a></li>
-                                <li><a href="#">收藏中心</a></li>
+                                <li><a href="">个人中心</a></li>
+                                <li><a href="">我的发布</a></li>
+                                <li><a href="">我的足迹</a></li>
+                                <li><a href="">收藏中心</a></li>
                                 <li><a href="#">订单中心</a></li>
                             </ul>
                         </li>
@@ -92,20 +98,20 @@
                                 </ul>
                                 <ul>
                                     <li>新手指南</li>
-                                    <li><a>登录与注册</a></li>
-                                    <li><a>个人身份认证</a></li>
+                                    <li><a href="/logre/login/">登录与注册</a></li>
+                                    <li><a href="/logre/prefect/">个人身份认证</a></li>
                                     <li><a>规则中心</a></li>
                                 </ul>
                                 <ul>
                                     <li>我是雇主</li>
-                                    <li><a>发布服务</a></li>
-                                    <li><a>服务商故事</a></li>
-                                    <li><a>浏览需求</a></li>
+                                    <li><a href="/message/postService/需求/">发布需求</a></li>
+                                    <li><a>雇主故事</a></li>
+                                    <li><a>浏览服务</a></li>
                                     <li><a>个人案例</a></li>
                                 </ul>
                                 <ul>
                                     <li>我是服务商</li>
-                                    <li><a>发布服务</a></li>
+                                    <li><a  href="/message/postService/服务/">发布服务</a></li>
                                     <li><a>服务商故事</a></li>
                                     <li><a>浏览需求</a></li>
                                     <li><a>个人案例</a></li>
@@ -161,12 +167,12 @@
         <ul>
             <li>新手指南</li>
             <li><a href="/logre/login/">登录/注册</a></li>
-            <li><a>个人身份验证</a></li>
+            <li><a href="/logre/prefect/">个人身份认证</a></li>
             <li><a>规则中心</a></li>
         </ul>
         <ul>
             <li>我是雇主</li>
-            <li><a>发布需求</a></li>
+            <li><a href="/message/postService/需求/">发布需求</a></li>
             <li><a href="/news/all/创客故事/">雇主故事</a></li>
             <li><a>选择服务商</a></li>
             <li><a>个人案例</a></li>
@@ -174,7 +180,7 @@
 
         <ul>
             <li>我是服务商</li>
-            <li><a>发布服务</a></li>
+            <li><a href="/message/postService/服务/">发布服务</a></li>
             <li><a href="/news/all/创客故事/">服务商故事</a></li>
             <li><a>浏览需求</a></li>
             <li><a>个人案例</a></li>
@@ -188,7 +194,7 @@
         <ul>
             <li>联系方式</li>
             <li><a href="#">邮箱：thinkgamer@163.com</a></li>
-            <li><a href="">QQ:1839882792</a></li>
+            <li><a href="">QQ &nbsp;：1839882792</a></li>
             <li><a>微信：gyt13342445911</a></li>
             <li><a>地址：道义南大街37号</a></li>
         </ul>

@@ -45,5 +45,5 @@ class Words(models.Model):
 
     class Meta:
         db_table = 'words_table'
-        verbose_name = u'留言'
-        verbose_name_plural = '留言信息'
+        verbose_name = u'创客动态留言'
+        verbose_name_plural = '创客动态留言'

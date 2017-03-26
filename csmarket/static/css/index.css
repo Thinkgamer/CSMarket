@@ -37,7 +37,7 @@
     overflow: hidden;
 }
 /*旋转木马效果css*/
-#featured-area{height:380px; margin:0 auto 0 auto;position:relative;}
+#featured-area{height:380px;position:relative;}
 .roundabout-holder{list-style:none;height:380px;margin:0px auto;}
 .roundabout-moveable-item{font-size:12px!important;height:380px;cursor:pointer;padding:5px;border:1px solid #aaaaaa;-webkit-border-radius:5px;-moz-border-radius:5px;background:#f9f9f9;}
 .roundabout-moveable-item img{height:100%;width:100%;background-color:#FFFFFF;margin:0;}
@@ -85,16 +85,15 @@
 
 
 /*footer部分*/
-#footer{ background:#000; overflow:hidden;  height:270px;min-width: 600px;}
+#footer{ background:#000; overflow:hidden;  height:230px;min-width: 600px;}
 .footer_menus{ width:100%; color:#fff; overflow:hidden; margin-top:40px;}
 .footer_menus ul{ width:11%; float:left; list-style:none; margin-left:3%; }
 .footer_menus ul:nth-child(5){width: 16%;}
-.footer_menus ul{ width:10%; float:left; list-style:none; margin-left:5%; }
 .footer_menus ul li{ color:#fff; margin-top:8px; font-size:15px; font-weight:bold;}
 .footer_menus ul li a{ text-indent:0em; color:#fff; font-size:13px; font-weight:400;}
 .footer_menus ul li a:hover{ text-decoration:none;}
 .footer_code{ text-align:center; margin-top:10px; margin-right:5%;}
-.footer_code img{ width:133px; height:132px;}
+.footer_code img{ width:130px; height:132px;}
 .footer_copyright{ width:100%;  overflow:hidden; vertical-align:middle; color:#fff; font-size:13px; text-align:center;
     margin-top:27px; margin-bottom: 20px;}
 
@@ -105,7 +104,7 @@
     #featured-area{width:695px;}
     .roundabout-holder{width: 200px;}
     .roundabout-moveable-item{width: 500px;}
-    #particles{height: 440px;}
+    #particles{height: 400px;}
 
     .note-cantainer{right: 0;top: 170px;}
     .content{width: 100%}
@@ -119,7 +118,7 @@
     #featured-area{width:595px; margin: auto;}
     .roundabout-holder{width: 200px;}
     .roundabout-moveable-item{width: 400px;}
-    #particles{height: 440px;}
+    #particles{height: 400px;}
 
     .note-cantainer{display: none;}
     .content,.csm-cantainer{width:590px;}
@@ -133,7 +132,7 @@
     #featured-area{width:595px;}
     .roundabout-holder{width: 200px;}
     .roundabout-moveable-item{width: 350px;}
-    #particles{height: 440px;}
+    #particles{height: 400px;}
 
     .note-cantainer{display: none}
     .content,.csm-cantainer{width:590px;}

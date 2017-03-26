@@ -1,7 +1,4 @@
 /**
- * Created by thinkgamer on 17-3-5.
- */
-/**
  * Created by Administrator on 2017-03-05.
  */
 $(function(){
@@ -32,15 +29,13 @@ $(function(){
             ('.golist>ul').hide();
         }
     );
-});
-
-
-//除了index之外 导航栏固定
-$(window).scroll(function(){
-    var top=$(window).scrollTop();
-    if(top>=58){
-        $("#exp_headertop").addClass("fix");
-        $("#exp_headertop").css({color:"red",top:0});
-    }else{
-        $("#exp_headertop").removeClass("fix");}
-});
+    //导航栏固定
+    $(window).scroll(function(){
+        var top=$(window).scrollTop();
+        if(top>=58){
+            $("#expheadertop").addClass("fix");
+            $("#expheadertop").css({color:"red",top:0});
+        }else{
+            $("#expheadertop").removeClass("fix");}
+    });
+})

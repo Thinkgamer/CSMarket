@@ -3,12 +3,52 @@
 li{ list-style:none;}
 .fl{ float:left;}
 .fr{ float:right;}
-/*header部分*/
-.hm-form{ margin-top:10px;  height: 90px; padding-top: 12px;}
-.hm-addon{ background-color:#FFF; height:45px; width:66px; padding:0px; text-align:center; border-right:none;}
-.hm-addon select{ border:0px; padding:4px; margin:0px; text-align:center;height:45px; width:66px;}
-.hm-seache{height:47px; min-width:360px; border-left:none; border-right:none;}
-.hm-soso{ background-color:#FFF; height:44px; width:66px; padding:0px; text-align:center;}
-.hm-tubiao{ height: 50px; margin-top:20px; font-size: 30px; background: #ffffff;}
-.hm-divtu{height: 100px; width: 70px; overflow: hidden;}
-.hm-divtu span{ text-align: center;margin-left: 15px;}
+a{color: #9d9d9d;}
+a:hover,a:visited,a:link{text-decoration:none;}
+ul{ margin:0px; padding:0px; list-style-type:none;}
+/*
+CSS Reset
+http://meyerweb.com/eric/tools/css/reset/
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header,  menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}

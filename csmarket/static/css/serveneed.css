@@ -1,0 +1,7 @@
+/*post-serve.html  style*/
+.service-cantainer{width: 80%; margin:auto;margin-top: 30px; overflow: hidden;min-width: 600px;}
+.service-title{border-bottom: 1px solid #999999;}
+.service-title h3{font-size: 20px; width: 90px; border-bottom:1px solid #d9534f;}
+.stitle{font-size: 22px;}
+.group-con{overflow: hidden; margin-top: 20px;}
+.group-con textarea{min-height: 300px; font-size: 20px;}

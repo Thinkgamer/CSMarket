@@ -32,20 +32,20 @@ class Message(models.Model):
 
     class Meta:
         db_table = "message_table"
-        verbose_name = u'交易信息'
-        verbose_name_plural = u'交易信息'
+        verbose_name = u'素材管理'
+        verbose_name_plural = u'素材管理'
 
-# class Words(models.Model):
-#     new_id = models.IntegerField(verbose_name='文章id',blank=False)
-#     father_id = models.IntegerField(verbose_name='父id',blank=True)
-#     m_content=models.TextField(verbose_name='评论内容',blank=False)
-#     m_time = models.DateTimeField(verbose_name='评论时间',blank=False)
-#     m_people = models.CharField(verbose_name='留言人',max_length=15,blank=False)
-#
-#     def __str__(self):
-#         return self.new_id
-#
-#     class Meta:
-#         db_table = 'words_table'
-#         verbose_name = u'留言'
-#         verbose_name_plural = '留言信息'
+class Mwords(models.Model):
+    mess_id = models.IntegerField(verbose_name='服务需求id',blank=False)
+    father_id = models.IntegerField(verbose_name='父id',blank=True)
+    mw_content=models.TextField(verbose_name='评论内容',blank=False)
+    mw_time = models.DateTimeField(verbose_name='评论时间',blank=False)
+    mw_people = models.CharField(verbose_name='留言人',max_length=15,blank=False)
+
+    def __str__(self):
+        return self.mess_id
+
+    class Meta:
+        db_table = 'message_words_table'
+        verbose_name = u'服务需求留言'
+        verbose_name_plural = '服务需求留言'
