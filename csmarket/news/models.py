@@ -41,7 +41,7 @@ class Words(models.Model):
     m_people = models.CharField(verbose_name='留言人',max_length=15,blank=False)
 
     def __str__(self):
-        return self.new_id
+        return str(self.new_id)
 
     class Meta:
         db_table = 'words_table'

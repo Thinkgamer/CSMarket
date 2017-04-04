@@ -21,8 +21,8 @@ from django import views
 from django.conf import settings
 
 urlpatterns = [
-    #url(r'^admin/uploads/(?P<dir_name>[^/]+)$', upload_image, name='upload_image'),
-    #url(r"^uploads/(?P<path>.*)$", views.static.serve, {"document_root": settings.MEDIA_ROOT, }),
+    url(r'^admin/uploads/(?P<dir_name>[^/]+)$', upload_image, name='upload_image'),
+    url(r"^uploads/(?P<path>.*)$", views.static.serve, {"document_root": settings.MEDIA_ROOT, }),
 
     url(r'^admin/', admin.site.urls),
     url(r'^logre/', include('logre.urls')),

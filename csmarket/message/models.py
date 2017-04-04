@@ -43,7 +43,7 @@ class Mwords(models.Model):
     mw_people = models.CharField(verbose_name='留言人',max_length=15,blank=False)
 
     def __str__(self):
-        return self.mess_id
+        return str(self.mess_id)
 
     class Meta:
         db_table = 'message_words_table'
