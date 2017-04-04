@@ -19,7 +19,7 @@
         }
     </script>
 {% endif %}
-<div class="headertop" id="exp_headertop">
+<div class="headertop" id="expheadertop">
     <ul class="mynav" id="mynav">
         <li><a href="#">服务商库 |</a></li>
         <li><a href="#">需求大厅 |</a></li>
@@ -39,7 +39,7 @@
 <div class="essaydetail-mian">
     <div class="cantent">
         {% autoescape off %}
-        <h3>{{ new.new_title }}</h3>
+            <h3>{{ new.new_title }}</h3><br>
         <p class="cantent-note">
             <span>浏览次数：<b>{{ new.new_seenum }}</b></span>
             <span>发布时间：<b>{{ new.new_time }}</b></span>
@@ -50,9 +50,9 @@
             <p>{{ new.new_content }}</p>
         </div>
         {% endautoescape %}
-    </div>
+    </div><br>
     <div class="hot">
-        <h3><span>热门推荐:</span></h3>
+        <h3><span>热门推荐:</span></h3><br>
         <ul>
             {% for hot in hot_list %}
             <li>浏览次数：{{ hot.new_seenum }}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
@@ -60,12 +60,12 @@
             {% endfor %}
         </ul>
 
-    </div>
+    </div><br>
     <div class="talking-send">
-        <h3><span>评论区：</span></h3>
+        <h3><span>评论区：</span></h3><br>
         <form method="post" action="/news/one/{{ new.id }}/">
             <div>
-                <label>请您留言：</label><br>
+                <label>请您留言：</label><br><br>
                 <textarea class="talkings" type="tel" name="talk" id="talk"></textarea>
             </div><br>
             <input class="btn btn-danger fl talking-no" type="reset" name="cancel" value="重置内容">
@@ -73,12 +73,12 @@
         </form>
     </div>
     <div class="talking-show">
-        <label>留言内容：</label>
+        <label>留言版：</label><br><br>
         <ul>
             {% for mess in mess_list %}
             <li>
-                <p><b>用户昵称:{{ mess.m_people }} &nbsp;&nbsp;|&nbsp;&nbsp; 评论时间：{{ mess.m_time }}</b></p>
-                <p>{{ mess.m_content }}</p>
+                <p><b>用户昵称:{{ mess.m_people }} &nbsp;&nbsp;|&nbsp;&nbsp; 评论时间：{{ mess.m_time }}</b></p><br>
+                <p>内容：{{ mess.m_content }}</p>
             </li>
             <hr style="box-shadow: 0 0 3px #666666;">
             {% endfor %}
@@ -89,5 +89,3 @@
 <script src="/static/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
 <script src="/static/js/common.js"></script>
-</body>
-</html>

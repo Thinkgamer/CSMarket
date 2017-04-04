@@ -13,9 +13,9 @@ admin.site.register(Cate, adminCate)
 
 class adminMess(admin.ModelAdmin):
     # mess_title  mess_author  mess_time  mess_cate  mess_price  mess_seenum  mess_hezuo mess_ifsuccess
-    list_display = ('mess_title', 'mess_author', 'mess_time', 'mess_cate', 'mess_price', 'mess_seenum','mess_hezuo', 'mess_ifsuccess',)
-    search_fields = ('mess_title', 'mess_author', 'mess_time', 'mess_cate', 'mess_price', 'mess_seenum','mess_hezuo', 'mess_ifsuccess',)
-    list_filter = ('mess_cate', 'mess_ifsuccess',)
+    list_display = ('mess_title', 'mess_author', 'mess_time', 'mess_cate', 'mess_price', 'mess_xuorfu', 'mess_seenum','mess_hezuo', 'mess_ifsuccess',)
+    search_fields = ('mess_title', 'mess_author', 'mess_time', 'mess_cate', 'mess_price', 'mess_xuorfu', 'mess_seenum','mess_hezuo', 'mess_ifsuccess',)
+    list_filter = ('mess_cate', 'mess_ifsuccess', 'mess_xuorfu',)
     ordering = ('-mess_time',)
 
     class Media:

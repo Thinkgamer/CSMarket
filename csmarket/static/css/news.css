@@ -14,6 +14,11 @@
 .showtime{
     margin-right: 20px;
 }
+.list-group-item{
+	border:none;
+	border-bottom:1px solid #999999;
+	margin-bottom:0;
+}
 
 
 /*文本内容页样式*/

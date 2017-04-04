@@ -23,6 +23,7 @@ class Message(models.Model):
     mess_time = models.DateTimeField(verbose_name='发布时间')
     mess_cate = models.ForeignKey(Cate, verbose_name='类别', blank=False)
     mess_price = models.FloatField(verbose_name='交易报价',default=0.0)
+    mess_xuorfu = models.CharField(verbose_name='需求or服务',max_length=2,default=None)
     mess_seenum = models.IntegerField(verbose_name='浏览次数', default=0)
     mess_hezuo = models.CharField(verbose_name='合作方', max_length=15, blank=True)
     mess_ifsuccess = models.BooleanField(verbose_name='交易是否成功',default=False)

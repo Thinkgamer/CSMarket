@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/static/css/serveneed.css">
 {% endblock %}
 {% block main %}
-<div class="headertop">
+<div class="headertop", id="expheadertop">
     <ul class="mynav" id="mynav">
         <li><a href="#">服务商库 |</a></li>
         <li><a href="#">需求大厅 |</a></li>
@@ -84,7 +84,9 @@
                     <div class="group-con">
                         <label for="inputmiaoshu" class="control-label  col-sm-offset-1  col-sm-2 stitle">描述</label>
                         <div class="col-sm-7">
-                            <textarea class="form-control" name="miaoshu" id="inputmiaoshu" ></textarea>
+                            <br>
+                            <input class="btn btn-danger fl talking-no" type="button" name="cancel" value="重置内容">
+                            <input class="btn btn-success fr talking-yes" type="submit" name="submit" value="我要留言">
                         </div>
                     </div>
                 </div>
