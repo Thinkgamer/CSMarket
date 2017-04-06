@@ -84,7 +84,10 @@ def register(request):
 
 def logout(request):
     auth_logout(request)
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    try:
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    except:
+        return HttpResponseRedirect("/")
 
 #完善个人信息
 @csrf_exempt

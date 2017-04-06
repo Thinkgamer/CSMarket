@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate
 from django.views.decorators.csrf import csrf_exempt
 from message.models import Message,Cate,Mwords
 import time
+from django.core.files.storage import FileSystemStorage
 # Create your views here.
 
 #发布需求/服务
@@ -11,13 +12,18 @@ import time
 def postService(request,cate):
     if request.method == 'POST':
         title = request.POST.get('biaoti')
-        image = request.POST.get('fengmian')
+        #保存图片，以url形式存储到数据库中
+        image = request.FILES["fengmian"]
+        fs = FileSystemStorage()
+        filename = fs.save("fengmian/"+image.name, image)
+        uploaded_file_url = fs.url(filename)
+
         leibie = request.POST.get('leibie')
         price = request.POST.get('baojia')
         miaoshu = request.POST.get('miaoshu')
 
         now_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
-        mess = Message(mess_title=title,mess_image=image,mess_author=request.user,mess_time=now_time,\
+        mess = Message(mess_title=title,mess_image=uploaded_file_url,mess_author=request.user,mess_time=now_time,\
                        mess_xuorfu=cate,mess_price=price,mess_seenum=0,mess_content=miaoshu)
         mess.mess_cate_id=Cate.objects.get(cate_name=leibie).cate_num
         mess.save()

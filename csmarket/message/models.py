@@ -18,7 +18,7 @@ class Cate(models.Model):
 
 class Message(models.Model):
     mess_title = models.CharField(verbose_name='标题', max_length=30, blank=False)
-    mess_image = models.ImageField(verbose_name='图像信息',height_field=100,width_field=100)
+    mess_image = models.CharField(verbose_name='图像信息',max_length=100,blank=True)
     mess_author = models.CharField(verbose_name='发布人', max_length=15, blank=False)
     mess_time = models.DateTimeField(verbose_name='发布时间')
     mess_cate = models.ForeignKey(Cate, verbose_name='类别', blank=False)
