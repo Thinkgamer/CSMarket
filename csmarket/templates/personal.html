@@ -8,32 +8,33 @@
 {% block main %}
 <div class="headertop" id="expheadertop">
     <ul class="mynav" id="mynav">
-        <li class="now"><a href="#">服务商库 |</a></li>
+        <li><a href="#">服务商库 |</a></li>
         <li><a href="#">需求大厅 |</a></li>
         <li><a href="#">代办中心 |</a></li>
         <li><a href="#">CyanScikit自营 |</a></li>
-        <li><a href="#">发布服务 |</a></li>
-        <li><a href="#">发布需求 |</a></li>
-        <li><a href="#">CSM动态 |</a></li>
-        <li><a href="#">创客故事 </a></li>
+        <li><a href="/message/postService/服务/">发布服务 |</a></li>
+        <li><a href="/message/postService/需求/">发布需求 |</a></li>
+        <li><a href="/news/all/CSM动态/">CSM动态 |</a></li>
+        <li><a href="/news/all/创客故事/">创客故事 </a></li>
     </ul>
 </div>
 
 <div class="personal-cantainer">  <!--此处为本页面主要部分-->
-     <div class="psl-top">
-         <img src="/static/img/logo.jpg" alt="头像">
-         <ul>
-             <li><span>Thinkgamer</span></li>
-             <li><span>擅长：</span>web开发 | 文案开发</li>
-             <li><span>宣言：</span>最好的我们，最好的服务！</li>
-             <li><span>学校：</span>沈阳航空航天大学</li>
-         </ul>
-         <div>
-             <button href="">发布需求</button>
-             <button href="">发布服务</button>
-             <button href="">紧急代办</button>
+    <div class="psl-top">
+        <img src="/static/img/logo.jpg" alt="头像">
+        <ul>
+            <li><span>Thinkgamer</span></li><br/>
+            <li><span>擅长：</span>web开发 | 文案开发</li><br/>
+            <li><span>宣言：</span>最好的我们，最好的服务！</li><br/>
+            <li><span>学校：</span>沈阳航空航天大学</li><br/><br/>
+        </ul>
+
+        <div>
+             <a class="btn btn-success" href="/message/postService/需求/">发布需求</a><br/><br/>
+             <a class="btn btn-success" href="/message/postService/服务/">发布服务</a><br/><br/>
+             <a class="btn btn-success" href="">紧急代办</a>
          </div>
-     </div>
+    </div>
     <div class="psl-main">
         <div class="psl-main-left">
             <div class="left-thing">
@@ -45,6 +46,24 @@
                 <div class="thing-con">
                     <div>
                         <ul>
+                            <li>                                                                <!--此处循环输出我的需求-->
+                                <img src="/static/img/logo.jpg" alt="商品图片">
+                                <ul>
+                                    <li><span>标题：</span>新的打算</li>
+                                    <li><span>价格：</span>99999</li>
+                                    <li><span>服务类别：</span>web开发</li>
+                                </ul>
+                                <a href="/message/oneService/">详细信息</a>
+                            </li>
+                            <li>                                                                <!--此处循环输出我的需求-->
+                                <img src="/static/img/logo.jpg" alt="商品图片">
+                                <ul>
+                                    <li><span>标题：</span>新的打算</li>
+                                    <li><span>价格：</span>99999</li>
+                                    <li><span>服务类别：</span>web开发</li>
+                                </ul>
+                                <a href="/message/oneService/">详细信息</a>
+                            </li>
                             <li>                                                                <!--此处循环输出我的需求-->
                                 <img src="/static/img/logo.jpg" alt="商品图片">
                                 <ul>
@@ -138,8 +157,28 @@
                 <h3>最近浏览</h3>
                 <ol class="recent-watch">
                     <li>                                                                     <!--循环输出最近浏览的图片-->
-                        <img src="/static/img/logo.jpg" alt="商品图片">
-                        <p>hjkdhfiuhwj</p>
+                        <img src="/static/img/logo.jpg" alt="商品图片"><br><br>
+                        <p><a href="">web前段</a></p>
+                    </li>
+                    <li>                                                                     <!--循环输出最近浏览的图片-->
+                        <img src="/static/img/logo.jpg" alt="商品图片"><br><br>
+                        <p><a href="">web前段</a></p>
+                    </li>
+                    <li>                                                                     <!--循环输出最近浏览的图片-->
+                        <img src="/static/img/logo.jpg" alt="商品图片"><br><br>
+                        <p><a href="">web前段</a></p>
+                    </li>
+                    <li>                                                                     <!--循环输出最近浏览的图片-->
+                        <img src="/static/img/logo.jpg" alt="商品图片"><br><br>
+                        <p><a href="">web前段</a></p>
+                    </li>
+                    <li>                                                                     <!--循环输出最近浏览的图片-->
+                        <img src="/static/img/logo.jpg" alt="商品图片"><br><br>
+                        <p><a href="">web前段</a></p>
+                    </li>
+                    <li>                                                                     <!--循环输出最近浏览的图片-->
+                        <img src="/static/img/logo.jpg" alt="商品图片"><br><br>
+                        <p><a href="">web前段</a></p>
                     </li>
                 </ol>
             </div>
