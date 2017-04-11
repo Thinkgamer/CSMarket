@@ -52,3 +52,18 @@ def editService(request,cate):
         'cate': cate,
         'flag': 1 if cate == "服务" else 0,
     })
+
+#查看单个需求或者服务
+def oneService(request):
+
+    return render_to_response('services_one.html',{
+
+    })
+
+
+#查看服务商库/需求大厅/代办中心
+def allService(request):
+
+    return render_to_response('supmarket.html',{
+
+    })

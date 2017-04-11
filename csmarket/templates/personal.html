@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% block title %}个人中心 {% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="/static/css/com.css">
+    <link rel="stylesheet" href="/static/css/personal.css">
+{% endblock %}
+
+{% block main %}
+<div class="headertop" id="expheadertop">
+    <ul class="mynav" id="mynav">
+        <li class="now"><a href="#">服务商库 |</a></li>
+        <li><a href="#">需求大厅 |</a></li>
+        <li><a href="#">代办中心 |</a></li>
+        <li><a href="#">CyanScikit自营 |</a></li>
+        <li><a href="#">发布服务 |</a></li>
+        <li><a href="#">发布需求 |</a></li>
+        <li><a href="#">CSM动态 |</a></li>
+        <li><a href="#">创客故事 </a></li>
+    </ul>
+</div>
+
+<div class="personal-cantainer">  <!--此处为本页面主要部分-->
+     <div class="psl-top">
+         <img src="/static/img/logo.jpg" alt="头像">
+         <ul>
+             <li><span>Thinkgamer</span></li>
+             <li><span>擅长：</span>web开发 | 文案开发</li>
+             <li><span>宣言：</span>最好的我们，最好的服务！</li>
+             <li><span>学校：</span>沈阳航空航天大学</li>
+         </ul>
+         <div>
+             <button href="">发布需求</button>
+             <button href="">发布服务</button>
+             <button href="">紧急代办</button>
+         </div>
+     </div>
+    <div class="psl-main">
+        <div class="psl-main-left">
+            <div class="left-thing">
+                <ul>
+                    <li class="liact">我的需求</li>
+                    <li>我的服务</li>
+                    <li>我的代办</li>
+                </ul>
+                <div class="thing-con">
+                    <div>
+                        <ul>
+                            <li>                                                                <!--此处循环输出我的需求-->
+                                <img src="/static/img/logo.jpg" alt="商品图片">
+                                <ul>
+                                    <li><span>标题：</span>新的打算</li>
+                                    <li><span>价格：</span>99999</li>
+                                    <li><span>服务类别：</span>web开发</li>
+                                </ul>
+                                <a href="/message/oneService/">详细信息</a>
+                            </li>
+                        </ul>
+                        <div class="pagee">                                                   <!--此处是导航每个显示页面自带导航pagee页面中-->
+                            <ul class="pageshow">
+                                <li><a href="#"><span>&laquo;</span></a></li>
+                                <li class="actnum"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#"><span>&raquo;</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="display: none">
+                        <ul>
+                            <li>                                                                <!--此处循环输出我的服务-->
+                                <img src="/static/img/logo.jpg" alt="商品图片">
+                                <ul>
+                                    <li><span>标题：</span>阿萨德</li>
+                                    <li><span>价格：</span>99999</li>
+                                    <li><span>服务类别：</span>web开发</li>
+                                </ul>
+                                <a href="/message/oneService/">详细信息</a>
+                            </li>
+                        </ul>
+                        <div class="pagee">
+                            <ul class="pageshow">
+                                <li>
+                                    <a href="#">
+                                        <span>&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="actnum"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li>
+                                    <a href="#">
+                                        <span>&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div style="display: none;">
+                        <ul>
+                            <li>                                                                <!--此处循环输出紧急代办-->
+                                <img src="/static/img/logo.jpg" alt="商品图片">
+                                <ul>
+                                    <li><span>标题：</span>阿萨德长</li>
+                                    <li><span>价格：</span>99999</li>
+                                    <li><span>服务类别：</span>web开发</li>
+                                </ul>
+                                <a href="/message/oneService/">详细信息</a>
+                            </li>
+                        </ul>
+                        <div class="pagee">
+                            <ul class="pageshow">
+                                <li>
+                                    <a href="#">
+                                        <span>&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="actnum"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li>
+                                    <a href="#">
+                                        <span>&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="left-recent">
+                <h3>最近浏览</h3>
+                <ol class="recent-watch">
+                    <li>                                                                     <!--循环输出最近浏览的图片-->
+                        <img src="/static/img/logo.jpg" alt="商品图片">
+                        <p>hjkdhfiuhwj</p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="psl-main-right">
+            <div class="right-sum">
+                <div class="sum-con">
+                    <h4>归纳总结</h4>
+                    <ul>
+                        <li>级别：<b>3</b></li>
+                        <li>成交总数：<b>4</b></li>
+                        <li>发布需求：<b>5</b></li>
+                        <li>发布服务：<b>3</b></li>
+                        <li>代办事项：<b>2</b></li>
+                    </ul>
+                </div>
+                <div class="sum-see">
+                    <h4>最近访问</h4>
+                    <ul>
+                        <li><img src="/static/img/logo.jpg"> </li>                    <!--循环出用户头像-->
+                        <li><img src="/static/img/logo.jpg"> </li>
+                        <li><img src="/static/img/logo.jpg"> </li>
+                        <li><img src="/static/img/logo.jpg"> </li>
+                    </ul>
+                    <p>最近一周访问<b>5</b>次<a href="#">查看更多</a></p>
+                </div>
+                <p class="mychuangke"><a href="#">点击编写我的创客故事</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

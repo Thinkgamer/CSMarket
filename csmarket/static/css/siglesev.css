@@ -1,0 +1,22 @@
+.ssv-cantainer{width: 100%;overflow: hidden;clear: both;margin-top: 50px;}
+.ssv-top,.ssv-btm{width: 100%;clear: both;}
+.ssv-top-left{float: left;width: 50%;margin-left: 5%;}
+.ssv-top-left h3{margin-bottom:10px;}
+.ssv-top-left h3 span{font-weight: 600;}
+.ssv-top-left img{width: 98%;height: 300px;margin-bottom: 10px;}
+.selfname{margin-top:5px;float: left;}
+.self{float: left;margin-left: 10px;position: relative;}
+.selfdesc{width: 180px;height:100px;position: absolute;top: -100px;left: 0;padding-top: 15px;padding-left: 10px;background-color: #ffffff;display: none;border:1px solid #999999;border-radius: 5px;}
+.selfdesc li span{font-weight: 600;}
+.selfdesc li{margin-bottom: 6px;}
+.ssv-top-right{width: 35%;margin-left: 5%;float: left;margin-top: 30px;margin-right: 5%;}
+.ssv-top-right ul li{margin-bottom: 15px;font-size: 16px;font-weight: 600;}
+.ssv-top-right ul li:nth-child(1) span,.ssv-top-right ul li:nth-child(2) span{font-weight: 400;margin-left: 70px;display: inline-block;}
+.ssv-top-right ul li:nth-child(4) span,.ssv-top-right ul li:nth-child(6) span{font-weight: 400;margin-left: 55px;display: inline-block;}
+.ssv-top-right ul li:nth-child(3) span,.ssv-top-right ul li:nth-child(5) span{font-weight: 400;margin-left: 40px;display: inline-block;}
+.ssv-top-right ul li:nth-child(8) span{font-weight: 400;margin-left: 25px;display: inline-block;}
+.ssv-top-right ul li:nth-child(7) span{font-weight: 400;margin-left: 8px;display: inline-block;}
+.ssv-btm-mes{margin-left: 5%;padding-top: 20px;}
+.ssv-btm-mes h3{font-weight: 600;}
+.ssv-btm-mes div{width: 90%;margin-top: 10px;margin-bottom:10px;clear: both;border: 1px solid #999999;}
+.ssv-btm-mes div ul li{list-style: decimal;margin-top: 10px;margin-left: 9%;margin-bottom: 5px;word-spacing: 4px;letter-spacing: 1px;}

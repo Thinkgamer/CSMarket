@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block title %}服务商库{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="/static/css/com.css">
+    <link rel="stylesheet" href="/static/css/supmarket.css">
+{% endblock %}
+
+{% block main %}
+<div class="headertop" id="expheadertop">
+    <ul class="mynav" id="mynav">
+        <li class="now"><a href="#">服务商库 |</a></li>
+        <li><a href="#">需求大厅 |</a></li>
+        <li><a href="#">代办中心 |</a></li>
+        <li><a href="#">CyanScikit自营 |</a></li>
+        <li><a href="#">发布服务 |</a></li>
+        <li><a href="#">发布需求 |</a></li>
+        <li><a href="#">CSM动态 |</a></li>
+        <li><a href="#">创客故事 </a></li>
+    </ul>
+</div>
+
+   <!--此处为本页面主要部分-->
+<div class="supmarket-can">
+    <h3><span>服务商库</span></h3>
+    <div class="sup-nav">
+        <div>
+            <h4>分类：</h4>
+            <ul>
+                <li><a href="#">美工设计</a></li>
+                <li><a href="#">美工设计</a></li>
+                <li><a href="#">美工设计</a></li>
+                <li><a href="#">美工设计</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>排序：</h4>
+            <ul>
+                <li><a href="#">美工设计</a></li>
+                <li><a href="#">美工设计</a></li>
+                <li><a href="#">美工设计</a></li>
+                <li><a href="#">美工设计</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="sup-con">
+        <ul class="con-list">
+            <li>                                                                    <!--循环输出li标签内容-->
+                <img src="/static/img/logo.jpg" alt="商品图片">
+                <ul>
+                    <li><span>标题：</span>阿萨初显成效多福多寿地说道德长</li>
+                    <li><span>价格：</span>99999</li>
+                    <li><span>服务类别：</span>web开发</li>
+                </ul>
+                <a href="#">详细信息</a>
+            </li>
+            <li>
+                <img src="/static/img/logo.jpg" alt="商品图片">
+                <ul>
+                    <li><span>标题：</span>阿萨初显成效多福多寿地说道德长</li>
+                    <li><span>价格：</span>99999</li>
+                    <li><span>服务类别：</span>web开发</li>
+                </ul>
+                <a href="#">详细信息</a>
+            </li>
+        </ul>
+        <div class="pagee">
+            <ul class="pageshow">
+                <li><a href="#"><span>&laquo;</span></a></li>
+                <li class="actnum"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#"><span>&raquo;</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="sup-like">
+        <h3>猜你喜欢</h3>
+        <ul class="like-con">
+            <li><a><img src="/static/img/logo.jpg" alt="your like"><p>fksjdhfksdfh</p> </a></li>    <!-循环输出你喜欢的li内容-->
+            <li><a><img src="/static/img/logo.jpg" alt="your like"><p>fksjdhfksdfh</p> </a></li>
+            <li><a><img src="/static/img/logo.jpg" alt="your like"><p>fksjdhfksdfh</p> </a></li>
+            <li><a><img src="/static/img/logo.jpg" alt="your like"><p>fksjdhfksdfh</p> </a></li>
+            <li><a><img src="/static/img/logo.jpg" alt="your like"><p>fksjdhfksdfh</p> </a></li>
+            <li><a><img src="/static/img/logo.jpg" alt="your like"><p>fksjdhfksdfh</p> </a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

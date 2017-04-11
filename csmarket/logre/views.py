@@ -112,3 +112,8 @@ def prefect(request):
     else:
         return render_to_response('prefect.html',{
         })
+
+def personal(request):
+    return render_to_response('personal.html',{
+
+    })

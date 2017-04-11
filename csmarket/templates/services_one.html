@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %}查看单个信息{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="/static/css/com.css">
+    <link rel="stylesheet" href="/static/css/siglesev.css">
+{% endblock %}
+
+{% block main %}
+<div class="headertop" id="expheadertop">
+    <ul class="mynav" id="mynav">
+        <li class="now"><a href="#">服务商库 |</a></li>
+        <li><a href="#">需求大厅 |</a></li>
+        <li><a href="#">代办中心 |</a></li>
+        <li><a href="#">CyanScikit自营 |</a></li>
+        <li><a href="#">发布服务 |</a></li>
+        <li><a href="#">发布需求 |</a></li>
+        <li><a href="#">CSM动态 |</a></li>
+        <li><a href="#">创客故事 </a></li>
+    </ul>
+</div>
+
+<div class="ssv-cantainer">
+    <div class="ssv-top">
+        <div class="ssv-top-left">
+            <h3><span>标题：</span>安下心四川省</h3>
+            <img src="/static/img/one.jpg" alt="服务图片">
+            <div class="selfname"><span><b>联系人：</b>Thinkgamer</span></div>
+            <div class="self">
+                <button id="clickself">点击查看联系方式</button>
+                <ul class="selfdesc">
+                    <li><span>微信：</span>gyt13342445911</li>
+                    <li><span>Q  Q：</span>1923361654</li>
+                    <li><span>电话：</span>17191077634</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="ssv-top-right">
+            <ul>
+                <li>类别：<span>web开发</span></li>
+                <li>报价：<span>9999</span></li>
+                <li>发布时间：<span>web开发</span></li>
+                <li>发布人：<span>thinkgamer</span></li>
+                <li>浏览次数：<span>web开发</span></li>
+                <li>托管方：<span>9999</span></li>
+                <li>是否交易成功：<span>web开发</span></li>
+                <li>需求or服务：<span>9999</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="ssv-btm">
+        <div class="ssv-btm-mes">
+            <h3>具体描述</h3>
+            <div>
+                <ul>
+                    <li>1cxassssdddddddddddwqddqwddddsadsdc</li>
+                    <li>1csdc</li>
+                    <li>1csdc</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>                                        <!--此处为本页面主要部分-->
+{% endblock %}
+
+
+{#<script src="/static/js/jquery-1.10.2.min.js"></script>#}
+{#<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>#}
+{#<script src="/static/js/common.js"></script>#}

@@ -1,0 +1,45 @@
+.personal-cantainer{width: 100%;clear: both;margin-top: 30px;padding: 0 6%;}
+.psl-top{clear: both; width: 100%;}
+.psl-top img{float: left;width: 70px;height: 70px;border:1px solid #999999;border-radius: 5px;}
+.psl-top ul{float: left;margin-left: 5%;}
+.psl-top ul li{font-size: 14px;margin-bottom: 7px;}
+.psl-top ul li span{font-weight: 600;}
+.psl-top>div{float: right;margin-right: 5%;}
+.psl-top>div button{padding: 4px 10px;display: block;margin-bottom: 10px;font-size: 14px;}
+.psl-main{width: 100%;clear: both;}
+.psl-main-left{float: left;width: 60%;}
+.left-thing>ul{border-bottom: 1px solid #999999;text-align: center;}
+.left-thing>ul li{display: inline-block;width: 30%;border: 1px solid #999999;padding: 10px 10px;border-radius: 5px;cursor: pointer;}
+.left-thing>ul li:hover{box-shadow: 0 0 20px #ccffcc inset;}
+.liact{box-shadow: 0 0 20px #ccffcc inset;}
+.thing-con{clear: both;width: 100%;margin-top: 10px;}
+.thing-con>div>ul{clear: both;overflow: hidden;}
+.thing-con>div>ul>li{margin-top: 20px;border-bottom: 1px solid #d5d5d5;zoom:1;overflow: hidden;}
+.thing-con>div>ul>li>img{width: 50px;height: 50px;float: left;margin: 0 10px;border:1px solid #999999;}
+.thing-con>div>ul>li>ul{float: left;}
+.thing-con>div>ul>li>ul>li{font-size: 14px;margin-bottom: 6px;}
+.thing-con>div>ul>li>ul>li>span{font-weight: 600;}
+.thing-con>div>ul>li>a{float:right;margin-right: 10%;margin-top: 30px;}
+
+/*最近浏览*/
+.left-recent{width: 100%;clear:both;margin-bottom: 20px;}
+.left-recent h3{font-weight: 600;padding: 4px 4px;}
+.recent-watch{width: 100%;clear: both;margin-top: 20px;}
+.recent-watch>li{width:180px;height: 180px;float: left;margin-left: 20px;display: inline-block;text-align: center;}
+.recent-watch>li>img{width: 150px;height: 150px;border: 1px solid #d5d5d5;}
+.recent-watch>li>p{word-spacing: 4px;letter-spacing: 1px;}
+/*右侧总结部分*/
+.psl-main-right{float: left;width: 35%;margin-left: 5%;overflow: hidden;}
+.right-sum{padding: 10px 10px;text-align: center;}
+.sum-con>h4{font-size: 18px;border-bottom: 1px solid #999999;padding-bottom: 6px;border-radius: 10px;}
+.sum-con>ul{margin-top: 5px;}
+.sum-con>ul>li{margin-top: 5px;font-size: 14px;}
+.sum-see>ul{margin-top: 5px;overflow:hidden;}
+.sum-see>ul>li{display: inline-block;padding: 10px 10px;}
+.sum-see>ul>li>img{width: 50px;height: 50px;}
+.sum-see>p{margin-top: 5px;font-size: 14px;color: #666666;word-spacing: 4px;letter-spacing: 1px;clear: both;}
+.sum-see>p>a{float: right;margin-right: 10px;}
+.sum-see>h4{font-size: 18px;border-bottom: 1px solid #999999;padding-bottom: 6px;margin-top:20px;border-radius: 10px;}
+.mychuangke{margin-top: 30px;display: block;padding: 10px;border: 1px solid #666666;border-radius: 5px;}
+.mychuangke>a{font-size: 16px;color: #333333;}
+.mychuangke:hover{box-shadow: 0 0 10px #428bca inset;}
