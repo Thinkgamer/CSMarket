@@ -40,7 +40,7 @@ def logout(request):
     return HttpResponseRedirect('/manager/login/')
 
 def usermanager(request):
-    if request.user:
+    if request.user and not request.user.is_anonymous:
         user_list = User.objects.filter(user_isValid=False).order_by("-date_joined")
         paginator = Paginator(user_list, 20)  # Show 20 contacts per page
         page = request.GET.get('page')
