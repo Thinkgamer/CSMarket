@@ -14,7 +14,7 @@ def sendEmail(mail,subject,content):
 
     server = smtplib.SMTP()
     server.connect('smtp.163.com')  # 163邮箱的SMTP服务器地址
-    server.login('thinkgamer@163.com', 'gao735971')  # 输入邮箱用户名和密码
+    server.login('thinkgamer@163.com', 'your_password')  # 输入邮箱用户名和密码
     server.set_debuglevel(1)
     server.sendmail('thinkgamer@163.com', mail, msg.as_string())
     server.quit()
