@@ -42,9 +42,13 @@ def postService(request,cate):
             })
         else:
             request.session['error'] = "你还没有登录，请先登录！"
-            referer = request.META['HTTP_REFERER']  # 获取网页访问来源
-            return HttpResponseRedirect(referer)
-
+            try:
+                referer = request.META['HTTP_REFERER']  # 获取网页访问来源
+                return HttpResponseRedirect(referer)
+            except:
+                return render_to_response('404.html',{
+                    'error':request.session.get('error',default=None)
+                })
 #编辑需求
 def editService(request,cate):
 

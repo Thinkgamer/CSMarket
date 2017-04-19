@@ -90,6 +90,7 @@ def one(request,newid):
             })
     else:
         return render_to_response('news_one.html',{
+            # 'error':request.session.get('error', default=None),
             'user_name': user_name,
             'new': new,
             'csmdongtai': csmdongtai,
