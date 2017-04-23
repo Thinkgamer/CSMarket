@@ -17,7 +17,7 @@ class Cate(models.Model):
         verbose_name_plural = u'信息类别管理'
 
 class Message(models.Model):
-    mess_title = models.CharField(verbose_name='标题', max_length=30, blank=False)
+    mess_title = models.CharField(verbose_name='标题', max_length=30, blank=False, unique=True)
     mess_image = models.CharField(verbose_name='图像信息',max_length=100,blank=True)
     mess_author = models.CharField(verbose_name='发布人', max_length=15, blank=False)
     mess_time = models.DateTimeField(verbose_name='发布时间')

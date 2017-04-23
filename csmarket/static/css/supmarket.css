@@ -1,4 +1,4 @@
-.supmarket-can{width: 100%;clear: both;margin-top: 30px;padding: 0 6%;}
+.supmarket-can{width: 90%;clear: both;margin-top: 30px;padding: 0 6%;margin: 0 auto;}
 .supmarket-can>h3{width: 100%;border-bottom: 1px solid #d5d5d5;border-radius: 5px;padding-bottom: 6px;margin-bottom: 10px;}
 .supmarket-can>h3 span{font-size: 20px;padding-bottom: 6px;border-bottom: 1px solid #eea236;}
 .sup-nav{clear: both;}
@@ -11,11 +11,11 @@
 
 .con-list{width: 100%;}
 .con-list>li{margin-top:20px; margin-bottom: 10px;overflow: hidden;zoom: 1;}
-.con-list>li>img{width:70px;height:70px;margin:5px 20px;border:1px solid #999999;float:left;}
+.con-list>li>img{width:100px;height:100px;margin:5px 20px;border:1px solid #999999;float:left;}
 .con-list>li>ul{float: left}
-.con-list>li>ul>li{font-size: 16px;margin-bottom: 7px;margin-top: 5px;}
+.con-list>li>ul>li{font-size: 18px;margin-bottom: 7px;margin-top: 15px;}
 .con-list>li>ul>li>span{font-weight: 600;}
-.con-list>li>a{float: right;margin-right: 10%;margin-top: 50px;color: #333333;}
+.con-list>li>a{float: right;margin-right: 10%;margin-top: 80px;color: deepskyblue; font-size: 20px}
 .con-list>li>a:hover{color: #2aabd2;}
 .sup-con{border-bottom: 1px solid #d5d5d5;margin-bottom: 20px;}
 

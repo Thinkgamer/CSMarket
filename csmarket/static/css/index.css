@@ -63,15 +63,15 @@
 
 /*主体main部分*/
 #main{ width: 100%; min-width:600px; overflow: hidden; margin: auto;margin-top: 15px;}
-.daiban,.hotsever,.rewordneed,.goodcsm{ width: 90%; margin: auto; overflow: hidden;}
+.daiban,.hotsever,.rewordneed,.goodcsm{ width: 90%; margin: auto; overflow: hidden;margin-top: 20px;}
 .mtitle h4 span{font-size: 22px;border-bottom: 2px solid #d9534f;}
 .mtitle h4{ border-bottom: 1px solid #9d9d9d;width: 100%;min-width: 500px; margin-bottom: 15px;}
 .mtitle h4 button{float: right;margin-right: 20px; width: 30px;}
 .content{overflow: hidden; margin:auto;}
 .content-list{width: 100%;}
-.content-list li{width: 160px;height: 180px;float: left;margin: 12px; padding: 5px; text-align: center;}
+.content-list li{width: 190px;height: 220px;float: left;margin: 12px; padding: 5px; text-align: center;}
 .content-list li span a{color: #666666; font-size: 18px;}
-.mimg img{width: 150px; height: 140px; margin-bottom: 10px; border: none;}
+.mimg img{width: 190px; height: 180px; margin-bottom: 10px; border: none;}
 .content-list li span a:hover{color: #000000; text-shadow:2px 2px #9d9d9d;}
 .mimg img:hover{box-shadow: -4px 4px 10px #9d9d9d;}
 .csm-cantainer{overflow: hidden; margin: auto;}

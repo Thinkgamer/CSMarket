@@ -31,12 +31,13 @@
 
 <div class="headertop" id="headertop">
     <ul class="mynav" id="mynav">
-        <li class="now"><a href="#">服务商库 |</a></li>
-        <li><a href="#">需求大厅 |</a></li>
-        <li><a href="#">代办中心 |</a></li>
+        <li><a href="/message/allService/服务/">服务商库 |</a></li>
+        <li><a href="/message/allService/需求/">需求大厅 |</a></li>
+        <li><a href="/message/allService/代办/">代办中心 |</a></li>
         <li><a href="#">CyanScikit自营 |</a></li>
         <li><a href="/message/postService/服务/">发布服务 |</a></li>
         <li><a href="/message/postService/需求/">发布需求 |</a></li>
+        <li><a href="/message/postService/代办/">发布代办 |</a></li>
         <li><a href="/news/all/CSM动态/">CSM动态 |</a></li>
         <li><a href="/news/all/创客故事/">创客故事</a></li>
     </ul>
@@ -97,35 +98,12 @@
         <div class="hotsever-content content">
             <div class="content-list">
                 <ul>
+                    {% for fuwu in fuwu_list %}
                     <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
+                        <a href="/message/oneService/{{ fuwu.mess_author }}/{{ fuwu.mess_title }}" class="mimg"><img src="{{ fuwu.mess_image }}"></a>
+                        <span><a href="/message/oneService/{{ fuwu.mess_author }}/{{ fuwu.mess_title }}">{{ fuwu.mess_title }}</a> </span>
                     </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
-
+                    {% endfor %}
                 </ul>
             </div>
 
@@ -140,34 +118,12 @@
         <div class="hotsever-content content">
             <div class="content-list">
                 <ul>
+                    {% for xuqiu in xuqiu_list %}
                     <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
+                        <a href="/message/oneService/{{ xuqiu.mess_author }}/{{ xuqiu.mess_title }}" class="mimg"><img src="{{ xuqiu.mess_image }}"></a>
+                        <span><a href="/message/oneService/{{ xuqiu.mess_author }}/{{ xuqiu.mess_title }}">{{ xuqiu.mess_title }}</a></span>
                     </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>

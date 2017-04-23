@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}发布需求{% endblock %}
+{% block title %}发布{{ cate }}{% endblock %}
 {% block css %}
     <link rel="stylesheet" href="/static/css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/base.css">
@@ -10,17 +10,25 @@
 {% block main %}
 <div class="headertop" id="expheadertop">
     <ul class="mynav" id="mynav">
-        <li><a href="#">服务商库 |</a></li>
-        <li><a href="#">需求大厅 |</a></li>
-        <li><a href="#">代办中心 |</a></li>
+        <li><a href="/message/allService/服务/">服务商库 |</a></li>
+        <li><a href="/message/allService/需求/">需求大厅 |</a></li>
+        <li><a href="/message/allService/代办/">代办中心 |</a></li>
         <li><a href="#">CyanScikit自营 |</a></li>
-        {% if flag %}
-        <li class="now"><a href="/message/postService/服务/">发布服务 |</a></li>
-        <li><a href="/message/postService/需求/">发布需求 |</a></li>
-        {% else %}
+        {% ifequal cate "服务" %}
+            <li class="now"><a href="/message/postService/服务/">发布服务 |</a></li>
+            <li><a href="/message/postService/需求/">发布需求 |</a></li>
+            <li><a href="/message/postService/代办/">发布代办 |</a></li>
+        {% endifequal %}
+        {% ifequal cate "需求" %}
             <li><a href="/message/postService/服务/">发布服务 |</a></li>
             <li class="now"><a href="/message/postService/需求/">发布需求 |</a></li>
-        {% endif %}
+            <li><a href="/message/postService/代办/">发布代办 |</a></li>
+        {% endifequal %}
+        {% ifequal cate "代办" %}
+            <li><a href="/message/postService/服务/">发布服务 |</a></li>
+            <li><a href="/message/postService/需求/">发布需求 |</a></li>
+            <li class="now"><a href="/message/postService/代办/">发布代办 |</a></li>
+        {% endifequal %}
         <li><a href="/news/all/CSM动态/">CSM动态 |</a></li>
         <li><a href="/news/all/创客故事/">创客故事</a></li>
     </ul>
@@ -35,7 +43,7 @@
                     <div class="group-con">
                         <label for="inputbiaoti" class="control-label  col-sm-offset-1  col-sm-2 stitle">标题</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" name="biaoti" id="inputbiaoti" placeholder="输入你的标题">
+                            <input type="text" class="form-control" name="biaoti" id="inputbiaoti" placeholder="输入你的标题" value="{{ title }}">
                         </div>
                     </div>
                     <div class="group-con">
@@ -62,7 +70,7 @@
                     <div class="group-con">
                         <label for="inputbaojia" class="control-label  col-sm-offset-1  col-sm-2 stitle">报价</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" name="baojia" id="inputbaojia" placeholder="输入你的报价">
+                            <input type="text" class="form-control" name="baojia" id="inputbaojia" placeholder="输入你的报价" value="{{ price }}">
                         </div>
                     </div>
                     <div class="group-con">
@@ -74,10 +82,10 @@
                     <div class="group-con">
                         <label for="inputmiaoshu" class="control-label  col-sm-offset-1  col-sm-2 stitle">描述</label>
                         <div class="col-sm-7">
-                            <textarea class="form-control" name="miaoshu" id="inputmiaoshu" ></textarea>
+                            <textarea class="form-control" name="miaoshu" id="inputmiaoshu" >{{ miaoshu }}</textarea>
                             <br>
                             <input class="btn btn-danger fl talking-no" type="reset" name="cancel" value="重置内容">
-                            <input class="btn btn-success fr talking-yes" type="submit" name="submit" value="我要留言">
+                            <input class="btn btn-success fr talking-yes" type="submit" name="submit" value="发布{{ cate }}">
                         </div>
                     </div>
                 </div>

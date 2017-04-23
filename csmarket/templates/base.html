@@ -12,6 +12,10 @@
     if(confirm("{{ error }}"))
         window.location.href="/logre/login/";
     {% endif %}
+
+    {% if repeat_error %}
+        alert("{{ repeat_error }}");
+    {% endif %}
 </script>
 </head>
 <body>

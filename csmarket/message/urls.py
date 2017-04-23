@@ -7,6 +7,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^postService/(.+)/$', postService),
     url(r'^editService/(.+)/$', editService),
-    url(r'^oneService/$', oneService),
-    url(r'^allService/$', allService),
+    url(r'^oneService/(.+)/(.+)/$', oneService),
+    url(r'^allService/(.+)/$', allService),
 ]
