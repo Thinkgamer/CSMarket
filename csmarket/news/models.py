@@ -13,8 +13,8 @@ class cate(models.Model):
 
     class Meta:
         db_table = "cate_news_table"
-        verbose_name = u'动态类别'
-        verbose_name_plural = u'动态类别管理'
+        verbose_name = u'类别'
+        verbose_name_plural = u'类别管理'
 
 class News(models.Model):
     new_title = models.CharField(verbose_name='标题', max_length=30, blank=False)
@@ -31,7 +31,7 @@ class News(models.Model):
     class Meta:
         db_table = "news_table"
         verbose_name = u'CSM动态'
-        verbose_name_plural = u'素材管理'
+        verbose_name_plural = u'动态/创客素材管理'
 
 class Words(models.Model):
     new_id = models.IntegerField(verbose_name='文章id',blank=False)
