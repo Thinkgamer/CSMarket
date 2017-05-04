@@ -19,6 +19,10 @@ QQ: 1923361654<br>
 python: python3.5<br>
 Django: 1.10.4<br>
 Mysql 5.7.17(并没有使用内嵌的sqlite)<br>
+data目录: 数据库文件备份<br>
+恢复可参考：http://wodefang22.blog.163.com/blog/static/1323062201442715317696/<br>
+后台登录的账号和密码是： thinkgamer  csmarket <br>
+
 ## pymysql
 安装 : pip3 install pymysql<br>
 在项目的__init__.py文件中加入以下内容 :
