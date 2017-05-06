@@ -15,3 +15,13 @@ KindEditor.ready(function(K) {
 		uploadJson: '/admin/uploads/kindeditor',
 	});
 });
+
+
+// 技术文档
+KindEditor.ready(function(K) {
+	K.create('textarea[name="show"]', {
+		width : "800px",
+        height : "500px",
+		uploadJson: '/admin/uploads/kindeditor',
+	});
+});

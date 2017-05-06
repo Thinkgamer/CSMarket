@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^manager/', include('manager.urls')),
     url(r'^news/', include('news.urls')),
     url(r'^message/', include('message.urls')),
+    url(r'^cyanscikit/', include('cyanscikit.urls')),
     url(r'^index/', index),
     url(r'^$', index),
 ]

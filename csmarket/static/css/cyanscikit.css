@@ -1,0 +1,123 @@
+.xc_head{ overflow: hidden; }
+.container{overflow: hidden;}/*此处自适应为70px*/
+.xch_left{float: left;overflow: hidden;}
+.xch_right{float: right;}
+.xch_left img,.xch_left h1{float: left;}
+.xch_left img{width: 60px;height: 60px;border:1px solid #9d9d9d; border-radius: 50%;margin-top: 5px;}
+.xch_left h1{margin-left: 20px; font-size: 26px; margin-top: 20px;}
+.xch_right li{margin-top: 20px;}
+.xch_right li:hover{background-color: #e7e7e7; border-radius: 3px;}
+#xcmain,#xccase,#xcknoservice,#xcknodoc{width: 100%;overflow: hidden;min-height: 500px;}
+#xcmain{min-height: 500px; background-color: #000000;margin-top: 70px;}
+.xcm_con{position: absolute;top: 200px;left:20%; color: #ffffff;width: 60%; min-height: 200px;text-align: center;}
+.xcm_con h1{font-size: 30px;}
+.xcm_con p{font-size: 16px;padding: 30px 10%; text-align: left;}
+#xccase{background-color: #f7f7f7; padding: 6%;}
+#xcknoservice{padding: 6%;background-color: #ffffff;}
+#xcknodoc{padding: 6%;background-color: #f7f7f7;}
+#xccase>h1,#xcknoservice>h1,#xcknodoc>h1{font-size: 28px;text-align: center;}/*各部分详细介绍*/
+.caseimg,.knosevimg,.doccon{overflow: hidden;margin: 2%;margin-left: 10%;}
+.caseimg>li,.knosevimg>li{display: inline-block; width: 16%;text-align: center; margin-left: 4%;margin-top: 2%;position: relative;}
+.caseimg>li>a,.knosevimg>li>a{width: 100%;height: 100%;display: inline-block;}
+.caseimg>li>a>img,.knosevimg>li>a>img{display: inline-block; width: 100%;}
+.caseimg>li>a>div,.knosevimg>li>a>div{position: absolute;width: 100%;background-color:#c0c0c0;top: 0;left:0;height: 100%;opacity: 0;}
+.caseimg>li>a>div:hover,.knosevimg>li>a>div:hover{opacity: 0.7;}
+.caseimg>li>a>div>p,.knosevimg>li>a>div>p{font-size: 20px;margin-top: 50%;top:-9px;font-weight: bold;color: #000000;}/*案例展示以及服务结束*/
+.doccon>li{margin: 10px;overflow: hidden;}
+.doccon>li>a{color: #3c3c3c;cursor: pointer;}
+.doccon>li>a:hover{color: #2a6496;}
+.doccon>li>small{color:#666666;float: right;margin-right: 20px;}
+.doccon>li>span{color: #666666;float: right;margin-right: 30px;display: inline-block;line-height: 16px;font-size: 16px;}
+.xcmore{color: #999999;text-shadow: 0 0 10px;font-weight: bold;float: right;margin-right: 6%;cursor: pointer;margin-top:10px;}
+.xcmore:hover{text-shadow: 0 0 20px #ff0000;}
+/*联系我们小部分*/
+.xclink{width: 54px;height: 120px;overflow: hidden;position: fixed;right: 0;bottom: 0;z-index:1000;}
+.xclink>img{width: 50px;height: 50px;border-radius: 50%;border:solid 1px #ffffff;}
+.xclink>img:hover{border:solid 1px #999999;}
+.xclinkmethod{width: 150px;height: 200px;overflow: hidden;position: fixed;right: 54px; bottom: 0;}
+.xclinkmethod>img{display: inline-block;border:solid 10px #cccccc;width: 150px;height:120px;visibility: hidden;border-radius: 5px;border-bottom-right-radius: 0px;}
+.xclinkmethod>p{margin-top: 20px;background-color: #cccccc;visibility: hidden;border-radius: 3px;font-weight: bold;padding: 3px;border-bottom-right-radius: 0px;}
+
+
+/*案例展示页面*/
+.xccs_con{width: 100%;min-height:500px;overflow: hidden;position: relative;margin-top:70px;}
+ul.slider-main>li{overflow: hidden;width: 100%;}
+.slider, .slider-panel img, .slider-extra { width: 100%; height: 413px;}
+.slider {text-align: center; margin: auto; position: relative;}
+.slider-panel, .slider-nav, .slider-pre, .slider-next { position: absolute; z-index: 8;}
+.slider-panel {   position: absolute;}
+.slider-panel img { border: none;}
+.slider-extra { position: relative;}
+.slider-nav {margin-left: -51px; position: absolute; left: 50%;bottom: 24px;}
+.slider-nav li { background: #3e3e3e; border-radius: 50%;color: #fff;  cursor: pointer;  margin: 0 2px; overflow: hidden; text-align: center;display: inline-block; height: 18px;
+    line-height: 18px;  width: 18px;}
+.slider-nav .slider-item-selected {   background: blue;}
+.slider-page a{
+    background: rgba(0, 0, 0, 0.2); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#33000000,endColorstr=#33000000);
+    color: #fff; text-align: center;display: block; font-size: 22px;  width: 28px; height: 62px; line-height: 62px; margin-top: -31px; position: absolute;  top: 50%;}
+.slider-page a:hover {   background: rgba(0, 0, 0, 0.4);  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);}
+.slider-next {  left: 100%; margin-left: -28px;}
+/*精彩案例*/
+.xcgoodcase{width: 100%;overflow: hidden;padding: 6%;min-height:500px;}
+.xcgoodcase>h1{font-size: 24px;}
+.xcgoodcase>ul>li{margin-top: 20px; display: block;overflow: hidden;border-bottom: 1px solid #999999;padding: 20px;}
+.xcgoodcase>ul>li>img{float: left;width: 150px;height: 150px;border: 1px solid #3e3e3e;border-radius: 5px;}
+.xcgoodcase>ul>li>div{float: left;margin-left: 20px;}
+.xcgoodcase>ul>li>div>p{margin-top: 15px;color: #999999;word-spacing: 2px;letter-spacing: 2px;}
+.xcgoodcase>ul>li>div>p>span{color: #000000;}
+.xcgoodcase>ul>li>p{float: right;margin-right: 5%;margin-top:130px;}
+
+
+/*单个案例展示*/
+.xccsd_con{width: 90%;margin:auto;overflow: hidden;margin-top:70px;padding-left: 5%;padding-right: 5%; min-height:500px;}
+.xccsd_con>h3{font-size: 20px;padding: 10px;text-align: center;font-weight: bold;}
+.xccsd_con>p{color: #666666;padding: 10px;}
+.xccsd_con>div{text-align: center;font-size: 14px;color: #999999;}
+.xccsd_con>div>span{margin-left: 10px;color: #666666;}
+.xccsd_con>p>span{color: #000000;margin-left: 20px;}
+.xccsd_con>img{width: 100%;height: 300px;}
+#shuoming{padding-left: 30px;text-indent: 2em;word-spacing: 2px;letter-spacing: 1px;}
+
+/*技术文档页面*/
+.xckd_con{width: 90%;margin:auto;text-align: center;overflow: hidden;margin-top: 70px;padding-top: 30px;min-height:500px;}
+.xckd-main>ul{overflow: hidden;}
+.xckd_main>ul>li{padding-left:5%;padding-right:5%;overflow: hidden;text-align: left;padding-top:10px;padding-bottom: 10px;border-bottom:1px solid #f7f7f7;}
+.xckd_main>ul>li>a{color: #3c3c3c;cursor: pointer;}
+.xckd_main>ul>li>a:hover{color: #2a6496;}
+.xckd_main>ul>li>small{color:#666666;display: inline-block;float: right;margin-left: 5%;}
+.xckd_main>ul>li>span{color: #999999;display: inline-block;line-height: 16px;font-size: 16px;float: right;}
+.actnum{background-color: #2a6496; }
+/*技术文本内容页样式与创客故事雷同*/
+.essaydetail-mian{
+    width: 80%;
+    margin: auto;
+    margin-top: 70px;
+    padding-top: 20px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    line-height: 26px;
+    min-height:500px;
+}
+.cantent{
+    text-align: center;
+}
+.cantent h3{margin-bottom: 10px;}
+.cantent-note{margin-bottom: 10px;}
+.cantent-note>span{
+    margin-right: 15px;
+}
+.cantent-main{
+    text-align: left;
+    text-indent:2em;
+    color: #666666;
+}
+.hot>h3,.talking-send>h3{padding-bottom:10px; margin-bottom:10px; border-radius:5px; border-bottom:1px solid #CCC; width:80%;}
+.hot>h3>span,.talking-send>h3>span{ color:#000; padding-bottom:10px; font-size:18px; border-radius:3px; border-bottom:2px solid #09C;}
+.hot>ul{margin-left: 6%;}
+.talking-send{overflow: hidden;}
+.talkings{width: 98%; min-height: 200px; font-size: 16px; text-indent: 4em;}
+.talking-no{margin-left: 5%;}
+.talking-yes{margin-right: 7%;}
+.talking-show{margin-top: 20px;}
+.talking-show ul{ margin-left: 15px;}
+.talking-show ul>li p:nth-child(2){text-indent: 2em;}

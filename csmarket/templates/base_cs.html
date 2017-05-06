@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/com.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/cyanscikit.css">
+</head>
+<body>
+{% block menu %}
+<div class="xc_head">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="xch_left">
+                <img src="/static/img/logo.jpg" alt="logo">
+                <h1>Cyanscikit</h1>
+            </div>
+            <ul class="nav navbar-nav navbar-right xch_right">
+            <li><a href="">首页</a> </li>
+            <li><a href="#xccase">案例展示</a> </li>
+            <li><a href="#xcknoservice">技术服务</a> </li>
+            <li><a href="#xcknodoc">技术文档</a> </li>
+            {% if user_name %}
+                <li><a href="">{{ user_name }}</a></li>
+                <li><a href="/logre/logout/">注销</a></li>
+            {% else %}
+                <li><a href="/logre/login/">登陆</a></li>
+                <li><a href="/logre/register/">注册</a></li>
+            {% endif %}
+            </ul>
+        </div>
+    </nav>
+</div>
+{% endblock %}
+
+
+{% block menu_1 %}
+<div class="xc_head">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="xch_left">
+                <img src="/static/img/logo.jpg" alt="logo">
+                <h1>Cyanscikit</h1>
+            </div>
+            <ul class="nav navbar-nav navbar-right xch_right">
+            <li><a href="/cyanscikit/index/">首页</a> </li>
+            <li><a href="/cyanscikit/example/">案例展示</a> </li>
+            <li><a href="/cyanscikit/index/#xcknoservice">技术服务</a> </li>
+            <li><a href="/cyanscikit/doc/">技术文档</a> </li>
+            {% if user_name %}
+                <li><a href="">{{ user_name }}</a></li>
+                <li><a href="/logre/logout/">注销</a></li>
+            {% else %}
+                <li><a href="/logre/login/">登陆</a></li>
+                <li><a href="/logre/register/">注册</a></li>
+            {% endif %}
+            </ul>
+        </div>
+    </nav>
+</div>
+{% endblock %}
+
+{#<!--联系我们部分-->#}
+{#<div class="xclink">#}
+{#    <img src="imgs/icon/weixinbtn.jpg" id="weixinbtn">#}
+{#    <img src="imgs/icon/telbtn.png" id="telbtn">#}
+{#</div>#}
+{#<div class="xclinkmethod">#}
+{#    <img src="imgs/weixincode.png">#}
+{#    <p>tel:15940394830</p>#}
+{#</div>#}
+{% block body %}
+
+{% endblock %}
+
+<div id="footer">
+    <div class="footer_menus">
+        <ul>
+            <li>新手指南</li>
+            <li><a>登录/注册</a></li>
+            <li><a>个人身份验证</a></li>
+            <li><a>规则中心</a></li>
+        </ul>
+        <ul>
+            <li>我是雇主</li>
+            <li><a>发布需求</a></li>
+            <li><a>雇主故事</a></li>
+            <li><a>选择服务商</a></li>
+            <li><a>个人案例</a></li>
+        </ul>
+
+        <ul>
+            <li>我是服务商</li>
+            <li><a>发布服务</a></li>
+            <li><a>服务商故事</a></li>
+            <li><a>浏览需求</a></li>
+            <li><a>个人案例</a></li>
+        </ul>
+        <ul>
+            <li>交易保障</li>
+            <li><a>曝光台</a></li>
+            <li><a>信用查询</a></li>
+            <li><a>交易宝</a></li>
+        </ul>
+        <ul>
+            <li>联系方式</li>
+            <li><a href="#">邮箱：thinkgamer@163.com</a></li>
+            <li><a href="">QQ:1839882792</a></li>
+            <li><a>微信：gyt13342445911</a></li>
+            <li><a>地址：道义南大街37号</a></li>
+        </ul>
+        <div class="fr footer_code">
+            <img src="/static/img/weixin.png">
+        </div>
+    </div>
+    <p class="footer_copyright">copyright © 2016 CyanScikit | 京ICP备15060006号-1</p>
+</div>
+<script src="/static/js/jquery-1.10.2.min.js"></script>
+<script src="/static/js/jquery.particleground.min.js"></script>
+<script src="/static/js/cyanscikit.js"></script>
+<script src="/static/js/lunbo.js"></script>
+<script>
+    $(function(){
+        $(".page-list li").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+    });
+</script>
+</body>
+</html>
