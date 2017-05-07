@@ -20,7 +20,8 @@ python: python3.5<br>
 Django: 1.10.4<br>
 Mysql 5.7.17(并没有使用内嵌的sqlite)<br>
 data目录: 数据库文件备份<br>
-恢复可参考：http://wodefang22.blog.163.com/blog/static/1323062201442715317696/<br>
+数据库备份： /usr/bin/mysqldump -uusername -ppassword databasename  --default-character-set=utf8 --opt -Q -R >./csmarket.sql<br>
+数据库恢复： /usr/bin/mysql -uusername -ppassword databasename --default-character-set=utf8 <./csmarket.sql<br> 
 后台登录的账号和密码是： thinkgamer  csmarket <br>
 
 ## pymysql
