@@ -7,7 +7,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^index/$', index),
     url(r'^example/$', example),
-    url(r'^oneexample/$', oneexample),
+    url(r'^oneexample/(.+)/$', oneexample),
     url(r'^doc/$', doc),
-    url(r'^onedoc/$', onedoc),
+    url(r'^onedoc/(.+)/$', onedoc),
 ]

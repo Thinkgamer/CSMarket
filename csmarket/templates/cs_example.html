@@ -34,40 +34,21 @@
         </div>
     </div>
 </div>
-
 <div class="xcgoodcase">
     <h1>精彩案例</h1>
     <ul>
+        {% for exam in exam_list %}
         <li>
-            <img src="/static/img/logo.jpg" alt="案例展示">
+            <img src="/uploads/{{ exam.image }}" alt="案例展示">
             <div>
-                <p><span>标题：</span>AAAAA</p>
-                <p><span>服务对象：</span>AAAAA</p>
-                <p><span>浏览次数：</span>AAAAA</p>
-                <p><span>发布时间：</span>AAAAA</p>
+                <p><span>标题：</span>{{ exam.title }}</p>
+                <p><span>服务对象：</span>{{ exam.service_obj }}</p>
+                <p><span>浏览次数：</span>{{ exam.see_num }}</p>
+                <p><span>发布时间：</span>{{ exam.pub_date }}</p>
             </div>
-            <p><a href="/cyanscikit/oneexample/">查看更多</a></p>
+            <p><a href="/cyanscikit/oneexample/{{ exam.title }}">查看更多</a></p>
         </li>
-        <li>
-            <img src="/static/img/logo.jpg" alt="案例展示">
-            <div>
-                <p><span>标题：</span>AAAAA</p>
-                <p><span>服务对象：</span>AAAAA</p>
-                <p><span>浏览次数：</span>AAAAA</p>
-                <p><span>发布时间：</span>AAAAA</p>
-            </div>
-            <p><a href="/cyanscikit/oneexample/">查看更多</a></p>
-        </li>
-        <li>
-            <img src="/static/img/logo.jpg" alt="案例展示">
-            <div>
-                <p><span>标题：</span>AAAAA</p>
-                <p><span>服务对象：</span>AAAAA</p>
-                <p><span>浏览次数：</span>AAAAA</p>
-                <p><span>发布时间：</span>AAAAA</p>
-            </div>
-            <p><a href="/cyanscikit/oneexample/">查看更多</a></p>
-        </li>
+        {% endfor %}
     </ul>
 </div>
 {% endblock %}

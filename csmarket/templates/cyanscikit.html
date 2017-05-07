@@ -8,39 +8,33 @@
 <div id="xcmain">
     <div class="xcm_con">
         <h1>知行合一 止于至善</h1>
-        <p>你是来的层面上年度科技城吃的穆斯林成都市库乱码从电脑就大地方大幅度反倒是你家客服发生的空间三德科技发多少产生的出生地顶顶顶顶发大所所付多所付多第三方第三方士大夫的说法</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Cyanscikit自营是属于CS Market下的一个单独模块，致力于提供安全技术分析与实现，
+            我们聚焦于全球的最新科技技术转化，是移动互联网认证业务的技术和服务提供商，
+            是大数据智能化 业务的技术和服务提供商
+
+            <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们基于移动互联、大数据、虚拟化和人工智能技术，为移动互联网电子政务、
+            电子商务提供ID远程认证和4A统一管理服务。我们的服务包括移动应用安全检测、监测和保护，
+            移动互联身份认证和访问管理、公民身份远程认证，在线数字证书电子合同以及大数据人工智能可视化分析等业务。</p>
     </div>
 </div>
 
 <div id="xccase">
     <h1>案例展示</h1>
     <ul class="caseimg">
+        {% for ex in exam_list %}
         <li>
-            <a href="">
-                <img src="/static/img/logo.jpg">
+            <a href="/cyanscikit/oneexample/{{ ex.title }}">
+                <img src="/uploads/{{ ex.image }}">
                 <div>
-                    <p>关于什么什么的</p>
+                    <p>{{ ex.title }}</p>
                 </div>
             </a>
         </li>
-        <li>
-            <a href="">
-                <img src="/static/img/logo.jpg">
-                <div>
-                    <p>关于什么什么的</p>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <img src="/static/img/logo.jpg">
-                <div>
-                    <p>关于什么什么的</p>
-                </div>
-            </a>
-        </li>
+        {% endfor %}
     </ul>
-    <div class="xcmore"><a href="/cyanscikit/example/">Look More</a></div>
+    <div class="xcmore"><a href="/cyanscikit/example/">More</a></div>
 </div>
 
 <div id="xcknoservice">
@@ -48,25 +42,65 @@
     <ul class="knosevimg">
         <li>
             <a href="">
-                <img src="/static/img/logo.jpg">
+                <img src="/static/img/service/02.png">
                 <div>
-                    <p>关于什么什么的</p>
+                    <p>Web制作</p>
                 </div>
             </a>
         </li>
         <li>
             <a href="">
-                <img src="/static/img/logo.jpg">
+                <img src="/static/img/service/07.png">
                 <div>
-                    <p>关于什么什么的</p>
+                    <p>数据采集</p>
                 </div>
             </a>
         </li>
         <li>
             <a href="">
-                <img src="/static/img/logo.jpg">
+                <img src="/static/img/service/04.png">
                 <div>
-                    <p>关于什么什么的</p>
+                    <p>机器学习</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="/static/img/service/06.png">
+                <div>
+                    <p>日志分析系统</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="/static/img/service/03.png">
+                <div>
+                    <p>海量数据解决方案</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="/static/img/service/01.png">
+                <div>
+                    <p>App加固</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="/static/img/service/08.png">
+                <div>
+                    <p>微信开发</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="/static/img/service/05.png">
+                <div>
+                    <p>科技技术转化</p>
                 </div>
             </a>
         </li>
@@ -76,9 +110,10 @@
 <div id="xcknodoc">
     <h1>技术文档</h1>
     <ul class="doccon">
-        <li><a>那就肯定是男的安德玛，设蓄势待发的计吸纳上可能</a><small>2017.07.08</small><span class="glyphicon glyphicon-eye-open">  2222</span></li>
-        <li><a>那就肯定是男的安德玛，设计吸纳上可能</a><small>2017.07.08</small><span class="glyphicon glyphicon-eye-open">  2222</span></li>
+        {% for doc in doc_list %}
+        <li><a href="/cyanscikit/onedoc/{{ doc.title }}/">{{ doc.title }}</a><small>{{ doc.pub_date }}</small><span class="glyphicon glyphicon-eye-open">  {{ doc.see_num }}</span></li>
+        {% endfor %}
     </ul>
-    <div class="xcmore"><a href="/cyanscikit/doc/">Look More</a></div>
+    <div class="xcmore"><a href="/cyanscikit/doc/">More</a></div>
 </div>
 {% endblock %}

@@ -1,11 +1,12 @@
 #-*-coding: utf-8-*-
-from django.shortcuts import render_to_response,render
+from django.shortcuts import render_to_response
 from django.views.decorators.csrf import csrf_exempt
 from logre.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.http import HttpResponseRedirect
+from message.models import Message,DMessage
 import time
 # Create your views here.
 
@@ -114,6 +115,28 @@ def prefect(request):
         })
 
 def personal(request):
-    return render_to_response('personal.html',{
 
-    })
+    # 判断用户名
+    if request.user.is_authenticated:
+        user_name = request.user
+        user = User.objects.get(username=user_name)
+
+        # 需求
+        xuqiu_list = Message.objects.filter(mess_xuorfu="需求", mess_author=user_name)[:5]
+        # 服务
+        fuwu_list = Message.objects.filter(mess_xuorfu="服务", mess_author=user_name)[:5]
+        # 代办
+        daiban_list = DMessage.objects.filter(dmess_author=user_name)[:5]
+
+        return render_to_response('personal.html', {
+            'user_name': user_name,
+            'user': user,
+            'xuqiu_list': xuqiu_list,
+            'fuwu_list': fuwu_list,
+            'daiban_list': daiban_list,
+        })
+    else:
+        error = '你还没有登录，请先登录'
+        return render_to_response('personal.html',{
+            'error': error,
+        })

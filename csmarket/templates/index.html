@@ -52,38 +52,12 @@
         <div class="mcontent content">
             <div class="content-list">
                 <ul>
+                    {% for db in daiban_list %}
                     <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
+                        <a href="" class="mimg"><img src="{{ db.dmess_image }}"></a>
+                        <span><a href="">{{ db.title }}</a> </span>
                     </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
-                    <li>
-                        <a href="" class="mimg"><img src="/static/img/1.jpg"></a>
-                        <span><a href="">xsafadvgjv就</a> </span>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
 
@@ -164,31 +138,13 @@
             <div class="case-cantainer">
                 <div class="csm-title"><h3>案例中心   &nbsp;&nbsp;<a href=""> <span>更多<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></span></a></h3></div>
                 <ul class="csm-content">
+                    {% for exam in exam_list %}
                     <li>
-                        <p><b>Title:</b>dsfdfg</p>
-                        <p><b>内容:</b>健康的说法客服部吗，吓死你川端康成你看见的生成电视剧.....</p>
-                        <p class="csm-time">2016-12-02</p>
+                        <p><b>Title:</b><a href="/cyanscikit/oneexample/{{ exam.title }}">{{ exam.title }}</p>
+                        {% autoescape off %}<p><b>内容:</b>{{ exam.jianjie }}</p>{% endautoescape %}
+                        <p class="csm-time">{{ exam.pub_date }}</p>
                     </li>
-                    <li>
-                        <p><b>Title:</b>dsfdfg</p>
-                        <p><b>内容:</b>健康的说法客服部吗，吓死你川端康成你看见的生成电视剧.....</p>
-                        <p class="csm-time">2016-12-02</p>
-                    </li>
-                    <li>
-                        <p><b>Title:</b>dsfdfg</p>
-                        <p><b>内容:</b>健康的说法客服部吗，吓死你川端康成你看见的生成电视剧.....</p>
-                        <p class="csm-time">2016-12-02</p>
-                    </li>
-                    <li>
-                        <p><b>Title:</b>dsfdfg</p>
-                        <p><b>内容:</b>健康的说法客服部吗，吓死你川端康成你看见的生成电视剧.....</p>
-                        <p class="csm-time">2016-12-02</p>
-                    </li>
-                    <li>
-                        <p><b>Title:</b>dsfdfg</p>
-                        <p><b>内容:</b>健康的说法客服部吗，吓死你川端康成你看见的生成电视剧.....</p>
-                        <p class="csm-time">2016-12-02</p>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>

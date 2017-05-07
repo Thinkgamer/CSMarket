@@ -5,11 +5,12 @@ from django.db import models
 
 class example(models.Model):
     title = models.CharField(verbose_name='标题', max_length=30, blank=False)
-    image = models.ImageField()
+    image = models.ImageField(blank=True,upload_to='example',verbose_name='案例封面')
     pub_date = models.DateTimeField(verbose_name='发布时间')
     see_num = models.IntegerField(verbose_name='浏览次数',default=0)
     service_obj = models.CharField(verbose_name="服务对象", max_length=30, blank=False)
     chengjiao_time = models.DateTimeField(verbose_name='成交时间')
+    jianjie = models.TextField(verbose_name='简介',default="")
     show = models.TextField(verbose_name='内容',blank=False)
 
     def __str__(self):

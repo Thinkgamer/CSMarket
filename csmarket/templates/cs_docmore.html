@@ -8,11 +8,9 @@
 <div class="xckd_con">
     <div class="xckd_main">
         <ul>
-            <li><a href="/cyanscikit/onedoc/">那就肯定是男的安德玛，设计吸纳上可能</a><small>2017.07.08</small><span class="glyphicon glyphicon-eye-open">  2222</span></li>
-            <li><a href="/cyanscikit/onedoc/">那就肯定是男的安德玛，设计吸纳上可能</a><small>2017.07.08</small><span class="glyphicon glyphicon-eye-open">  2222</span></li>
-            <li><a href="/cyanscikit/onedoc/">那就肯定是男的安德玛，设计吸纳上可能</a><small>2017.07.08</small><span class="glyphicon glyphicon-eye-open">  2222</span></li>
-            <li><a href="/cyanscikit/onedoc/">那就肯定是男的安德玛，设计吸纳上可能</a><small>2017.07.08</small><span class="glyphicon glyphicon-eye-open">  2222</span></li>
-            <li><a href="/cyanscikit/onedoc/">那就肯定是男的安德玛，设计吸纳上可能</a><small>2017.07.08</small><span class="glyphicon glyphicon-eye-open">  2222</span></li>
+        {% for one in doc_list %}
+            <li><a href="/cyanscikit/onedoc/{{ one.title }}">{{ one.title }}</a><small>{{ one.pub_date }}</small><span class="glyphicon glyphicon-eye-open">  {{ one.see_num }}</span></li>
+        {% endfor %}
         </ul>
     </div>
     <div class="xckd-page">
