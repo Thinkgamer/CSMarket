@@ -7,6 +7,7 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.http import HttpResponseRedirect
 from message.models import Message,DMessage
+from django.core.files.storage import FileSystemStorage
 import time
 # Create your views here.
 
@@ -94,7 +95,7 @@ def logout(request):
 @csrf_exempt
 def prefect(request):
     if request.method=='POST':
-        phone = request.POST.get('phpne')
+        phone = request.POST.get('phone')
         # 学生身份认证信息
         eid = request.POST.get('eid')
         school = request.POST.get('school')
@@ -102,16 +103,52 @@ def prefect(request):
         jinianzhi = request.POST.get('jinianzhi')
         xueli = request.POST.get('xueli')
         xuehao = request.POST.get('xuehao')
-        imgfile = request.POST.get('imgfile')
+        # imgfile = request.POST.get('imgfile')
         #信息补充
         wechat = request.POST.get('wechat')
         qq = request.POST.get('qq')
         shanchang = request.POST.get('shanchang')
         xuanyan = request.POST.get('xuanyan')
 
-        pass
+        # 保存图片，以url形式存储到数据库中
+        image = request.FILES["imgfile"]
+        fs = FileSystemStorage()
+        filename = fs.save("xszimg/" + image.name, image)
+        uploaded_file_url = fs.url(filename)
+
+        #保存信息
+        user = User.objects.get(username=request.user)
+        user.user_phone = phone
+        user.user_eid = eid
+        user.user_school = school
+        user.user_start_year = startyear
+        user.user_year = jinianzhi
+        user.user_xueli = xueli
+        user.user_xuehao = xuehao
+        user.user_xszimg = uploaded_file_url
+        user.user_wechat = wechat
+        user.user_qq = qq
+        user.user_shanchang = shanchang
+        user.user_xuanyan = xuanyan
+
+        user.save()
+
+        if request.user.is_authenticated:
+            user_name = request.user
+        else:
+            user_name = ''
+
+        return render_to_response('index.html',{
+            'user_name': user_name,
+        })
     else:
+        if request.user.is_authenticated:
+            user = User.objects.get(username=request.user)
+        else:
+            user =''
+
         return render_to_response('prefect.html',{
+            'user': user,
         })
 
 def personal(request):

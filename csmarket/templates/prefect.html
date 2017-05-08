@@ -21,39 +21,40 @@
         <div class="items">
             <div class="page" align="center">
                 <div class="input-group">
-                   <input class="form-control" name="phone" id="tellphone" type="text" placeholder="手机号码">
+                   <input class="form-control" name="phone" id="tellphone" type="text" placeholder="手机号码" value="{{ user.user_phone }}">
                 </div>
-                <div class="input-group">
-                    <input  id="checkcode" type="text" class="form-control">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">获取验证码</button>
-                    </span>
-                </div>
+{#                <div class="input-group">#}
+{#                    <input  id="checkcode" type="text" class="form-control">#}
+{#                    <span class="input-group-btn">#}
+{#                        <button class="btn btn-default" type="button">获取验证码</button>#}
+{#                    </span>#}
+{#                </div>#}
                 <div class="btn_nav">
                     <input type="button" class="next right" value="下一步»" />
                 </div>
+                <p><a href="/index/">随便看看</a></p>
             </div>
             <div class="page" align="center">
                 <div class="input-group">
-                    <input class="form-control" name="eid"  id="cardid" type="text" placeholder="身份证号">
+                    <input class="form-control" name="eid"  id="cardid" type="text" placeholder="身份证号" value="{{ user.user_eid }}">
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="school" id="school" type="text" placeholder="学校">
+                    <input class="form-control" name="school" id="school" type="text" placeholder="学校" value="{{ user.user_school }}">
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="startyear" id="schooltime" type="month" placeholder="入学年份">
+                    <input class="form-control" name="startyear" id="schooltime" type="text" placeholder="入学年份" value="{{ user.user_start_year }}">
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="jinianzhi" id="eduyears" type="number" min="1" placeholder="几年制">
+                    <input class="form-control" name="jinianzhi" id="eduyears" type="number" min="1" placeholder="几年制" value="{{ user.user_year }}">
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="xueli"  id="edu" type="text" placeholder="学历">
+                    <input class="form-control" name="xueli"  id="edu" type="text" placeholder="学历" value="{{ user.user_xueli }}">
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="xuehao" id="edunumber" type="text" placeholder="学号（毕业证编号）">
+                    <input class="form-control" name="xuehao" id="edunumber" type="text" placeholder="学号（毕业证编号）" value="{{ user.user_xuehao }}">
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="imgfile" id="facephoto" type="file">
+                    <input class="form-control" name="imgfile" id="facephoto" type="file" value="{{ user.user_xszimg }}">
                     <span class="input-group-btn">
                         <button class="btn btn-default">请上传证件照片</button>
                     </span>
@@ -69,16 +70,16 @@
             </div>
             <div class="page" align="center">
                 <div class="input-group">
-                    <input class="form-control"  name="wechat" id="weixin" type="text" placeholder="微信号">
+                    <input class="form-control"  name="wechat" id="weixin" type="text" placeholder="微信号" value="{{ user.user_wechat }}">
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="qq" id="qq" type="text" placeholder="QQ号">
+                    <input class="form-control" name="qq" id="qq" type="text" placeholder="QQ号" value="{{ user.user_qq }}">
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="shanchang" id="like" type="text" placeholder="擅长">
+                    <input class="form-control" name="shanchang" id="like" type="text" placeholder="擅长" value="{{ user.user_shanchang }}">
                 </div>
                 <div class="input-group">
-                    <input class="form-control" name="xuanyan"  id="saying" type="text" placeholder="宣言">
+                    <input class="form-control" name="xuanyan"  id="saying" type="text" placeholder="宣言" value="{{ user.user_xuanyan }}">
                 </div>
                 <div class="btn_nav">
                     <input type="button" class="prev" style="float:left" value="«上一步" />
@@ -89,7 +90,7 @@
                 欢迎完成个人身份认证，<br>认证通过后，我们会以邮件形式通知您，谢谢合作！
                 <div class="btn_nav">
                     <input type="button" class="prev" style="float:left" value="«上一步" />
-                    <input type="button" class="next right" id="sub" value="确定" />
+                    <input type="submit" class="next right" id="sub" value="确定" />
                 </div>
             </div>
         </div>
@@ -118,11 +119,11 @@
                         return false;
                     }
                     var code = $("#checkcode").val();
-                    if(code==""){
-                        alert("请填写验证码！");
-                        $("#checkcode").focus();
-                        return false;
-                    }
+{#                    if(code==""){#}
+{#                        alert("请填写验证码！");#}
+{#                        $("#checkcode").focus();#}
+{#                        return false;#}
+{#                    }#}
                 }else if(i==2){
                     var cardid = $("#cardid").val();
                     var school=$("#school").val();
