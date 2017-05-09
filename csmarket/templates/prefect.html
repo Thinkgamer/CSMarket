@@ -7,6 +7,8 @@
     <link rel="bookmark" href="/static/img/favicon.ico"/>
     <link rel="stylesheet" href="/static/css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/check.css">
+    <script type="application/javascript">
+</script>
 </head>
 <body>
 <form action="/logre/prefect/" method="post" enctype="multipart/form-data">
@@ -32,7 +34,12 @@
                 <div class="btn_nav">
                     <input type="button" class="next right" value="下一步»" />
                 </div>
-                <p style="font-size: 20px"><a href="/index/">先不完善个人信息？去首页看看！</a></p>
+                {% if not_auth_error %}
+                <p style="font-size: 22px; color: red">{{ not_auth_error }}</p>
+                <br><p style="font-size: 20px;"><a href="{{ referer }}">返回上一页</a>
+                <br><br>
+                {% endif %}
+                <p style="font-size: 18px"><a href="/index/">先不完善个人信息？去首页看看！</a></p>
             </div>
             <div class="page" align="center">
                 <div class="input-group">

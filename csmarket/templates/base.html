@@ -13,6 +13,11 @@
         window.location.href="/logre/login/";
     {% endif %}
 
+{#    {% if request.not_auth_error %}#}
+{#    if(confirm("{{ not_auth_error }}"))#}
+{#        window.location.href="/logre/prefect/";#}
+{#    {% endif %}#}
+
     {% if repeat_error %}
         alert("{{ repeat_error }}");
     {% endif %}

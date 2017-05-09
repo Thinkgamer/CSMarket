@@ -61,19 +61,35 @@ def postService(request,cate):
         #     'flag': 1 if cate == "服务" else 0,
         # })
     else:
-        if request.user.is_authenticated:
-
+        # 如果用户已经被认证，且已经审核通过
+        if request.user.is_authenticated and request.user.user_isValid:
             cate_list =DCate.objects.all() if cate=="代办" else Cate.objects.all()
             return render_to_response('post_service.html',{
                 'user_name': request.user,
                 'cate': cate,
                 'cate_list': cate_list,
             })
+        # 如果未通过审核，提示先去补充个人信息
+        elif not request.user.user_isValid:
+            request.session['not_auth_error'] = "你还没有进行信息认证，请先去认证信息"
+            try:
+                referer = request.META['HTTP_REFERER']  # 获取网页访问来源
+                return render_to_response('prefect.html', {
+                    'not_auth_error': '你还没有通过信息认证，请完善或者修改信息!',
+                    'referer': referer,
+                    'user': request.user,
+                })
+            except:
+                return render_to_response('404.html', {
+                    'error': request.session.get('not_auth_error', default=None)
+                })
         else:
             request.session['error'] = "你还没有登录，请先登录！"
             try:
                 referer = request.META['HTTP_REFERER']  # 获取网页访问来源
-                return HttpResponseRedirect(referer)
+                return HttpResponseRedirect(referer,{
+                    'error': '你还没有进行信息认证，请先去认证信息',
+                })
             except:
                 return render_to_response('404.html',{
                     'error':request.session.get('error',default=None)

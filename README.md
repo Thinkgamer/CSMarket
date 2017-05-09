@@ -48,5 +48,6 @@ pymysql.install_as_MySQLdb()
 >django request.FILES MultiValueDictKeyError 
 
 解决办法：form 表单中添加 enctype="multipart/form-data
+
 3：Django教程
 <a href='http://blog.csdn.net/column/details/12861.html'>Django 从零开始到项目优化</a>
