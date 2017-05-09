@@ -11,7 +11,7 @@ class User(AbstractUser):
     user_eid=models.CharField(blank=True,max_length=19,verbose_name='身份证号')
     user_school=models.CharField(blank=True,max_length=20,verbose_name='学校名字')
     user_start_year=models.CharField(blank=True,max_length=4,verbose_name='入学年份')
-    user_xueli=models.CharField(blank=True,max_length=2,verbose_name='学历')
+    user_xueli=models.CharField(blank=True,max_length=10,verbose_name='学历')
     user_year=models.IntegerField(blank=True,verbose_name='几年制',default=4)
     user_xuehao=models.CharField(blank=True,max_length=20,verbose_name='学号')
     user_xszimg=models.ImageField(blank=True,upload_to='xszimg',verbose_name='学生证页面')

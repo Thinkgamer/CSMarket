@@ -77,7 +77,8 @@ def register(request):
         user=User.objects.create_user(username=username,email=email,password=pwd)
         user.last_login=now_time
         user.save()
-
+        # 全系统通用
+        auth_login(request, user)
         return HttpResponseRedirect('/logre/prefect/')
     else:
         return render_to_response("register.html",{
@@ -133,14 +134,7 @@ def prefect(request):
 
         user.save()
 
-        if request.user.is_authenticated:
-            user_name = request.user
-        else:
-            user_name = ''
-
-        return render_to_response('index.html',{
-            'user_name': user_name,
-        })
+        return HttpResponseRedirect('/index/')
     else:
         if request.user.is_authenticated:
             user = User.objects.get(username=request.user)
@@ -154,7 +148,7 @@ def prefect(request):
 def personal(request):
 
     # 判断用户名
-    if request.user.is_authenticated:
+    if request.user.is_authenticated and not request.user.is_anonymous():
         user_name = request.user
         user = User.objects.get(username=user_name)
 

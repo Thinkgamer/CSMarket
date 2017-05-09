@@ -40,7 +40,7 @@
             <tr><td>学号</td><td>{{ user.user_xuehao }}</td></tr>
             <tr><td>学生证页面</td><td>
                 {% if user.user_xszimg %}
-                <img src="/uploads/{{ user.user_xszimg }}">
+                <img src="{{ user.user_xszimg }}" width="400px" height="500px">
                 {% else %}
                 {% endif %}
             </td></tr>

@@ -42,5 +42,9 @@ pymysql.install_as_MySQLdb()
 >module 'django.views' has no attribute 'static'
 
 解决办法：先把出错的地方注释掉，同步数据库后在解除掉注释
+
+>django request.FILES MultiValueDictKeyError 
+
+解决办法：form 表单中添加 enctype="multipart/form-data
 3：Django教程
 <a href='http://blog.csdn.net/column/details/12861.html'>Django 从零开始到项目优化</a>
