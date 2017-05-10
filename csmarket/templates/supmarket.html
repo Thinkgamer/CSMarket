@@ -27,19 +27,9 @@
         <div>
             <h4>分类：</h4>
             <ul>
-                <li><a href="#">美工设计</a></li>
-                <li><a href="#">美工设计</a></li>
-                <li><a href="#">美工设计</a></li>
-                <li><a href="#">美工设计</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4>排序：</h4>
-            <ul>
-                <li><a href="#">美工设计</a></li>
-                <li><a href="#">美工设计</a></li>
-                <li><a href="#">美工设计</a></li>
-                <li><a href="#">美工设计</a></li>
+                {% for one_cate in cate_list %}
+                <li><a href="/message/OneCate/{{ cate }}/{{ one_cate.cate_name }}{{ one_cate.dcate_name }}">{{ one_cate.cate_name }}{{ one_cate.dcate_name }} &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;</a></li>
+                {% endfor %}
             </ul>
         </div>
     </div>

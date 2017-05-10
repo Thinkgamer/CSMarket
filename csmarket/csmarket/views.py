@@ -5,6 +5,11 @@ from django.shortcuts import render_to_response
 from cyanscikit.models import example
 
 def index(request):
+    # 清除 request.error
+    try:
+        del request.session['error']
+    except:
+        pass
     #CSM动态 = 2  创客故事= 1
     csm_list = News.objects.filter(new_cate=2).order_by("-new_time")[:5]
     ck_list = News.objects.filter(new_cate=1).order_by("-new_time")[:5]

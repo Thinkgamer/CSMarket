@@ -1,7 +1,7 @@
 #-*-coding:utf-8-*-
 from django.conf.urls import url,include
 from django.contrib import admin
-from message.views import editService,postService,oneService,allService
+from message.views import editService,postService,oneService,allService,Onecate
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^editService/(.+)/$', editService),
     url(r'^oneService/(.+)/(.+)/(.+)/$', oneService),
     url(r'^allService/(.+)/$', allService),
+    url(r'^OneCate/(.+)/(.+)/$', Onecate),
 ]

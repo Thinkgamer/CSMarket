@@ -9,8 +9,11 @@
 {% endblock %}
 <script type="application/javascript">
     {% if error %}
-    if(confirm("{{ error }}"))
-        window.location.href="/logre/login/";
+        if(confirm("{{ error }}"))
+            window.location.href="/logre/login/";
+    {% elif request.session.error %}
+        if(confirm("{{ request.session.error }}"))
+            window.location.href="/logre/login/";
     {% endif %}
 
 {#    {% if request.not_auth_error %}#}
@@ -183,7 +186,7 @@
             <li>我是雇主</li>
             <li><a href="/message/postService/需求/">发布需求</a></li>
             <li><a href="/news/all/创客故事/">雇主故事</a></li>
-            <li><a>选择服务商</a></li>
+            <li><a href="/message/allService/服务/">选择服务商</a></li>
             <li><a>个人案例</a></li>
         </ul>
 
@@ -191,7 +194,7 @@
             <li>我是服务商</li>
             <li><a href="/message/postService/服务/">发布服务</a></li>
             <li><a href="/news/all/创客故事/">服务商故事</a></li>
-            <li><a>浏览需求</a></li>
+            <li><a href="/message/allService/需求/">浏览需求</a></li>
             <li><a>个人案例</a></li>
         </ul>
         <ul>
@@ -202,10 +205,10 @@
         </ul>
         <ul>
             <li>联系方式</li>
-            <li><a href="#">邮箱：thinkgamer@163.com</a></li>
-            <li><a href="">QQ &nbsp;：1839882792</a></li>
-            <li><a>微信：gyt13342445911</a></li>
-            <li><a>地址：道义南大街37号</a></li>
+            <li>邮箱：thinkgamer@163.com</li>
+            <li>QQ &nbsp;：1839882792</li>
+            <li>微信：gyt13342445911</li>
+            <li>地址：道义南大街37号</li>
         </ul>
         <div class="fr footer_code">
             <img src="/static/img/weixin.png">

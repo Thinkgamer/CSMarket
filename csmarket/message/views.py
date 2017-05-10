@@ -62,7 +62,7 @@ def postService(request,cate):
         # })
     else:
         # 如果用户已经被认证，且已经审核通过
-        if request.user.is_authenticated and request.user.user_isValid:
+        if not request.user.is_anonymous() and request.user.is_authenticated and request.user.user_isValid:
             cate_list =DCate.objects.all() if cate=="代办" else Cate.objects.all()
             return render_to_response('post_service.html',{
                 'user_name': request.user,
@@ -70,7 +70,7 @@ def postService(request,cate):
                 'cate_list': cate_list,
             })
         # 如果未通过审核，提示先去补充个人信息
-        elif not request.user.user_isValid:
+        elif not request.user.is_anonymous() and not request.user.user_isValid:
             request.session['not_auth_error'] = "你还没有进行信息认证，请先去认证信息"
             try:
                 referer = request.META['HTTP_REFERER']  # 获取网页访问来源
@@ -87,9 +87,7 @@ def postService(request,cate):
             request.session['error'] = "你还没有登录，请先登录！"
             try:
                 referer = request.META['HTTP_REFERER']  # 获取网页访问来源
-                return HttpResponseRedirect(referer,{
-                    'error': '你还没有进行信息认证，请先去认证信息',
-                })
+                return HttpResponseRedirect(referer)
             except:
                 return render_to_response('404.html',{
                     'error':request.session.get('error',default=None)
@@ -117,7 +115,7 @@ def oneService(request,user,cate,title):
         # 获取该message对应的发布者的联系信息
         per = User.objects.get(username=one.mess_author)
     return render_to_response('services_one.html',{
-        'user_name': user,
+        'user_name': '' if request.user.is_anonymous() else request.user,
         'title': one.dmess_title if cate=="代办" else one.mess_title,
         'fengmian': one.dmess_image if cate=="代办" else one.mess_image,
         'smallcate': one.dmess_cate if cate=="代办" else one.mess_cate,
@@ -140,10 +138,13 @@ def allService(request,cate):
     # cate
     if cate=="需求":
         title_name = "需求大厅"
+        cate_list = Cate.objects.all().order_by('cate_num')
     elif cate=="服务":
         title_name = "服务商库"
+        cate_list = Cate.objects.all().order_by('cate_num')
     else:
         title_name = "代办中心"
+        cate_list = DCate.objects.all().order_by('dcate_num')
     # 分页
     if cate=="代办":
         mess_list = DMessage.objects.all().order_by("-dmess_time")
@@ -161,9 +162,38 @@ def allService(request,cate):
         all_mess = paginator.page(paginator.num_pages)
 
     return render_to_response('supmarket.html',{
-        'user_name': request.user,
+        'user_name': '' if request.user.is_anonymous() else request.user,
         "len_list": range(1, paginator.num_pages+1),
         "all_mess": all_mess,
         'title_name': title_name,
         'cate': cate,
+        'cate_list': cate_list,
+    })
+
+def Onecate(request,cate,onecate):
+    # onecate 为小类别  cate 为 服务，需求，代办中的一个
+    if cate=='代办':
+        mess_list = DMessage.objects.filter(dmess_cate__dcate_name=onecate).order_by("-dmess_time")
+        cate_list = DCate.objects.all().order_by('dcate_num')
+    else:
+        mess_list = Message.objects.filter(mess_cate__cate_name=onecate).order_by("-mess_time")
+        cate_list = Cate.objects.all().order_by('cate_num')
+
+    paginator = Paginator(mess_list, 10)  # Show 20 contacts per page
+    page = request.GET.get('page')
+    try:
+        all_mess = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        all_mess = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        all_mess = paginator.page(paginator.num_pages)
+    return render_to_response('supmarket.html',{
+        'user_name': '' if request.user.is_anonymous() else request.user,
+        "len_list": range(1, paginator.num_pages + 1),
+        "all_mess": all_mess,
+        'cate': cate,
+        'cate_list': cate_list,
+        'title_name': onecate,
     })
