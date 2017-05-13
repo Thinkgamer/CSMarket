@@ -25,3 +25,12 @@ KindEditor.ready(function(K) {
 		uploadJson: '/admin/uploads/kindeditor',
 	});
 });
+
+// 发布信息时
+KindEditor.ready(function(K) {
+	K.create('textarea[name="miaoshu"]', {
+		width : "800px",
+        height : "500px",
+		uploadJson: '/admin/uploads/kindeditor',
+	});
+});

@@ -6,8 +6,8 @@ from django.views.decorators.csrf import csrf_exempt
 import time
 # Create your views here.
 def all(request,newcate):
-    if request.user.is_authenticated:
-        user_name=request.user
+    if request.COOKIES.get('name',''):
+        user_name=request.COOKIES.get('name','')
     else:
         user_name=''
     #这里传进来的应该是分类的名字
@@ -42,8 +42,8 @@ def all(request,newcate):
 @csrf_exempt
 def one(request,newid):
     #验证用户
-    if request.user.is_authenticated:
-        user_name=request.user
+    if request.COOKIES.get('name',''):
+        user_name=request.COOKIES.get('name','')
     else:
         user_name=''
 

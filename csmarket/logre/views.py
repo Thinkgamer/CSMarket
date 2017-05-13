@@ -1,10 +1,8 @@
 #-*-coding: utf-8-*-
 from django.shortcuts import render_to_response
 from django.views.decorators.csrf import csrf_exempt
-from logre.models import User
+from logre.models import User,UserSee
 from django.contrib.auth import authenticate
-from django.contrib.auth import login as auth_login
-from django.contrib.auth import logout as auth_logout
 from django.http import HttpResponseRedirect
 from message.models import Message,DMessage
 from django.core.files.storage import FileSystemStorage
@@ -20,13 +18,15 @@ def login(request):
         pwd=request.POST.get('passwd')
         user = authenticate(username=uname,password=pwd)
         if user is not None:
-            auth_login(request, user)
+            # auth_login(request, user)
             # 更新最后登录时间
             now_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
             user.last_login=now_time
             user.save()
             try:
-                return HttpResponseRedirect(referer)
+                res = HttpResponseRedirect(referer)
+                res.set_cookie('name',uname,3600)
+                return res
             except:
                 return HttpResponseRedirect("/index/")
         else:
@@ -78,17 +78,21 @@ def register(request):
         user.last_login=now_time
         user.save()
         # 全系统通用
-        auth_login(request, user)
-        return HttpResponseRedirect('/logre/prefect/')
+        # auth_login(request, user)
+        res = HttpResponseRedirect('/logre/prefect/')
+        res.set_cookie('name',username,3600)
+        return res
     else:
         return render_to_response("register.html",{
 
         })
 
 def logout(request):
-    auth_logout(request)
+    # auth_logout(request)
     try:
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        res =  HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        res.delete_cookie('name')
+        return res
     except:
         return HttpResponseRedirect("/")
 
@@ -118,7 +122,7 @@ def prefect(request):
         uploaded_file_url = fs.url(filename)
 
         #保存信息
-        user = User.objects.get(username=request.user)
+        user = User.objects.get(username=request.COOKIES.get('name'))
         user.user_phone = phone
         user.user_eid = eid
         user.user_school = school
@@ -136,8 +140,8 @@ def prefect(request):
 
         return HttpResponseRedirect('/index/')
     else:
-        if request.user.is_authenticated:
-            user = User.objects.get(username=request.user)
+        if request.COOKIES.get('name',''):
+            user = User.objects.get(username=request.COOKIES.get('name',''))
         else:
             user =''
 
@@ -148,8 +152,8 @@ def prefect(request):
 def personal(request):
 
     # 判断用户名
-    if request.user.is_authenticated and not request.user.is_anonymous():
-        user_name = request.user
+    if request.COOKIES.get('name',''):
+        user_name = request.COOKIES.get('name','')
         user = User.objects.get(username=user_name)
 
         # 需求
@@ -158,6 +162,8 @@ def personal(request):
         fuwu_list = Message.objects.filter(mess_xuorfu="服务", mess_author=user_name)[:5]
         # 代办
         daiban_list = DMessage.objects.filter(dmess_author=user_name)[:5]
+        # 最近浏览
+        see_list = UserSee.objects.filter(see_people=user_name)[:6]
 
         return render_to_response('personal.html', {
             'user_name': user_name,
@@ -165,6 +171,7 @@ def personal(request):
             'xuqiu_list': xuqiu_list,
             'fuwu_list': fuwu_list,
             'daiban_list': daiban_list,
+            'see_list': see_list,
         })
     else:
         error = '你还没有登录，请先登录'

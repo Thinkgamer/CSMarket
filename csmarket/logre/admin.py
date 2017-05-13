@@ -1,5 +1,5 @@
 from django.contrib import admin
-from logre.models import User
+from logre.models import User,UserSee
 # Register your models here.
 
 #将UserProfile加入到Admin的user表中
@@ -21,3 +21,10 @@ from logre.models import User
 #用userProfileAdmin注册user
 admin.site.register(User)
 
+class AdminUserSee(admin.ModelAdmin):
+    list_display = ('title','pub_author','see_people','cate','time',)
+    search_fields =('title','pub_author','see_people','cate',)
+    list_filter = ('title','pub_author','see_people','cate',)
+    ordering = ('-time',)
+
+admin.site.register(UserSee,AdminUserSee)

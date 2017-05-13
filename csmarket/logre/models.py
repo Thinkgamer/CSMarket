@@ -27,3 +27,19 @@ class User(AbstractUser):
 
     def __unicode__(self):
         return self.user.username
+
+class UserSee(models.Model):
+    title = models.CharField(blank=True,verbose_name='浏览的标题',max_length=30)
+    image = models.CharField(verbose_name='图像信息',max_length=100,blank=True)
+    pub_author = models.CharField(blank=True,verbose_name='发布者',max_length=10)
+    see_people = models.CharField(blank=True,verbose_name='浏览者',max_length=10)
+    cate = models.CharField(blank=True,verbose_name='类别',max_length=10)
+    time = models.DateTimeField(verbose_name='浏览时间')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        db_table = "see_user"
+        verbose_name = u'用户浏览表'
+        verbose_name_plural = u'用户浏览表'

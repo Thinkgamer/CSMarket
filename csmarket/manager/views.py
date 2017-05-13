@@ -17,12 +17,13 @@ def login(request):
         pwd=request.POST.get('passwd')
         user = authenticate(username=uname, password=pwd)
         if user is not None:
-            auth_login(request, user)
             # 更新最后登录时间
             now_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
             user.last_login=now_time
             user.save()
-            return HttpResponseRedirect('/manager/usermanager/')
+            res = HttpResponseRedirect('/manager/usermanager/')
+            res.set_cookie('name',uname,3600)
+            return res
         else:
             return render_to_response('login.html',{
                 'error': '邮箱或者密码不正确',
@@ -36,11 +37,12 @@ def login(request):
         })
 
 def logout(request):
-    auth_logout(request)
-    return HttpResponseRedirect('/manager/login/')
+    res = HttpResponseRedirect('/manager/login/')
+    res.delete_cookie('name')
+    return res
 
 def usermanager(request):
-    if request.user and not request.user.is_anonymous:
+    if request.COOKIES.get('name',''):
         user_list = User.objects.filter(user_isValid=False).order_by("-date_joined")
         paginator = Paginator(user_list, 20)  # Show 20 contacts per page
         page = request.GET.get('page')
@@ -56,7 +58,7 @@ def usermanager(request):
             'tag':0,
             'all_user': all_user,
             "len_list": range(1, paginator.num_pages+1),
-            'user_name': request.user,
+            'user_name': request.COOKIES.get('name',''),
         })
     else:
         return render_to_response('login.html', {
@@ -65,12 +67,12 @@ def usermanager(request):
 
 #查看更多信息
 def more(request,uname):
-    if request.user:
+    if request.COOKIES.get('name',''):
         user=User.objects.get(username=uname)
         return render_to_response('usermanager.html',{
             'tag':1,
             'user': user,
-            'user_name': request.user,
+            'user_name': request.COOKIES.get('name',''),
         })
     else:
         return render_to_response('login.html',{
@@ -79,7 +81,7 @@ def more(request,uname):
 
 #通过验证
 def through(request,uname):
-    if request.user:
+    if request.COOKIES.get('name',''):
         user = User.objects.get(username=uname)
         user.user_isValid=True
         user.save()
@@ -92,7 +94,7 @@ def through(request,uname):
 #如果注册数据有问题执行发送邮件
 @csrf_exempt
 def send(request,email):
-    if request.user:
+    if request.COOKIES.get('name',''):
         if request.method=='POST':
             subject = request.POST.get('subject')
             content = request.POST.get('content')
@@ -102,7 +104,7 @@ def send(request,email):
         else:
             return render_to_response('sendemail.html',{
                 'email': email,
-                'user_name': request.user,
+                'user_name': request.COOKIES.get('name',''),
             })
     else:
         return render_to_response('login.html', {

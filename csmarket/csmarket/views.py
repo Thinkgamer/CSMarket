@@ -33,9 +33,11 @@ def index(request):
     except:
         pass
 
-    if request.user.is_authenticated:
+    # if request.user.is_authenticated:
+    if request.COOKIES.get('name',''):
         return render_to_response('index.html',{
-            'user_name':request.user,
+            # 'user_name':request.user,
+            'user_name': request.COOKIES.get('name',''),
             'csm_list': csm_list,
             'exam_list': exam_list,
             'ck_list': ck_list,

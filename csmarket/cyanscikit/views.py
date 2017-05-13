@@ -12,8 +12,8 @@ def index(request):
     # 获取案例列表
     exam_list = Example.objects.all().order_by('-pub_date')[:8]
 
-    if request.user.is_authenticated:
-        user_name = request.user
+    if request.COOKIES.get('name',''):
+        user_name = request.COOKIES.get('name','')
     else:
         user_name = ''
 
@@ -29,8 +29,8 @@ def example(request):
     # example
     exam_list = Example.objects.all().order_by('-pub_date')
 
-    if request.user.is_authenticated:
-        user_name = request.user
+    if request.COOKIES.get('name',''):
+        user_name = request.COOKIES.get('name','')
     else:
         user_name = ''
 
@@ -47,8 +47,8 @@ def oneexample(request, title_):
     exa.see_num += 1
     exa.save()
 
-    if request.user.is_authenticated:
-        user_name = request.user
+    if request.COOKIES.get('name',''):
+        user_name = request.COOKIES.get('name','')
     else:
         user_name = ''
     return render_to_response('cs_example_one.html',{
@@ -61,8 +61,8 @@ def doc(request):
     # 获取技术文档列表
     doc_list = Doc.objects.all().order_by('-pub_date')
 
-    if request.user.is_authenticated:
-        user_name = request.user
+    if request.request.COOKIES.get('name',''):
+        user_name = request.COOKIES.get('name','')
     else:
         user_name = ''
     return render_to_response('cs_docmore.html', {
@@ -81,8 +81,8 @@ def onedoc(request, title_):
     # 热门推荐
     hot_list = Doc.objects.exclude(title = title_).order_by('-see_num')
 
-    if request.user.is_authenticated:
-        user_name = request.user
+    if request.COOKIES.get('name',''):
+        user_name = request.COOKIES.get('name','')
     else:
         user_name = ''
     return render_to_response('cs_doc_one.html',{

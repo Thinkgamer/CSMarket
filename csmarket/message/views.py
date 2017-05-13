@@ -1,12 +1,11 @@
 #-*-coding:utf-8-*-
 from django.shortcuts import render,render_to_response,HttpResponseRedirect
-from django.contrib.auth import authenticate
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.decorators.csrf import csrf_exempt
 from message.models import Message,Cate,Mwords,DMwords,DMessage,DCate
 import time
 from django.core.files.storage import FileSystemStorage
-from logre.models import User
+from logre.models import User,UserSee
 # Create your views here.
 
 #发布需求/服务
@@ -26,14 +25,14 @@ def postService(request,cate):
 
         # 这里要根据类别来定，因为服务/需求 是公用一个数据表， 而代办中心是一个单独的数据表
         if cate=="代办":
-            bool_rep = DMessage.objects.filter(dmess_title=title, dmess_author=request.user)
+            bool_rep = DMessage.objects.filter(dmess_title=title, dmess_author=request.COOKIES.get('name'))
         else:
-            bool_rep = Message.objects.filter(mess_title=title, mess_author=request.user)
+            bool_rep = Message.objects.filter(mess_title=title, mess_author=request.COOKIES.get('name'))
 
         if bool_rep:
-            if Message.objects.filter(mess_title=title,mess_author=request.user):
+            if Message.objects.filter(mess_title=title,mess_author=request.COOKIES.get('name')):
                 return render_to_response('post_service.html',{
-                    'user_name': request.user,
+                    'user_name': request.COOKIES.get('name'),
                     'cate': cate,
                     'title': title,
                     'leibie': leibie,
@@ -45,39 +44,41 @@ def postService(request,cate):
         now_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
         #根据类别来判断映射那哪个数据库模型
         if cate == "代办":
-            mess = DMessage(dmess_title=title, dmess_image=uploaded_file_url, dmess_author=request.user, dmess_time=now_time, \
+            mess = DMessage(dmess_title=title, dmess_image=uploaded_file_url, dmess_author=request.COOKIES.get('name'), dmess_time=now_time, \
                            dmess_price=price, dmess_seenum=0, dmess_content=miaoshu)
             mess.dmess_cate_id = DCate.objects.get(dcate_name=leibie).dcate_num
         else:
-            mess = Message(mess_title=title,mess_image=uploaded_file_url,mess_author=request.user,mess_time=now_time,\
+            mess = Message(mess_title=title,mess_image=uploaded_file_url,mess_author=request.COOKIES.get('name'),mess_time=now_time,\
                        mess_xuorfu=cate,mess_price=price,mess_seenum=0,mess_content=miaoshu)
             mess.mess_cate_id=Cate.objects.get(cate_name=leibie).cate_num
         mess.save()
 
-        return HttpResponseRedirect("/message/oneService/%s/%s/%s" % (request.user,cate,title))
+        return HttpResponseRedirect("/message/oneService/%s/%s/%s" % (request.COOKIES.get('name'),cate,title))
         # return render_to_response('services_one.html', {
         #     'user_name': request.user,
         #     'cate': cate,
         #     'flag': 1 if cate == "服务" else 0,
         # })
     else:
+        uname = request.COOKIES.get('name','')
+        user = User.objects.get(username=uname)
         # 如果用户已经被认证，且已经审核通过
-        if not request.user.is_anonymous() and request.user.is_authenticated and request.user.user_isValid:
+        if user and user.user_isValid:
             cate_list =DCate.objects.all() if cate=="代办" else Cate.objects.all()
             return render_to_response('post_service.html',{
-                'user_name': request.user,
+                'user_name': request.COOKIES.get('name'),
                 'cate': cate,
                 'cate_list': cate_list,
             })
         # 如果未通过审核，提示先去补充个人信息
-        elif not request.user.is_anonymous() and not request.user.user_isValid:
+        elif not user.user_isValid:
             request.session['not_auth_error'] = "你还没有进行信息认证，请先去认证信息"
             try:
                 referer = request.META['HTTP_REFERER']  # 获取网页访问来源
                 return render_to_response('prefect.html', {
                     'not_auth_error': '你还没有通过信息认证，请完善或者修改信息!',
                     'referer': referer,
-                    'user': request.user,
+                    'user': User.objects.get(username=request.COOKIES.get('name','')),
                 })
             except:
                 return render_to_response('404.html', {
@@ -101,6 +102,25 @@ def editService(request,cate):
 
 #查看单个需求或者服务
 def oneService(request,user,cate,title):
+    # 记录浏览信息
+    if request.COOKIES.get('name',''):
+        see_name = request.COOKIES.get('name','')
+        now_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+        # 查询message 表中的image
+        if cate=='代办':
+            image = DMessage.objects.get(dmess_author=user,dmess_title=title).dmess_image
+        else:
+            image = Message.objects.get(mess_author=user,mess_title=title).mess_image
+        # 如果已经浏览过，则更新即可
+        try:
+            if UserSee.objects.get(title=title, see_people=see_name):
+                see_update = UserSee.objects.get(title=title, see_people=see_name)
+                see_update.time = now_time
+                see_update.save()
+        except:
+            see = UserSee(title=title,image=image,pub_author=user,see_people=see_name,cate=cate,time=now_time)
+            see.save()
+
     # 获取该title对应的message的信息
     if cate == "代办":
         one = DMessage.objects.get(dmess_title=title, dmess_author=user)
@@ -115,7 +135,7 @@ def oneService(request,user,cate,title):
         # 获取该message对应的发布者的联系信息
         per = User.objects.get(username=one.mess_author)
     return render_to_response('services_one.html',{
-        'user_name': '' if request.user.is_anonymous() else request.user,
+        'user_name': request.COOKIES.get('name',''),
         'title': one.dmess_title if cate=="代办" else one.mess_title,
         'fengmian': one.dmess_image if cate=="代办" else one.mess_image,
         'smallcate': one.dmess_cate if cate=="代办" else one.mess_cate,
@@ -162,7 +182,7 @@ def allService(request,cate):
         all_mess = paginator.page(paginator.num_pages)
 
     return render_to_response('supmarket.html',{
-        'user_name': '' if request.user.is_anonymous() else request.user,
+        'user_name': request.COOKIES.get('name',''),
         "len_list": range(1, paginator.num_pages+1),
         "all_mess": all_mess,
         'title_name': title_name,
@@ -190,7 +210,7 @@ def Onecate(request,cate,onecate):
         # If page is out of range (e.g. 9999), deliver last page of results.
         all_mess = paginator.page(paginator.num_pages)
     return render_to_response('supmarket.html',{
-        'user_name': '' if request.user.is_anonymous() else request.user,
+        'user_name': request.COOKIES.get('name',''),
         "len_list": range(1, paginator.num_pages + 1),
         "all_mess": all_mess,
         'cate': cate,

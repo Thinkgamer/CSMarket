@@ -24,7 +24,7 @@
     <div class="psl-top">
         <img src="/static/img/logo.jpg" alt="头像">
         <ul>
-            <li><span>Thinkgamer</span></li><br/>
+            <li><span>{{ user_name }}</span></li><br/>
             <li><span>擅长：</span>{{ user.user_shanchang }}</li><br/>
             <li><span>宣言：</span>{{ user.user_xuanyan }}</li><br/>
             <li><span>学校：</span>{{ user.user_school }}</li><br/><br/>
@@ -55,7 +55,7 @@
                                     <li><span>价格：</span>{{ xuqiu.mess_price }}</li>
                                     <li><span>服务类别：</span>{{ xuqiu.mess_cate }}</li>
                                 </ul>
-                                <a href="/message/oneService/">详细信息</a>
+                                <a href="/message/oneService/{{ xuqiu.mess_author }}/需求/{{ xuqiu.mess_title }}">详细信息</a>
                             </li>
                             {% endfor %}
                         </ul>
@@ -77,7 +77,7 @@
                                     <li><span>价格：</span>{{ fuwu.mess_price }}</li>
                                     <li><span>服务类别：</span>{{ fuwu.mess_cate }}</li>
                                 </ul>
-                                <a href="/message/oneService/">详细信息</a>
+                                <a href="/message/oneService/{{ fuwu.mess_author }}/服务/{{ fuwu.mess_title }}">详细信息</a>
                             </li>
                             {% endfor %}
                         </ul>
@@ -100,7 +100,7 @@
                                     <li><span>价格：</span>{{ daiban.dmess_price }}</li>
                                     <li><span>服务类别：</span>{{ daiban.dmess_cate }}</li>
                                 </ul>
-                                <a href="/message/oneService/">详细信息</a>
+                                <a href="/message/oneService/{{ daiban.dmess_author }}/代办/{{ daiban.dmess_title }}">详细信息</a>
                             </li>
                             {% endfor %}
                         </ul>
@@ -117,30 +117,12 @@
             <div class="left-recent">
                 <h3>最近浏览</h3>
                 <ol class="recent-watch">
+                    {% for see in see_list %}
                     <li>                                                                     <!--循环输出最近浏览的图片-->
-                        <img src="/static/img/logo.jpg" alt="商品图片"><br><br>
-                        <p><a href="">web前段</a></p>
+                        <img src="{{ see.image }}" alt="商品图片"><br><br>
+                        <p><a href="/message/oneService/{{ see.pub_author }}/{{ see.cate }}/{{ see.title }}">{{ see.title }}</a></p>
                     </li>
-                    <li>                                                                     <!--循环输出最近浏览的图片-->
-                        <img src="/static/img/logo.jpg" alt="商品图片"><br><br>
-                        <p><a href="">web前段</a></p>
-                    </li>
-                    <li>                                                                     <!--循环输出最近浏览的图片-->
-                        <img src="/static/img/logo.jpg" alt="商品图片"><br><br>
-                        <p><a href="">web前段</a></p>
-                    </li>
-                    <li>                                                                     <!--循环输出最近浏览的图片-->
-                        <img src="/static/img/logo.jpg" alt="商品图片"><br><br>
-                        <p><a href="">web前段</a></p>
-                    </li>
-                    <li>                                                                     <!--循环输出最近浏览的图片-->
-                        <img src="/static/img/logo.jpg" alt="商品图片"><br><br>
-                        <p><a href="">web前段</a></p>
-                    </li>
-                    <li>                                                                     <!--循环输出最近浏览的图片-->
-                        <img src="/static/img/logo.jpg" alt="商品图片"><br><br>
-                        <p><a href="">web前段</a></p>
-                    </li>
+                    {% endfor %}
                 </ol>
             </div>
         </div>
@@ -166,7 +148,7 @@
                     </ul>
                     <p>最近一周访问<b>5</b>次<a href="#">查看更多</a></p>
                 </div>
-                <p class="mychuangke"><a href="#">点击编写我的创客故事</a></p>
+{#                <p class="mychuangke"><a href="#">点击编写我的创客故事</a></p>#}
                 <p class="mychuangke"><a href="/logre/prefect/">完善个人信息</a></p>
             </div>
         </div>

@@ -18,7 +18,7 @@ class Cate(models.Model):
 
 class Message(models.Model):
     mess_title = models.CharField(verbose_name='标题', max_length=30, blank=False, unique=True)
-    mess_image = models.CharField(verbose_name='图像信息',max_length=100,blank=True)
+    mess_image = models.ImageField(verbose_name='图像信息',blank=True,upload_to='fengmian')
     mess_author = models.CharField(verbose_name='发布人', max_length=15, blank=False)
     mess_time = models.DateTimeField(verbose_name='发布时间')
     mess_cate = models.ForeignKey(Cate, verbose_name='类别', blank=False)
@@ -68,7 +68,7 @@ class DCate(models.Model):
 
 class DMessage(models.Model):
     dmess_title = models.CharField(verbose_name='标题', max_length=30, blank=False, unique=True)
-    dmess_image = models.CharField(verbose_name='图像信息',max_length=100,blank=True)
+    dmess_image = models.ImageField(verbose_name='图像信息',blank=True,upload_to='fengmian')
     dmess_author = models.CharField(verbose_name='发布人', max_length=15, blank=False)
     dmess_time = models.DateTimeField(verbose_name='发布时间')
     dmess_cate = models.ForeignKey(DCate, verbose_name='类别', blank=False)
