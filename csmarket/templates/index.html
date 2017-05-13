@@ -54,7 +54,7 @@
                 <ul>
                     {% for db in daiban_list %}
                     <li>
-                        <a href="/message/oneService/{{ db.dmess_author }}/代办/{{ db.dmess_title }}" class="mimg"><img src="/uploads/{{ db.dmess_image }}"></a>
+                        <a href="/message/oneService/{{ db.dmess_author }}/代办/{{ db.dmess_title }}" class="mimg"><img src="{{ db.dmess_image }}"></a>
                         <span>{{ db.dmess_title }}</span>
                     </li>
                     {% endfor %}
@@ -74,7 +74,7 @@
                 <ul>
                     {% for fuwu in fuwu_list %}
                     <li>
-                        <a href="/message/oneService/{{ fuwu.mess_author }}/服务/{{ fuwu.mess_title }}" class="mimg"><img src="/uploads/{{ fuwu.mess_image }}"></a>
+                        <a href="/message/oneService/{{ fuwu.mess_author }}/服务/{{ fuwu.mess_title }}" class="mimg"><img src="{{ fuwu.mess_image }}"></a>
                         <span>{{ fuwu.mess_title }}</span>
                     </li>
                     {% endfor %}
@@ -94,7 +94,7 @@
                 <ul>
                     {% for xuqiu in xuqiu_list %}
                     <li>
-                        <a href="/message/oneService/{{ xuqiu.mess_author }}/需求/{{ xuqiu.mess_title }}" class="mimg"><img src="/uploads/{{ xuqiu.mess_image }}"></a>
+                        <a href="/message/oneService/{{ xuqiu.mess_author }}/需求/{{ xuqiu.mess_title }}" class="mimg"><img src="{{ xuqiu.mess_image }}"></a>
                         <span>{{ xuqiu.mess_title }}</span>
                     </li>
                     {% endfor %}

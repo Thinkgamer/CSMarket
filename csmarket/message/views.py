@@ -94,11 +94,20 @@ def postService(request,cate):
                     'error':request.session.get('error',default=None)
                 })
 #编辑需求
-def editService(request,cate):
+def edit(request,cate,title):
 
     return render_to_response("edit_service.html",{
         'cate': cate,
+        'title': title,
     })
+
+#删除信息
+def delete(request,cate,title):
+    if cate=='代办':
+        DMessage.objects.get(dmess_author=request.COOKIES.get('name'),dmess_title=title).delete()
+    else:
+        Message.objects.get(mess_author=request.COOKIES.get('name'),mess_title=title).delete()
+    return HttpResponseRedirect('/index')
 
 #查看单个需求或者服务
 def oneService(request,user,cate,title):
@@ -134,6 +143,9 @@ def oneService(request,user,cate,title):
         one.save()
         # 获取该message对应的发布者的联系信息
         per = User.objects.get(username=one.mess_author)
+
+    if request.COOKIES.get('name')==user:
+        flag= 1
     return render_to_response('services_one.html',{
         'user_name': request.COOKIES.get('name',''),
         'title': one.dmess_title if cate=="代办" else one.mess_title,
@@ -150,6 +162,7 @@ def oneService(request,user,cate,title):
         'wechat': per.user_wechat,
         'qq': per.user_qq,
         'phone': per.user_phone,
+        'flag': 1 if request.COOKIES.get('name')==user else 0,
     })
 
 

@@ -35,7 +35,7 @@
 <div class="ssv-cantainer">
     <div class="ssv-top">
         <div class="ssv-top-left">
-            <h1><span>标题：</span>{{ title }}</h1>
+            <h1><span>标题：</span>{{ title }}</h1><br><br>
             <img src="{{ fengmian }}" alt="服务图片">
             <div class="selfname"><span><b>联系人：</b>Thinkgamer</span></div>
             <div class="self">
@@ -62,6 +62,10 @@
                 {% endif %}
                 <li>是否交易成功：<span>{{ iforno }}</span></li>
                 <li>代办or服务：<span>{{ cate }}</span></li>
+                {% if flag %}
+                    <li><a href="/message/edit/{{ cate }}/{{ title }}">编辑信息</a>&nbsp;&nbsp; |
+                        &nbsp;&nbsp;<a href="/message/delete/{{ cate }}/{{ title }}">删除信息</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
