@@ -20,6 +20,7 @@
 .sup-con{border-bottom: 1px solid #d5d5d5;margin-bottom: 20px;}
 
 .sup-like h3{font-weight: 600;}
+.like-con{width: 100%;overflow: hidden;}
 .like-con>li{margin-top:20px;margin-bottom: 20px;overflow: hidden;zoom: 1;float: left;margin-left: 20px; }
 .like-con>li>a{text-align: center;cursor:pointer;}
 .like-con>li>a>img{width: 100px;height: 100px;margin-bottom: 10px;}

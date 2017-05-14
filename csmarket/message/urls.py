@@ -6,7 +6,7 @@ from message.views import edit,postService,oneService,allService,Onecate,delete
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^postService/(.+)/$', postService),
-    url(r'^edit/(.+)/(.+)/$', edit),
+    url(r'^edit/(.+)/(.+)/(.+)/$', edit),
     url(r'^oneService/(.+)/(.+)/(.+)/$', oneService),
     url(r'^allService/(.+)/$', allService),
     url(r'^OneCate/(.+)/(.+)/$', Onecate),

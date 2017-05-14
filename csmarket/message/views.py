@@ -61,52 +61,109 @@ def postService(request,cate):
         # })
     else:
         uname = request.COOKIES.get('name','')
-        user = User.objects.get(username=uname)
-        # 如果用户已经被认证，且已经审核通过
-        if user and user.user_isValid:
-            cate_list =DCate.objects.all() if cate=="代办" else Cate.objects.all()
-            return render_to_response('post_service.html',{
-                'user_name': request.COOKIES.get('name'),
-                'cate': cate,
-                'cate_list': cate_list,
-            })
-        # 如果未通过审核，提示先去补充个人信息
-        elif not user.user_isValid:
-            request.session['not_auth_error'] = "你还没有进行信息认证，请先去认证信息"
-            try:
-                referer = request.META['HTTP_REFERER']  # 获取网页访问来源
-                return render_to_response('prefect.html', {
-                    'not_auth_error': '你还没有通过信息认证，请完善或者修改信息!',
-                    'referer': referer,
-                    'user': User.objects.get(username=request.COOKIES.get('name','')),
+        if uname:
+            user = User.objects.get(username=uname)
+            # 如果用户已经被认证，且已经审核通过
+            if user and user.user_isValid:
+                cate_list =DCate.objects.all() if cate=="代办" else Cate.objects.all()
+                return render_to_response('post_service.html',{
+                    'user_name': request.COOKIES.get('name'),
+                    'cate': cate,
+                    'cate_list': cate_list,
                 })
-            except:
-                return render_to_response('404.html', {
-                    'error': request.session.get('not_auth_error', default=None)
-                })
+            # 如果未通过审核，提示先去补充个人信息
+            elif not user.user_isValid:
+                request.session['not_auth_error'] = "你还没有进行信息认证，请先去认证信息"
+                try:
+                    referer = request.META['HTTP_REFERER']  # 获取网页访问来源
+                    return render_to_response('prefect.html', {
+                        'not_auth_error': '你还没有通过信息认证，请完善或者修改信息!',
+                        'referer': referer,
+                        'user': User.objects.get(username=request.COOKIES.get('name','')),
+                    })
+                except:
+                    return render_to_response('404.html', {
+                        'error': request.session.get('not_auth_error', default=None)
+                    })
         else:
             request.session['error'] = "你还没有登录，请先登录！"
             try:
                 referer = request.META['HTTP_REFERER']  # 获取网页访问来源
-                return HttpResponseRedirect(referer)
+                # return HttpResponseRedirect(referer)
+                return render_to_response('login.html',{
+                    'from': referer,
+                    'login_error': request.session.get('error'),
+                })
             except:
                 return render_to_response('404.html',{
                     'error':request.session.get('error',default=None)
                 })
 #编辑需求
-def edit(request,cate,title):
+@csrf_exempt
+def edit(request,name,cate,title):
+    uname = name
+    if request.method == 'POST':
+        # #保存图片，以url形式存储到数据库中
+        # image = request.FILES["fengmian"]
+        # fs = FileSystemStorage()
+        # filename = fs.save("fengmian/"+image.name, image)
+        # uploaded_file_url = fs.url(filename)
+        new_title = request.POST.get('biaoti')
+        leibie = request.POST.get('leibie')
+        price = request.POST.get('baojia')
+        miaoshu = request.POST.get('miaoshu')
+        hezuo = request.POST.get('tuoguan')
+        ifsuccess = request.POST.get('jiaoyi')
 
-    return render_to_response("edit_service.html",{
-        'cate': cate,
-        'title': title,
-    })
+        now_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+        #根据类别来判断映射那哪个数据库模型
+        if cate == "代办":
 
-#删除信息
+            mess = DMessage.objects.get(dmess_author=uname,dmess_title=title,dmess_cate_id=DCate.objects.get(dcate_name=leibie).dcate_num)
+            mess.dmess_title = new_title
+            # mess.dmess_cate = leibie
+            mess.dmess_price = price
+            mess.dmess_content = miaoshu
+            mess.dmess_hezuo = hezuo
+            mess.dmess_ifsuccess = ifsuccess
+            mess.dmess_time = now_time
+
+            mess.save()
+        else:
+            mess = Message.objects.get(mess_author=uname, mess_title=title, mess_cate_id=Cate.objects.get(cate_name=leibie).cate_num)
+            mess.mess_title = new_title
+            # mess.mess_cate = leibie
+            mess.mess_price = price
+            mess.mess_content = miaoshu
+            mess.mess_hezuo = hezuo
+            mess.mess_ifsuccess = ifsuccess
+            mess.mess_time = now_time
+
+            mess.save()
+            # mess.mess_cate_id=Cate.objects.get(cate_name=leibie).cate_num
+
+        return HttpResponseRedirect("/message/oneService/%s/%s/%s" % (request.COOKIES.get('name'),cate,new_title))
+    else:
+        if cate=='代办':
+            mess = DMessage.objects.get(dmess_author=uname,dmess_title=title)
+        else:
+            mess = Message.objects.get(mess_author=uname,mess_title=title)
+
+        return render_to_response("edit_service.html",{
+            'user_name': uname,
+            'cate': cate,
+            'title': title,
+            'mess': mess,
+        })
+
+#删除信息 同时删除用户浏览表中的信息
 def delete(request,cate,title):
     if cate=='代办':
         DMessage.objects.get(dmess_author=request.COOKIES.get('name'),dmess_title=title).delete()
+        UserSee.objects.get(see_people=request.COOKIES.get('name'),title=title).delete()
     else:
         Message.objects.get(mess_author=request.COOKIES.get('name'),mess_title=title).delete()
+        UserSee.objects.get(see_people=request.COOKIES.get('name'),title=title).delete()
     return HttpResponseRedirect('/index')
 
 #查看单个需求或者服务
@@ -168,6 +225,9 @@ def oneService(request,user,cate,title):
 
 #查看服务商库/需求大厅/代办中心
 def allService(request,cate):
+    # 猜你喜欢
+    love_list = Message.objects.all().order_by('-mess_seenum')[:9]
+
     # cate
     if cate=="需求":
         title_name = "需求大厅"
@@ -201,6 +261,7 @@ def allService(request,cate):
         'title_name': title_name,
         'cate': cate,
         'cate_list': cate_list,
+        'love_list': love_list,
     })
 
 def Onecate(request,cate,onecate):

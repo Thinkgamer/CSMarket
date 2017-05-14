@@ -84,13 +84,9 @@
     <div class="sup-like">
         <h3>猜你喜欢</h3>
         <ul class="like-con">
-            <li><a><img src="/static/img/logo.jpg" alt="your like"><p>fksjdhfksdfh</p> </a></li>    <!-循环输出你喜欢的li内容-->
-            <li><a><img src="/static/img/logo.jpg" alt="your like"><p>fksjdhfksdfh</p> </a></li>
-            <li><a><img src="/static/img/logo.jpg" alt="your like"><p>fksjdhfksdfh</p> </a></li>
-            <li><a><img src="/static/img/logo.jpg" alt="your like"><p>fksjdhfksdfh</p> </a></li>
-            <li><a><img src="/static/img/logo.jpg" alt="your like"><p>fksjdhfksdfh</p> </a></li>
-            <li><a><img src="/static/img/logo.jpg" alt="your like"><p>fksjdhfksdfh</p> </a></li>
-            <li><a><img src="/static/img/logo.jpg" alt="your like"><p>fksjdhfksdfh</p> </a></li>
+            {% for love in love_list %}
+            <li><a href="/message/oneService/{{ love.mess_author }}/{{ love.mess_xuorfu }}/{{ love.mess_title }}"><img src="{{ love.mess_image }}" alt="your like"><p>{{ love.mess_title }}</p> </a></li>
+            {% endfor %}
         </ul>
     </div>
 </div>

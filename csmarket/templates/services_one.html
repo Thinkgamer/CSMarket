@@ -63,7 +63,7 @@
                 <li>是否交易成功：<span>{{ iforno }}</span></li>
                 <li>代办or服务：<span>{{ cate }}</span></li>
                 {% if flag %}
-                    <li><a href="/message/edit/{{ cate }}/{{ title }}">编辑信息</a>&nbsp;&nbsp; |
+                    <li><a href="/message/edit/{{ user_name }}/{{ cate }}/{{ title }}">编辑信息</a>&nbsp;&nbsp; |
                         &nbsp;&nbsp;<a href="/message/delete/{{ cate }}/{{ title }}">删除信息</a></li>
                 {% endif %}
             </ul>

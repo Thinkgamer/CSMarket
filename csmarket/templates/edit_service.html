@@ -30,65 +30,59 @@
     <div class="service-title"><h3>编辑{{ cate }}</h3></div>
     <div class="service-content">
         <div class="scontent-list">
-            <form action="" method="post"  class="form-horizontal">
+            <form action="/message/edit/{{ user_name }}/{{ cate }}/{{ mess.mess_title }}{{ mess.dmess_title }}/" method="post"  class="form-horizontal">
                 <div class="form-group">
                     <div class="group-con">
                         <label for="inputbiaoti" class="control-label  col-sm-offset-1  col-sm-2 stitle">标题</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" name="biaoti" id="inputbiaoti" placeholder="输入你的标题">
+                            <input  value="{{ mess.mess_title }}{{ mess.dmess_title }}" type="text" class="form-control" name="biaoti" id="inputbiaoti" placeholder="输入你的标题">
                         </div>
                     </div>
-                    <div class="group-con">
-                        <label for="inputbiaoti" class="control-label  col-sm-offset-1  col-sm-2 stitle">封面图片</label>
-                        <div class="col-sm-7">
-                            <input type="file" class="btn btn-success fileinput-button" name="inputtuxiang" id="inputtuxiang" placeholder="选择封面图片">
-                        </div>
-                    </div>
+{#                    <div class="group-con">#}
+{#                        <label for="inputbiaoti" class="control-label  col-sm-offset-1  col-sm-2 stitle">封面图片</label>#}
+{#                        <div class="col-sm-7">#}
+{#                            <input type="file" class="btn btn-success fileinput-button" name="fengmian" id="fengmian" placeholder="选择封面图片">#}
+{#                        </div>#}
+{#                    </div>#}
                     <div class="group-con">
                         <label for="inputleibie" class="control-label  col-sm-offset-1  col-sm-2 stitle">类别</label>
                         <div class="col-sm-7">
                             <select class="form-control" name="leibie" id="inputleibie" placeholder="输入你的类别">
-                                <option>美工设计</option>
-                                <option>文案策划</option>
-                                <option>运营推广</option>
-                                <option>网站建设</option>
-                                <option>APP开发</option>
-                                <option>微信开发</option>
-                                <option>多媒体处理</option>
-                                <option>其他</option>
+                                <option>{{ mess.dmess_cate }}{{ mess.mess_cate }}</option>
                             </select>
                         </div>
                     </div>
                     <div class="group-con">
                         <label for="inputbaojia" class="control-label  col-sm-offset-1  col-sm-2 stitle">报价</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" name="baojia" id="inputbaojia" placeholder="输入你的报价">
+                            <input  value="{{ mess.mess_price }}{{ mess.dmess_price }}" type="text" class="form-control" name="baojia" id="inputbaojia" placeholder="输入你的报价">
                         </div>
                     </div>
                     <div class="group-con">
                         <label for="inputneed" class="control-label  col-sm-offset-1  col-sm-2 stitle">需求或服务</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" name="need" id="inputneed" placeholder="输入你的需求或服务">
+                            <input  value="{{ cate }}" type="text" class="form-control" name="need" id="inputneed" placeholder="输入你的需求或服务">
                         </div>
                     </div>
                     <div class="group-con">
                         <label for="inputtuoguan" class="control-label  col-sm-offset-1  col-sm-2 stitle">托管方</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" name="tuoguan" id="inputtuoguan" placeholder="输入你的托管方">
+                            <input value="{{ mess.mess_hezuo }}{{ mess.dmess_hezuo }}" type="text" class="form-control" name="tuoguan" id="inputtuoguan" placeholder="输入你的托管方">
                         </div>
                     </div>
                     <div class="group-con">
                         <label for="inputjiaoyi" class="control-label  col-sm-offset-1  col-sm-2 stitle">是否交易</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" name="jiaoyi" id="inputjiaoyi" placeholder="输入是或否">
+                            <input value="{{ mess.mess_ifsuccess }}{{ mess.dmess_ifsuccess }}" type="text" class="form-control" name="jiaoyi" id="inputjiaoyi" placeholder="输入是或否">
                         </div>
                     </div>
                     <div class="group-con">
                         <label for="inputmiaoshu" class="control-label  col-sm-offset-1  col-sm-2 stitle">描述</label>
                         <div class="col-sm-7">
+                            <textarea class="form-control" name="miaoshu" id="inputmiaoshu" >{{ mess.mess_content }}{{ mess.dmess_content }}</textarea>
                             <br>
                             <input class="btn btn-danger fl talking-no" type="button" name="cancel" value="重置内容">
-                            <input class="btn btn-success fr talking-yes" type="submit" name="submit" value="我要留言">
+                            <input class="btn btn-success fr talking-yes" type="submit" name="submit" value="我要发布">
                         </div>
                     </div>
                 </div>
