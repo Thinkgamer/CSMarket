@@ -26,7 +26,7 @@ SECRET_KEY = '4z9bf#!ha&zfkdh*#pm5f@xs2+v59+p3tctujilusn5bqr%j$e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 #修改setting user指向
 AUTH_USER_MODEL = 'logre.User'
