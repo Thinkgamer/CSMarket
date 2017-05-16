@@ -18,5 +18,4 @@
 .ssv-top-right ul li:nth-child(7) span{font-weight: 400;margin-left: 8px;display: inline-block;}
 .ssv-btm-mes{margin-left: 5%;padding-top: 20px;}
 .ssv-btm-mes h3{font-weight: 600;}
-.ssv-btm-mes div{width: 90%;margin-top: 10px;margin-bottom:10px;clear: both;border: 1px solid #999999;}
-.ssv-btm-mes div ul li{list-style: decimal;margin-top: 10px;margin-left: 9%;margin-bottom: 5px;word-spacing: 4px;letter-spacing: 1px;}
+.ssv-btm-mes div{width: 50%;min-height: 150px;margin-top: 10px;margin-bottom:10px;clear: both;border: 1px solid #999999;}

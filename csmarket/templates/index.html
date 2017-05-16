@@ -12,7 +12,7 @@
 
 <div id="particles">
     <div class="part_left">
-        <div class="part_logo"><img src="/static/img/logo.jpg"><h1>CyanScikit market</h1></div>
+        <div class="part_logo"><img src="/static/img/weixin.png"><h1>CyanScikit market</h1></div>
         <h2>我们要做的事其实很简单<br>创建-传递-分享信息<br>构建信息社群</h2>
         <p>Welcome Understand Us And Join Us！</p>
         <div class="part_btn">
@@ -149,11 +149,11 @@
                 </ul>
             </div>
             <div class="case-cantainer">
-                <div class="csm-title"><h3>案例中心   &nbsp;&nbsp;<a href=""> <span>更多<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></span></a></h3></div>
+                <div class="csm-title"><h3>案例中心   &nbsp;&nbsp;<a href="/cyanscikit/index/#xccase"> <span>更多<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></span></a></h3></div>
                 <ul class="csm-content">
                     {% for exam in exam_list %}
                     <li>
-                        <p><b>Title:</b><a href="/cyanscikit/oneexample/{{ exam.title }}">{{ exam.title }}</p>
+                        <p><b>Title:</b><a href="/cyanscikit/oneexample/{{ exam.title }}">{{ exam.title }}</a></p>
                         {% autoescape off %}<p><b>内容:</b>{{ exam.jianjie }}</p>{% endautoescape %}
                         <p class="csm-time">{{ exam.pub_date }}</p>
                     </li>

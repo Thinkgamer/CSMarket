@@ -6,6 +6,7 @@ from message.models import Message,Cate,Mwords,DMwords,DMessage,DCate
 import time
 from django.core.files.storage import FileSystemStorage
 from logre.models import User,UserSee
+from django.db.models import Q
 # Create your views here.
 
 #发布需求/服务
@@ -291,3 +292,44 @@ def Onecate(request,cate,onecate):
         'cate_list': cate_list,
         'title_name': onecate,
     })
+
+
+# 搜索
+@csrf_exempt
+def search(request):
+    if request.method=='POST':
+        cate = request.POST.get('search_cate')[1:]
+        content = request.POST.get('search_content')
+        # Q查询保证 或 条件
+        if cate=='代办':
+            mess_list = DMessage.objects.filter(
+                Q(dmess_title__contains=content)|Q(dmess_content__contains=content)
+            )
+        else:
+            mess_list = Message.objects.filter(
+                Q(mess_title__contains=content) | Q(mess_content__contains=content)
+            )
+
+        paginator = Paginator(mess_list, 10)  # Show 20 contacts per page
+        page = request.GET.get('page')
+        try:
+            all_mess = paginator.page(page)
+        except PageNotAnInteger:
+            # If page is not an integer, deliver first page.
+            all_mess = paginator.page(1)
+        except EmptyPage:
+            # If page is out of range (e.g. 9999), deliver last page of results.
+            all_mess = paginator.page(paginator.num_pages)
+
+        return render_to_response('search_result.html',{
+            'cate': cate,
+            'content': content,
+            'user_name': request.COOKIES.get('name', ''),
+
+            "len_list": range(1, paginator.num_pages + 1),
+            "all_mess": all_mess,
+        })
+    else:
+        return render_to_response('search_result.html',{
+            'user_name': request.COOKIES.get('name', ''),
+        })

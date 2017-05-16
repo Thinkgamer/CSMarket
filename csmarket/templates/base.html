@@ -23,7 +23,7 @@
     <div class="header-top clearfix">
     <nav class="navbar navbar-default mynavbar" role="navigation"><!--响应式导航条依赖折叠（collapse）插件-->
           <nav class="navbar navbar-default header_nav" id="nav" role="navigation">
-              <div class="mytitle fl"><span>CS Market --  不止有态度</span></div>
+              <div class="mytitle fl"><span><a href="/index" style="color: #0f0f0f">CS Market --  不止有态度</a></span></div>
           <div class="container-fluid header_nav_container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -37,13 +37,7 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right" id="mainnav">
-                        {% if user_name %}
-                            <li><a href="/logre/personal/">{{ user_name }}</a></li>
-                            <li><a href="/logre/logout/">注销</a></li>
-                        {% else %}
-                            <li><a href="/logre/login/">登陆</a></li>
-                            <li><a href="/logre/register/">注册</a></li>
-                        {% endif %}
+                        <li><a href="/index">首页</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人中心<span class="caret">
                             </span></a>
@@ -72,33 +66,36 @@
                             <ul class="dropdown-menu list" role="menu">
                                 <ul>
                                     <li>需求大厅</li>
-                                    <li><a>美工设计</a></li>
-                                    <li><a>运营推广</a></li>
-                                    <li><a>APP制作</a></li>
-                                    <li><a>多媒体处理</a></li>
-                                    <li><a>文案策划</a></li>
-                                    <li><a>网站建设</a></li>
-                                    <li><a>微信开发</a></li>
-                                    <li><a>其他</a></li>
+                                    <li><a href="/message/OneCate/需求/美工设计/">美工设计</a></li>
+                                    <li><a href="/message/OneCate/需求/运营推广/">运营推广</a></li>
+                                    <li><a href="/message/OneCate/需求/APP制作/">APP制作</a></li>
+                                    <li><a href="/message/OneCate/需求/多媒体处理/">多媒体处理</a></li>
+                                    <li><a href="/message/OneCate/需求/文案策划/">文案策划</a></li>
+                                    <li><a href="/message/OneCate/需求/网站建设/">网站建设</a></li>
+                                    <li><a href="/message/OneCate/需求/微信开发/">微信开发</a></li>
+                                    <li><a href="/message/OneCate/需求/其他/">其他</a></li>
                                 </ul>
                                 <ul>
                                     <li>服务商库</li>
-                                    <li><a>美工设计</a></li>
-                                    <li><a>运营推广</a></li>
-                                    <li><a>APP制作</a></li>
-                                    <li><a>多媒体处理</a></li>
-                                    <li><a>文案策划</a></li>
-                                    <li><a>网站建设</a></li>
-                                    <li><a>微信开发</a></li>
-                                    <li><a>其他</a></li>
+                                    <li><a href="/message/OneCate/服务/美工设计/">美工设计</a></li>
+                                    <li><a href="/message/OneCate/服务/运营推广/">运营推广</a></li>
+                                    <li><a href="/message/OneCate/服务/APP制作/">APP制作</a></li>
+                                    <li><a href="/message/OneCate/服务/多媒体处理/">多媒体处理</a></li>
+                                    <li><a href="/message/OneCate/服务/文案策划/">文案策划</a></li>
+                                    <li><a href="/message/OneCate/服务/网站建设/">网站建设</a></li>
+                                    <li><a href="/message/OneCate/服务/微信开发/">微信开发</a></li>
+                                    <li><a href="/message/OneCate/服务/其他/">其他</a></li>
                                 </ul>
                                 <ul>
                                     <li>代办中心</li>
-                                    <li><a>课设/毕设</a></li>
-                                    <li><a>水费/网费</a></li>
-                                    <li><a>去快递/送餐</a></li>
-                                    <li><a>代上课</a></li>
-                                    <li><a>代创意</a></li>
+                                    <li><a href="/message/OneCate/代办/课设%7C毕设/">课设/毕设</a></li>
+                                    <li><a href="/message/OneCate/代办/生活缴费/">生活缴费</a></li>
+                                    <li><a href="/message/OneCate/代办/代取快递/">代取快递</a></li>
+                                    <li><a href="/message/OneCate/代办/代上课/">代上课</a></li>
+                                    <li><a href="/message/OneCate/代办/代取餐/">代取餐</a></li>
+                                    <li><a href="/message/OneCate/代办/代创意/">代创意</a></li>
+                                    <li><a href="/message/OneCate/代办/代行动/">代行动</a></li>
+                                    <li><a href="/message/OneCate/代办/代其他/">代其他</a></li>
                                 </ul>
                                 <ul>
                                     <li>新手指南</li>
@@ -110,14 +107,14 @@
                                     <li>我是雇主</li>
                                     <li><a href="/message/postService/需求/">发布需求</a></li>
                                     <li><a>雇主故事</a></li>
-                                    <li><a>浏览服务</a></li>
+                                    <li><a href="/message/allService/服务/">浏览服务</a></li>
                                     <li><a>个人案例</a></li>
                                 </ul>
                                 <ul>
                                     <li>我是服务商</li>
                                     <li><a  href="/message/postService/服务/">发布服务</a></li>
                                     <li><a>服务商故事</a></li>
-                                    <li><a>浏览需求</a></li>
+                                    <li><a href="/message/allService/需求/">浏览需求</a></li>
                                     <li><a>个人案例</a></li>
                                 </ul>
                                 <ul>
@@ -130,10 +127,17 @@
                                     <li>CSM动态</li>
                                     <li><a href="/news/all/CSM动态/">CSM精彩动态</a></li>
                                     <li><a href="/news/all/创客故事/">创客故事</a></li>
-                                    <li><a>案例中心</a></li>
+                                    <li><a href="/cyanscikit/index/#xccase">案例中心</a></li>
                                 </ul>
                             </ul>
                         </li>
+                        {% if user_name %}
+                            <li><a href="/logre/personal/">{{ user_name }}</a></li>
+                            <li><a href="/logre/logout/">注销</a></li>
+                        {% else %}
+                            <li><a href="/logre/login/">登陆</a></li>
+                            <li><a href="/logre/register/">注册</a></li>
+                        {% endif %}
                     </ul>
                 </div>
               </div>
@@ -145,18 +149,18 @@
              <a href="/index/"><img class="img-circle" src="/static/img/logo.jpg"></a>
          </div>
          <div class="form-size fr">
-         <form class="text-center hm-form" role="form">
+         <form class="text-center hm-form" role="form" action="/message/search/" method="post">
            <div class="form-group">
             <div class="input-group">
             <div class="input-group-addon hm-addon">
-             <select class="form-control">
-               <option>找商家</option>
-               <option>找人才</option>
-                 <option>找案例</option>
+             <select class="form-control" name="search_cate">
+               <option>找服务</option>
+               <option>找需求</option>
+                 <option>找代办</option>
              </select>
             </div>
-            <input class="hm-seache form-control " type="text" placeholder="输入您所需要的服务">
-            <div class="input-group-addon hm-soso"><a href="">搜索</a> </div>
+            <input class="hm-seache form-control " type="text" placeholder="输入您所需要的服务" name="search_content">
+            <div class="input-group-addon hm-soso"><input class="input-group-addon hm-soso" style="height: 101%" type="submit" name="submit" value="搜索"></div>
             </div>
          </div>
          </form>

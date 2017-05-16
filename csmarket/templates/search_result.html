@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+
+{% block title %}搜索结果{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="/static/css/com.css">
+    <link rel="stylesheet" href="/static/css/supmarket.css">
+{% endblock %}
+{% block main %}
+<div class="supmarket-can">
+    <h3><span>搜索类别：{{ cate }}</span></h3>
+    <h3><span>搜索内容：{{ content }}</span></h3>
+    <h3><span>搜索结果</span></h3>
+    <div class="sup-con">
+        <ul class="con-list">
+            {% for mess in all_mess %}
+            <li>                                                                    <!--循环输出li标签内容-->
+                {% ifequal cate "代办" %}
+                    <img src="{{ mess.dmess_image }}" alt="商品图片">
+                    <ul>
+                        <li><span>标题：</span>{{ mess.dmess_title }}</li>
+                        <li><span>价格：</span>{{ mess.dmess_price }}</li>
+                        <li><span>服务类别：</span>{{ mess.dmess_cate }}</li>
+                    </ul>
+                    <a href="/message/oneService/{{ mess.dmess_author }}/{{ cate }}/{{ mess.dmess_title }}">查看更多</a>
+                {% endifequal %}
+                {% ifnotequal cate "代办" %}
+                    <img src="{{ mess.mess_image }}" alt="商品图片">
+                    <ul>
+                        <li><span>标题：</span>{{ mess.mess_title }}</li>
+                        <li><span>价格：</span>{{ mess.mess_price }}</li>
+                        <li><span>服务类别：</span>{{ mess.mess_cate }}</li>
+                    </ul>
+                    <a href="/message/oneService/{{ mess.mess_author }}/{{ cate }}/{{ mess.mess_title }}">查看更多</a>
+                {% endifnotequal %}
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="pagee">
+            <ul class="pageshow page-list" >
+                <li class="previous">
+                    {% if all_mess.has_previous %}
+                        <a href="?page={{ all_mess.previous_page_number }}"><span>&laquo;</span></a>
+                    {% else %}
+                        <a><span>&laquo;</span></a>
+                    {% endif %}
+                </li>
+                {% for page in len_list %}
+                    <li><a href="?page={{ page }}">{{ page }}</a></li>
+                {% endfor %}
+                <li  class="next">
+                    {% if all_mess.has_next %}
+                     <a href="?page={{ all_mess.next_page_number }}"><span>&raquo;</span></a>
+                    {% else %}
+                        <a><span>&raquo;</span></a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

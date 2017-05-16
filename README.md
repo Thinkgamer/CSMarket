@@ -49,5 +49,9 @@ pymysql.install_as_MySQLdb()
 
 解决办法：form 表单中添加 enctype="multipart/form-data
 
+> django model 中的或查询
+
+解决办法： Q对象查询，http://blog.csdn.net/heybob/article/details/50547552
+
 3：Django教程
 <a href='http://blog.csdn.net/column/details/12861.html'>Django 从零开始到项目优化</a>
