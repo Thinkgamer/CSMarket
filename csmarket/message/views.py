@@ -213,6 +213,8 @@ def oneService(request,user,cate,title):
         'time': one.dmess_time if cate=="代办" else one.mess_time,
         'author': one.dmess_author if cate=="代办" else one.mess_author,
         'seenum': one.dmess_seenum if cate=="代办" else one.mess_seenum,
+        'totalnum': one.dmess_totalnum if cate=="代办" else one.mess_totalnum,
+        'compeletenum': one.dmess_compeletenum if cate=="代办" else one.mess_compeletenum,
         'tuo': one.dmess_hezuo if cate=="代办" else one.mess_hezuo,
         'iforno': one.dmess_ifsuccess if cate=="代办" else one.mess_ifsuccess,
         'cate': cate,

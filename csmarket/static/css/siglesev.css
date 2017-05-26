@@ -9,7 +9,7 @@
 .selfdesc{width: 180px;height:100px;position: absolute;top: -100px;left: 0;padding-top: 15px;padding-left: 10px;background-color: #ffffff;display: none;border:1px solid #999999;border-radius: 5px;}
 .selfdesc li span{font-weight: 600;}
 .selfdesc li{margin-bottom: 6px;}
-.ssv-top-right{width: 35%;margin-left: 5%;float: left;margin-top: 30px;margin-right: 5%;}
+.ssv-top-right{width: 35%;margin-left: 5%;float: left;margin-top: 50px;margin-right: 5%;}
 .ssv-top-right ul li{margin-bottom: 15px;font-size: 16px;font-weight: 600;}
 .ssv-top-right ul li:nth-child(1) span,.ssv-top-right ul li:nth-child(2) span{font-weight: 400;margin-left: 70px;display: inline-block;}
 .ssv-top-right ul li:nth-child(4) span,.ssv-top-right ul li:nth-child(6) span{font-weight: 400;margin-left: 55px;display: inline-block;}

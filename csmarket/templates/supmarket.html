@@ -33,6 +33,12 @@
                 <li><a href="/message/OneCate/{{ cate }}/{{ one_cate.cate_name }}{{ one_cate.dcate_name }}">{{ one_cate.cate_name }}{{ one_cate.dcate_name }} | </a></li>
                 {% endfor %}
             </ul>
+            <h4>排序：</h4>
+            <ul>
+                <li><a href="">时间 | </a></li>
+                <li><a href="">价格 | </a></li>
+                <li><a href="">销量 | </a></li>
+            </ul>
         </div>
     </div>
     <div class="sup-con">
@@ -43,7 +49,9 @@
                     <img src="{{ mess.dmess_image }}" alt="商品图片">
                     <ul>
                         <li><span>标题：</span>{{ mess.dmess_title }}</li>
-                        <li><span>价格：</span>{{ mess.dmess_price }}</li>
+                        <li><span>价格：</span>{{ mess.dmess_price }} 元</li>
+                        <li><span>浏览次数：</span>{{ mess.dmess_seenum }}</li>
+                        <li><span>发布时间：</span>{{ mess.dmess_time }}</li>
                         <li><span>服务类别：</span>{{ mess.dmess_cate }}</li>
                     </ul>
                     <a href="/message/oneService/{{ mess.dmess_author }}/{{ cate }}/{{ mess.dmess_title }}">查看更多</a>
@@ -52,7 +60,9 @@
                     <img src="{{ mess.mess_image }}" alt="商品图片">
                     <ul>
                         <li><span>标题：</span>{{ mess.mess_title }}</li>
-                        <li><span>价格：</span>{{ mess.mess_price }}</li>
+                        <li><span>价格：</span>{{ mess.mess_price }} 元</li>
+                        <li><span>浏览次数：</span>{{ mess.mess_seenum }}</li>
+                        <li><span>发布时间：</span>{{ mess.mess_time }}</li>
                         <li><span>服务类别：</span>{{ mess.mess_cate }}</li>
                     </ul>
                     <a href="/message/oneService/{{ mess.mess_author }}/{{ cate }}/{{ mess.mess_title }}">查看更多</a>

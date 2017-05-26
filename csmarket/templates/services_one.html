@@ -55,10 +55,12 @@
                 <li>发布时间：<span>{{ time }}</span></li>
                 <li>发布人：<span>{{ author }}</span></li>
                 <li>浏览次数：<span>{{ seenum }}</span></li>
+                <li>有效总次数：<span>{{ totalnum }}</span></li>
+                <li>成交量：<span>{{ compeletenum }}</span></li>
                 {% if tuo %}
                 <li>托管方：<span>{{ tuo }}</span></li>
                 {% else %}
-                <li>托管方：<span>暂未托管</span></li>
+                <li>最近托管方：<span>暂未托管</span></li>
                 {% endif %}
                 <li>是否交易成功：<span>{{ iforno }}</span></li>
                 <li>代办or服务：<span>{{ cate }}</span></li>

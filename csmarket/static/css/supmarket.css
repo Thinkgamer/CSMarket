@@ -12,11 +12,11 @@
 
 .con-list{width: 100%;}
 .con-list>li{margin-top:20px; margin-bottom: 10px;overflow: hidden;zoom: 1;}
-.con-list>li>img{width:100px;height:100px;margin:5px 20px;border:1px solid #999999;float:left;}
+.con-list>li>img{width:105px;height:105px;margin:5px 20px;border:1px solid #999999;float:left;}
 .con-list>li>ul{float: left}
-.con-list>li>ul>li{font-size: 18px;margin-bottom: 7px;margin-top: 15px;}
+.con-list>li>ul>li{font-size: 12px;margin-bottom: 5px;margin-top: 10px;}
 .con-list>li>ul>li>span{font-weight: 600;}
-.con-list>li>a{float: right;margin-right: 10%;margin-top: 80px;color: deepskyblue; font-size: 20px}
+.con-list>li>a{float: right;margin-right: 10%;margin-top: 100px;color: deepskyblue; font-size: 16px}
 .con-list>li>a:hover{color: #2aabd2;}
 .sup-con{border-bottom: 1px solid #d5d5d5;margin-bottom: 20px;}
 

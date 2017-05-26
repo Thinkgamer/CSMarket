@@ -13,8 +13,8 @@ admin.site.register(Cate, adminCate)
 
 class adminMess(admin.ModelAdmin):
     # mess_title  mess_author  mess_time  mess_cate  mess_price  mess_seenum  mess_hezuo mess_ifsuccess
-    list_display = ('mess_title', 'mess_author', 'mess_time', 'mess_cate', 'mess_price', 'mess_xuorfu', 'mess_seenum','mess_hezuo', 'mess_ifsuccess',)
-    search_fields = ('mess_title', 'mess_author', 'mess_time', 'mess_cate', 'mess_price', 'mess_xuorfu', 'mess_seenum','mess_hezuo', 'mess_ifsuccess',)
+    list_display = ('mess_title', 'mess_author', 'mess_time', 'mess_cate', 'mess_price', 'mess_xuorfu', 'mess_seenum','mess_totalnum','mess_compeletenum','mess_hezuo', 'mess_ifsuccess',)
+    search_fields = ('mess_title', 'mess_author', 'mess_time', 'mess_cate', 'mess_price', 'mess_xuorfu', 'mess_seenum','mess_totalnum','mess_compeletenum','mess_hezuo', 'mess_ifsuccess',)
     list_filter = ('mess_cate', 'mess_ifsuccess', 'mess_xuorfu',)
     ordering = ('-mess_time',)
 
@@ -46,8 +46,8 @@ admin.site.register(DCate, adminCate)
 
 class adminMess(admin.ModelAdmin):
     # mess_title  mess_author  mess_time  mess_cate  mess_price  mess_seenum  mess_hezuo mess_ifsuccess
-    list_display = ('dmess_title', 'dmess_author', 'dmess_time', 'dmess_cate', 'dmess_price', 'dmess_seenum','dmess_hezuo', 'dmess_ifsuccess',)
-    search_fields = ('dmess_title', 'dmess_author', 'dmess_time', 'dmess_cate', 'dmess_price', 'dmess_seenum','dmess_hezuo', 'dmess_ifsuccess',)
+    list_display = ('dmess_title', 'dmess_author', 'dmess_time', 'dmess_cate', 'dmess_price', 'dmess_seenum','dmess_totalnum','dmess_compeletenum','dmess_hezuo', 'dmess_ifsuccess',)
+    search_fields = ('dmess_title', 'dmess_author', 'dmess_time', 'dmess_cate', 'dmess_price', 'dmess_seenum','dmess_totalnum','dmess_compeletenum','dmess_hezuo', 'dmess_ifsuccess',)
     list_filter = ('dmess_cate', 'dmess_ifsuccess',)
     ordering = ('-dmess_time',)
 
