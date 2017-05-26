@@ -3,10 +3,10 @@
 .fr{float: right;}
 .fc{text-align: center;}
 hr{margin-bottom: 5px;}
-.loginbody{ background-repeat: no-repeat; background-size:cover;}
-.login-main{width:400px; height: 300px;margin: auto; overflow: hidden; margin-top:8%; border-radius: 4px; border: 1px solid darkgray;
+.loginbody{ background-repeat: no-repeat; background-size:cover;padding-top:8%; }
+.login-main{width:400px; height: 300px;margin: auto; overflow: hidden;border-radius: 4px; border: 1px solid darkgray;
     box-shadow: -10px 10px 20px gray;}
-.register-main{width:400px; height: 400px;margin: auto; overflow: hidden; margin-top:8%; border-radius: 4px;border: 1px solid darkgray;
+.register-main{width:400px; height: 400px;margin: auto; overflow: hidden; border-radius: 4px;border: 1px solid darkgray;
     box-shadow: -10px 10px 20px gray;}
 .login-main h3{ text-indent: 0.5em;}
 .incon{ width: 360px; font-size: 16px; margin-left:20px; margin-top:20px; height: 38px; border-radius: 2px; text-indent: 1em;}

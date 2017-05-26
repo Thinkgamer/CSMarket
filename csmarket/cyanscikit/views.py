@@ -61,9 +61,9 @@ def doc(request):
     # 获取技术文档列表
     doc_list = Doc.objects.all().order_by('-pub_date')
 
-    if request.request.COOKIES.get('name',''):
-        user_name = request.COOKIES.get('name','')
-    else:
+    try:
+        user_name = request.COOKIES.get('name')
+    except:
         user_name = ''
     return render_to_response('cs_docmore.html', {
         'user_name': user_name,

@@ -22,13 +22,15 @@
 
    <!--此处为本页面主要部分-->
 <div class="supmarket-can">
+	<br>
     <h3><span>{{ title_name }}</span></h3>
+	<br>
     <div class="sup-nav">
         <div>
             <h4>分类：</h4>
             <ul>
                 {% for one_cate in cate_list %}
-                <li><a href="/message/OneCate/{{ cate }}/{{ one_cate.cate_name }}{{ one_cate.dcate_name }}">{{ one_cate.cate_name }}{{ one_cate.dcate_name }} &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;</a></li>
+                <li><a href="/message/OneCate/{{ cate }}/{{ one_cate.cate_name }}{{ one_cate.dcate_name }}">{{ one_cate.cate_name }}{{ one_cate.dcate_name }} | </a></li>
                 {% endfor %}
             </ul>
         </div>

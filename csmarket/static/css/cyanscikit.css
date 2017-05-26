@@ -22,7 +22,8 @@
 .caseimg>li>a>img,.knosevimg>li>a>img{display: inline-block; width: 100%;}
 .caseimg>li>a>div,.knosevimg>li>a>div{position: absolute;width: 100%;background-color:#c0c0c0;top: 0;left:0;height: 100%;opacity: 0;}
 .caseimg>li>a>div:hover,.knosevimg>li>a>div:hover{opacity: 0.7;}
-.caseimg>li>a>div>p,.knosevimg>li>a>div>p{font-size: 20px;margin-top: 50%;top:-9px;font-weight: bold;color: #000000;}/*案例展示以及服务结束*/
+.caseimg>li>a>div>p{font-size: 20px;margin-top: 30%;top:-9px;font-weight: bold;color: #000000;}
+.knosevimg>li>a>div>p{font-size: 20px;margin-top: 50%;top:-9px;font-weight: bold;color: #000000;}/*案例展示以及服务结束*/
 .doccon>li{margin: 10px;overflow: hidden;}
 .doccon>li>a{color: #3c3c3c;cursor: pointer;}
 .doccon>li>a:hover{color: #2a6496;}
