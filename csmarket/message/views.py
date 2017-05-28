@@ -267,6 +267,141 @@ def allService(request,cate):
         'love_list': love_list,
     })
 
+# 过滤条件筛选
+@csrf_exempt
+def searchmess(request,cate):
+    if request.method=="POST":
+        category = request.POST.get('category')
+        price = request.POST.get('price')
+        price_up_down = request.POST.get('price_up_down')
+        date = request.POST.get('date')
+        date_up_down = request.POST.get('date_up_down')
+        oknum_up_down = request.POST.get('oknum_up_down')
+        seenum_up_down = request.POST.get("seenum_up_down")
+        # 猜你喜欢
+        love_list = Message.objects.all().order_by('-mess_seenum')[:9]
+
+        # cate
+        if cate == "需求":
+            title_name = "需求大厅"
+            cate_list = Cate.objects.all().order_by('cate_num')
+        elif cate == "服务":
+            title_name = "服务商库"
+            cate_list = Cate.objects.all().order_by('cate_num')
+        else:
+            title_name = "代办中心"
+            cate_list = DCate.objects.all().order_by('dcate_num')
+
+        # onecate 为小类别  cate 为 服务，需求，代办中的一个
+        if cate == '代办':
+            # category
+            if category=='all':
+                category_list=['课设|毕设','生活缴费','代取快递','代上课','代取餐','代创意','代行动','代其他']
+            else:
+                category_list = [category]
+
+            # price filter
+            filter_price_start = float(price.split("-")[0])
+            filter_price_end = float(price.split("-")[1])
+            if price_up_down == "byself" or price_up_down=="price_up":
+                sort_price = "dmess_price"
+            else:
+                sort_price = '-dmess_price'
+
+            # filter date
+            import datetime
+            today_time = datetime.datetime.now()
+            time_cha = datetime.timedelta(days=int(date))
+            filter_start_time = today_time-time_cha
+
+            if date_up_down == 'byself' or date_up_down=='date_up':
+                sort_date = 'dmess_time'
+            else:
+                sort_date = '-dmess_time'
+
+            # filter oknum
+            if oknum_up_down == 'byself' or oknum_up_down == 'oknum_up':
+                sort_oknum = 'dmess_compeletenum'
+            else:
+                sort_oknum = '-dmess_compeletenum'
+
+            # filter seenum
+            if seenum_up_down == 'byself' or seenum_up_down == 'seenum_up':
+                sort_seenum = 'dmess_seenum'
+            else:
+                sort_seenum = '-dmess_seenum'
+
+            mess_list = DMessage.objects.filter(dmess_cate__dcate_name__in=category_list,\
+                                                dmess_price__range=[filter_price_start,filter_price_end],\
+                                                dmess_time__gte=filter_start_time,
+                                                ).order_by(sort_price)\
+                                                 .order_by(sort_date)\
+                                                 .order_by(sort_oknum)\
+                                                 .order_by(sort_seenum)
+        else:
+            # category
+            if category == 'all':
+                category_list = ['美工设计', '文案策划', '运营推广', '网站建设', 'APP开发', '微信开发', '多媒体处理', '其他']
+            else:
+                category_list = [category]
+
+            # price filter
+            filter_price_start = float(price.split("-")[0])
+            filter_price_end = float(price.split("-")[1])
+            if price_up_down == "byself" or price_up_down == "price_up":
+                sort_price = "mess_price"
+            else:
+                sort_price = '-mess_price'
+
+            # filter date
+            import datetime
+            today_time = datetime.datetime.now()
+            time_cha = datetime.timedelta(days=int(date))
+            filter_start_time = today_time - time_cha
+
+            if date_up_down == 'byself' or date_up_down == 'date_up':
+                sort_date = 'mess_time'
+            else:
+                sort_date = '-mess_time'
+
+            # filter oknum
+            if oknum_up_down == 'byself' or oknum_up_down == 'oknum_up':
+                sort_oknum = 'mess_compeletenum'
+            else:
+                sort_oknum = '-mess_compeletenum'
+
+            # filter seenum
+            if seenum_up_down == 'byself' or seenum_up_down == 'seenum_up':
+                sort_seenum = 'mess_seenum'
+            else:
+                sort_seenum = '-mess_seenum'
+
+            mess_list = Message.objects.filter(mess_cate__cate_name__in=category_list, \
+                                                mess_price__range=[filter_price_start, filter_price_end], \
+                                                mess_time__gte=filter_start_time,
+                                                ).order_by(sort_price) \
+                                                 .order_by(sort_date) \
+                                                 .order_by(sort_oknum) \
+                                                 .order_by(sort_seenum)
+            # mess_list = Message.objects.filter(mess_cate__cate_name=category).order_by("-mess_time")
+
+        return render_to_response('supmarket.html', {
+            'user_name': request.COOKIES.get('name', ''),
+            "all_mess": mess_list,
+            'title_name': title_name,
+            'cate': cate,
+            'cate_list': cate_list,
+            'love_list': love_list,
+            'default_category': category,
+            'default_price': price,
+            'default_sort_price': price_up_down,
+            'default_date': date,
+            'default_sort_date': date_up_down,
+            'default_sort_oknum': oknum_up_down,
+            'default_sort_seenum': seenum_up_down,
+        })
+
+
 def Onecate(request,cate,onecate):
     # onecate 为小类别  cate 为 服务，需求，代办中的一个
     if cate=='代办':
@@ -294,6 +429,7 @@ def Onecate(request,cate,onecate):
         'cate_list': cate_list,
         'title_name': onecate,
     })
+
 
 
 # 搜索

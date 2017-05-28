@@ -3,8 +3,8 @@
 .supmarket-can>h3 span{font-size: 20px;padding-bottom: 6px;border-bottom: 1px solid #eea236;}
 .sup-nav{clear: both;}
 .sup-nav>div{margin-bottom: 10px;overflow:hidden;}
-.sup-nav>div>h4{display: inline-block;width: 60px;font-size: 16px;float: left;}
-.sup-nav>div>ul{float:left;width:90%;}
+.sup-nav>div>h4{display: inline-block;width: 60px;font-size: 16px;float: left; margin-top: 10px;}
+.sup-nav>div>ul{float:left;width:90%; margin-top: 9px;}
 .sup-nav>div>ul>li{display: inline-block;margin-bottom:6px;}
 .sup-nav>div>ul>li>a{color: #333333;font-size: 14px;font-weight: 600;}
 .sup-nav>div>ul>li a:hover{color: #eea236;font-weight: 600;}
@@ -13,7 +13,7 @@
 .con-list{width: 100%;}
 .con-list>li{margin-top:20px; margin-bottom: 10px;overflow: hidden;zoom: 1;}
 .con-list>li>img{width:105px;height:105px;margin:5px 20px;border:1px solid #999999;float:left;}
-.con-list>li>ul{float: left}
+.con-list>li>ul{float: left;}
 .con-list>li>ul>li{font-size: 12px;margin-bottom: 5px;margin-top: 10px;}
 .con-list>li>ul>li>span{font-weight: 600;}
 .con-list>li>a{float: right;margin-right: 10%;margin-top: 100px;color: deepskyblue; font-size: 16px}
@@ -28,3 +28,7 @@
 .like-con>li>a>img:hover{border: 1px solid #d5d5d5;}
 .like-con>li>a>p{color:#333333;}
 .like-con>li>a>p:hover{color: #eea236;}
+
+.choose_form{}
+.choose_form>select{ height: 25px; }
+.choose_form>input{ margin-left: 50px; line-height: 21px;}

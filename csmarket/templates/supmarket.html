@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}服务商库{% endblock %}
+{% block title %}{{ title_name }}{% endblock %}
 {% block css %}
     <link rel="stylesheet" href="/static/css/com.css">
     <link rel="stylesheet" href="/static/css/supmarket.css">
@@ -27,18 +27,135 @@
 	<br>
     <div class="sup-nav">
         <div>
-            <h4>分类：</h4>
-            <ul>
+        <form action="/message/searchmess/{{ cate }}/" method="post" class="choose_form">
+            筛选条件：<select name="category">
+                {% if default_category %}
+                    {% ifequal default_category 'all' %}
+                        <option id="category" value="all">全部</option>
+                    {% endifequal %}
+                    {% ifnotequal default_category 'all' %}
+                        <option id="category" value="{{ default_category }}">{{ default_category }}</option>
+                    {% endifnotequal %}
+                {% else %}
+                <option id="category" value="all">选择类别</option>
+                {% endif %}
+                <option id="category" value="all">默认</option>
                 {% for one_cate in cate_list %}
-                <li><a href="/message/OneCate/{{ cate }}/{{ one_cate.cate_name }}{{ one_cate.dcate_name }}">{{ one_cate.cate_name }}{{ one_cate.dcate_name }} | </a></li>
+                <option id="category" value="{{ one_cate.cate_name }}{{ one_cate.dcate_name }}">{{ one_cate.cate_name }}{{ one_cate.dcate_name }}</option>
                 {% endfor %}
-            </ul>
-            <h4>排序：</h4>
-            <ul>
-                <li><a href="">时间 | </a></li>
-                <li><a href="">价格 | </a></li>
-                <li><a href="">销量 | </a></li>
-            </ul>
+            </select>
+            &nbsp;&nbsp;&nbsp;<select name="price">
+                  {% if default_price %}
+                      {% ifequal default_price '0-10000' %}
+                          <option id="price" value="0-10000">默认</option>
+                      {% endifequal %}
+                      {% ifnotequal default_price '0-10000' %}
+                          <option id="price" value="{{ default_price }}">{{ default_price }}元</option>
+                      {% endifnotequal %}
+                  {% else %}
+                  <option id="price" value="0-10000">选择价格</option>
+                  {% endif %}
+                  <option id="price" value="0-10000">默认</option>
+                  <option id="price" value="0-30">0-30 元</option>
+                  <option id="price" value="30-60">30-60 元</option>
+                  <option id="price" value="60-90">60-90 元</option>
+                  <option id="price" value="90-120">90-120 元</option>
+                  <option id="price" value="120-150">120-150 元</option>
+                  <option id="price" value="150-180">150-180 元</option>
+                  <option id="price" value="180-210">180-210 元</option>
+                  <option id="price" value="210-10000">210 元以上</option>
+                  </select>
+            &nbsp;&nbsp;&nbsp;<select name="price_up_down">
+                    {% if default_sort_price %}
+                        {% ifequal default_sort_price "byself" %}
+                        <option id="price_up_down" value="byself">默认</option>
+                        {% endifequal %}
+                        {% ifequal default_sort_price "price_up" %}
+                        <option id="price_up_down" value="{{ default_sort_price }}">价格升序</option>
+                        {% endifequal %}
+                        {% ifequal default_sort_price 'price_down' %}
+                        <option id="price_up_down" value="{{ default_sort_price }}">价格降序</option>
+                        {% endifequal %}
+                    {% else %}
+                        <option id="price_up_down" value="byself">价格排序</option>
+                    {% endif %}
+                    <option id="price_up_down" value="price_up">价格升序</option>
+                    <option id="price_up_down" value="price_down">价格降序</option>
+                 </select>
+            &nbsp;&nbsp;&nbsp;<select name="date">
+                  {% if default_date %}
+                      {% ifequal default_date '10000' %}
+                          <option id="date" value="10000">默认</option>
+                      {% endifequal %}
+                      {% ifnotequal default_date '10000' %}
+                          <option id="date" value="{{ default_date }}">{{ default_date }} 天以内</option>
+                      {% endifnotequal %}
+                  {% else %}
+                      <option id="date" value="10000">选择时间</option>
+                  {% endif %}
+                  <option id="date" value="10000">默认</option>
+                  <option id="date" value="1">1 天以内</option>
+                  <option id="date" value="7">7 天以内</option>
+                  <option id="date" value="15">15 天以内</option>
+                  <option id="date" value="30">30 天以内</option>
+                  <option id="date" value="60">60 天以内</option>
+                  <option id="date" value="90">90 天以内</option>
+                  <option id="date" value="180">180 天以内</option>
+                  <option id="date" value="365">365 天以内</option>
+                  </select>
+            &nbsp;&nbsp;&nbsp;<select name="date_up_down">
+                    {% if default_sort_date %}
+                        {% ifequal default_sort_date 'byself' %}
+                            <option id="date_up_down" value="byself">默认</option>
+                        {% endifequal %}
+                        {% ifequal default_sort_date 'date_up' %}
+                            <option id="date_up_down" value="byself">时间升序</option>
+                        {% endifequal %}
+                        {% ifequal default_sort_date 'date_down' %}
+                            <option id="date_up_down" value="date_down">时间降序</option>
+                        {% endifequal %}
+                    {% else %}
+                        <option id="date_up_down" value="byself">时间排序</option>
+                    {% endif %}
+                    <option id="date_up_down" value="date_up">时间升序</option>
+                    <option id="date_up_down" value="date_down">时间降序</option>
+                 </select>
+            &nbsp;&nbsp;&nbsp;<select name="oknum_up_down">
+                     {% if default_sort_oknum %}
+                         {% ifequal default_sort_oknum 'byself' %}
+                             <option id="oknum_up_down" value="byself">默认</option>
+                         {% endifequal %}
+                         {% ifequal default_sort_oknum 'oknum_up' %}
+                             <option id="oknum_up_down" value="oknum_up">默认</option>
+                         {% endifequal %}
+                         {% ifequal default_sort_oknum 'oknum_down' %}
+                            <option id="oknum_up_down" value="oknum_down">销量将序</option>
+                         {% endifequal %}
+                     {% else%}
+                     <option id="oknum_up_down" value="byself">销量排序</option>
+                     {% endif %}
+                    <option id="oknum_up_down" value="oknum_up">销量升序</option>
+                    <option id="oknum_up_down" value="oknum_down">销量降序</option>
+                 </select>
+            &nbsp;&nbsp;&nbsp;<select name="seenum_up_down">
+                    {% if default_sort_seenum %}
+                        {% ifequal default_sort_seenum 'byself' %}
+                            <option id="seenum_up_down" value="byself">默认</option>
+                        {% endifequal %}
+                        {% ifequal default_sort_seenum 'seenum_up' %}
+                            <option id="seenum_up_down" value="seenum_up">默认</option>
+                        {% endifequal %}
+                        {% ifequal default_sort_seenum 'seenum_down' %}
+                            <option id="seenum_up_down" value="seenum_down">访问量将序</option>
+                        {% endifequal %}
+                    {% else%}
+                        <option id="seenum_up_down" value="byself">访问量排序</option>
+                    {% endif %}
+                    <option id="seenum_up_down" value="seenum_up">访问量升序</option>
+                    <option id="seenum_up_down" value="seenum_down">访问量降序</option>
+                 </select>
+            <input type="submit" value="提交">
+        </form>
         </div>
     </div>
     <div class="sup-con">

@@ -1,7 +1,7 @@
 #-*-coding:utf-8-*-
 from django.conf.urls import url,include
 from django.contrib import admin
-from message.views import edit,postService,oneService,allService,Onecate,delete,search
+from message.views import edit,postService,oneService,allService,Onecate,delete,search,searchmess
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^OneCate/(.+)/(.+)/$', Onecate),
     url(r'^delete/(.+)/(.+)/$', delete),
     url(r'^search/$', search),
+    url(r'^searchmess/(.+)/$', searchmess),
 ]
